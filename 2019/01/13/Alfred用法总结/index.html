@@ -6,22 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>2019 新的开始 | Hexo</title>
+  <title>Alfred + 七牛云实现markdown图床 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2019，新的一年，不想颓废下去了，打算多做些让自己踏实心安的事情，顺便改掉一些坏习惯。首先就是养成写博客的习惯，好记性不如烂笔头，更何况还没有好记性，处理过的问题，不理解的东西，不去好好总结归纳，就会一直稀里糊涂的，时间久了，就什么都留不下了，曾经花费过的时间，收益甚少，遂决定，逼迫一下自己，多思考，多学习，多总结。  也是最近刚开始接触使用hexo和github快速简单的搭建个人博客，">
-<meta name="keywords" content="生活">
+  <meta name="description" content="本文主要参考Alfred workflow 配合七牛云实现 markdown 图床，原文写的很好很详细，我只是做一点补充。需要从七牛云那里拿到的4个参数：可以在config.json中做更多自定义配置双击工作流中的Hotkey文件自定义快捷键（我自定义的是control+command+v）使用command+shift+4只是实现截屏，并没有把截屏的图片放到粘贴板上，所以要想同时放到粘贴板上，使">
+<meta name="keywords" content="技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2019 新的开始">
-<meta property="og:url" content="http://yoursite.com/2019/01/06/2019 新的开始/index.html">
+<meta property="og:title" content="Alfred + 七牛云实现markdown图床">
+<meta property="og:url" content="http://yoursite.com/2019/01/13/Alfred用法总结/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="2019，新的一年，不想颓废下去了，打算多做些让自己踏实心安的事情，顺便改掉一些坏习惯。首先就是养成写博客的习惯，好记性不如烂笔头，更何况还没有好记性，处理过的问题，不理解的东西，不去好好总结归纳，就会一直稀里糊涂的，时间久了，就什么都留不下了，曾经花费过的时间，收益甚少，遂决定，逼迫一下自己，多思考，多学习，多总结。  也是最近刚开始接触使用hexo和github快速简单的搭建个人博客，">
+<meta property="og:description" content="本文主要参考Alfred workflow 配合七牛云实现 markdown 图床，原文写的很好很详细，我只是做一点补充。需要从七牛云那里拿到的4个参数：可以在config.json中做更多自定义配置双击工作流中的Hotkey文件自定义快捷键（我自定义的是control+command+v）使用command+shift+4只是实现截屏，并没有把截屏的图片放到粘贴板上，所以要想同时放到粘贴板上，使">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pkwpyjgi6.bkt.clouddn.com/deadEnd.jpg">
-<meta property="og:updated_time" content="2019-01-12T07:42:32.326Z">
+<meta property="og:image" content="http://pl9syc281.bkt.clouddn.com/19-01-13-d04f8c23b50a81e9ad2b84714f6bb99e.png">
+<meta property="og:image" content="http://pl9syc281.bkt.clouddn.com/19-01-13-9134944eedae89ab09198a833ce263a0.png">
+<meta property="og:updated_time" content="2019-01-13T15:08:56.521Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2019 新的开始">
-<meta name="twitter:description" content="2019，新的一年，不想颓废下去了，打算多做些让自己踏实心安的事情，顺便改掉一些坏习惯。首先就是养成写博客的习惯，好记性不如烂笔头，更何况还没有好记性，处理过的问题，不理解的东西，不去好好总结归纳，就会一直稀里糊涂的，时间久了，就什么都留不下了，曾经花费过的时间，收益甚少，遂决定，逼迫一下自己，多思考，多学习，多总结。  也是最近刚开始接触使用hexo和github快速简单的搭建个人博客，">
-<meta name="twitter:image" content="http://pkwpyjgi6.bkt.clouddn.com/deadEnd.jpg">
+<meta name="twitter:title" content="Alfred + 七牛云实现markdown图床">
+<meta name="twitter:description" content="本文主要参考Alfred workflow 配合七牛云实现 markdown 图床，原文写的很好很详细，我只是做一点补充。需要从七牛云那里拿到的4个参数：可以在config.json中做更多自定义配置双击工作流中的Hotkey文件自定义快捷键（我自定义的是control+command+v）使用command+shift+4只是实现截屏，并没有把截屏的图片放到粘贴板上，所以要想同时放到粘贴板上，使">
+<meta name="twitter:image" content="http://pl9syc281.bkt.clouddn.com/19-01-13-d04f8c23b50a81e9ad2b84714f6bb99e.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -171,33 +172,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2019 新的开始" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Alfred用法总结" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      2019 新的开始
+      Alfred + 七牛云实现markdown图床
     </h1>
   
 
         
         <a href="" class="archive-article-date">
-  	<time datetime="2019-01-06T08:50:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-06</time>
+  	<time datetime="2019-01-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <center><img src="http://pkwpyjgi6.bkt.clouddn.com/deadEnd.jpg" alt="新的开始"></center>
-
-<p>  2019，新的一年，不想颓废下去了，打算多做些让自己踏实心安的事情，顺便改掉一些坏习惯。首先就是养成写博客的习惯，好记性不如烂笔头，更何况还没有好记性，处理过的问题，不理解的东西，不去好好总结归纳，就会一直稀里糊涂的，时间久了，就什么都留不下了，曾经花费过的时间，收益甚少，遂决定，逼迫一下自己，多思考，多学习，多总结。</p>
-
-<p>也是最近刚开始接触使用<a href="https://github.com/HarleyWang93/blog/issues/1" target="_blank" rel="noopener">hexo和github快速简单的搭建个人博客</a>，感觉很不错，不用自己买服务器，也不用自己从头搭建页面，虽然比直接在掘金简书上写博客要稍微麻烦一点，但是管理起来还是很有感觉的，自定义的去配置想要的东西，修改自己想要的样式，还是蛮有意思的.</p>
-
-<p></p><p>首先要熟悉markdown语法，熟悉一款markdown编辑器，学会如何修改hexo网站配置文件和主题配置文件，理解更新和部署的流程，记住常用的几个命令(随后会总结下)，先熟悉这些，习惯后就可以专注于博客内容了。</p><p></p>
+        <p>本文主要参考<a href="https://blog.csdn.net/Gdeer/article/details/83046888" target="_blank" rel="noopener">Alfred workflow 配合七牛云实现 markdown 图床</a>，原文写的很好很详细，我只是做一点补充。<br>需要从七牛云那里拿到的4个参数：<br><img src="http://pl9syc281.bkt.clouddn.com/19-01-13-d04f8c23b50a81e9ad2b84714f6bb99e.png" alt="需要从七牛云拿到的4个参数"><br><a href="https://github.com/qiniu/qshell/blob/master/docs/qupload.md" target="_blank" rel="noopener">可以在config.json中做更多自定义配置</a><br>双击工作流中的Hotkey文件自定义快捷键（我自定义的是<code>control+command+v</code>）<br><img src="http://pl9syc281.bkt.clouddn.com/19-01-13-9134944eedae89ab09198a833ce263a0.png" alt=""><br>使用<code>command+shift+4</code>只是实现截屏，并没有把截屏的图片放到粘贴板上，所以要想同时放到粘贴板上，使用快捷键<code>command+shift+control+4</code>。<br>所以一整套的流程就是：</p>
+<ol>
+<li>使用<code>command+shift+control+4</code>截屏并保存到粘贴板上。</li>
+<li>使用<code>control+command+v</code>触发Alfred的工作流，将粘贴板上的图片上传到七牛云上之前设定好的那个存储空间，并拿到外链。</li>
+<li>在markdown编辑器中使用<code>command+v</code>，会以markdown插入图片的方式一键导入该图片，整个过程结束，简单粗暴。<br>这个方法不仅仅能导入截图，对于本地图片也一样适用，只需要把本地图片<code>command+c</code>复制到粘贴板上，然后<code>control+command+v</code>上传图片，最后<code>command+v</code>粘贴到编辑器上<br><br><br>另外结合Alfred的Clipboard可以进一步提升效率，可以一次性截取或从本地选取多张图片保存到粘贴板上，然后在需要在编辑器中使用某张图片时，快捷键<code>option+command+c</code>打开粘贴板，从中选择要使用的图片，然后<code>control+command+v</code>上传图片，最后在编辑器中使用<code>command+v</code>粘贴就可以了。不熟悉Alfred Clipboard使用的可以参考这里。<a href="https://www.jianshu.com/p/1efc688d6095" target="_blank" rel="noopener">Mac效率神器-Alfred以及使用的一些奇技淫巧</a></li>
+</ol>
 
       
 
@@ -232,7 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
         		</li>
       		
 		</ul>
@@ -288,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/06/2019 新的开始/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/13/Alfred用法总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,15 +302,11 @@
   
 <nav id="article-nav">
   
-    <a href="../../13/Alfred用法总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Alfred + 七牛云实现markdown图床
-        
-      </div>
-    </a>
   
+    <a href="../../06/2019 新的开始/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2019 新的开始</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
