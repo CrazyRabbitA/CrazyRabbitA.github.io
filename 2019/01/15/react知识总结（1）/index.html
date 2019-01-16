@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1 JSX是一种Javascript语法扩展。2 JSX中可以任意使用Javascript表达式，但要放在{}里。3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。4 编译之后JSX会被转换为普通的Javascript对象。5 可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。6 标签中可以定义以字符串或JS表达式为值的属性。注意：使用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-14T14:56:25.890Z">
+<meta property="og:updated_time" content="2019-01-15T12:08:49.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React">
 <meta name="twitter:description" content="1 JSX是一种Javascript语法扩展。2 JSX中可以任意使用Javascript表达式，但要放在{}里。3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。4 编译之后JSX会被转换为普通的Javascript对象。5 可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。6 标签中可以定义以字符串或JS表达式为值的属性。注意：使用">
@@ -190,7 +190,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>1 JSX是一种Javascript语法扩展。<br>2 JSX中可以任意使用Javascript表达式，但要放在{}里。<br>3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。<br>4 编译之后JSX会被转换为普通的Javascript对象。<br>5 可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。<br>6 标签中可以定义以字符串或JS表达式为值的属性。注意：使用以JS表达式为值为属性值时，外面不要再套引号了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;img src=&#123;user.avatarUrl&#125;&gt;&lt;/img&gt;;</span><br></pre></td></tr></table></figure></p>
-<p>7 单标签需要闭合。<br>8 JSX标签和以嵌套<br>9 Babel 转译器会把 JSX 转换成一个名为 React.createElement() 的方法调用。<br>10 React DOM 使用 camelCase 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称。<br>11 标签中的class变成了className。<br>12 元素是构成 React 应用的最小单位，与浏览器的 DOM 元素不同，React 13 当中的元素事实上是普通的对象，React DOM 可以确保 浏览器 DOM 的数据内容与 React 元素保持一致。<br>14 要将React元素渲染到根DOM节点中，我们通过把它们都传递给 ReactDOM.render() 的方法来将其渲染到页面上：</p>
+<p>7 单标签需要闭合。<br>8 JSX标签可以嵌套。<br>9 Babel 转译器会把 JSX 转换成一个名为 React.createElement() 的方法调用。<br>10 React DOM 使用 camelCase 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称。<br>11 标签中的class变成了className。<br>12 元素是构成React应用的最小单位，与浏览器的DOM元素不同，React当中的元素事实上是普通的对象，React DOM 可以确保浏览器DOM的数据内容与React元素保持一致。<br>14 要将React元素渲染到根DOM节点中，我们通过把它们都传递给 ReactDOM.render() 的方法来将其渲染到页面上：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</span><br><span class="line">ReactDOM.render(element, document.getElementById(&apos;root&apos;));</span><br></pre></td></tr></table></figure>
 <p>15 React元素都是不可变的，元素被创建之后，就无法再改变其内容和属性，所以更新页面唯一的方法就是创建一个新的元素，传入ReactDOM.render() 方法。<br>16 React DOM 首先会比较元素内容先后的不同，而在渲染过程中只会更新改变了的部分。<br>17 组件可以将UI切分成一些独立的、可复用的部件。<br>18 组件从概念上看就像是函数，它可以接收任意的输入值（称之为“props”），并返回一个需要在页面上展示的React元素。<br>19 定义一个组件最简单的方式是使用JavaScript函数。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -202,7 +202,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可见：标签名对应的是函数名，属性和属性值组成键值对成为参数。<br>等同于：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  element,</span><br><span class="line">  document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>22 组件名称必须以大写字母开头。<br>23 组件可以在它的输出中引用其它组件。<br>24 组件的返回值只能有一个根元素，和vue的template类似。<br>25 所有的React组件必须像纯函数那样使用它们的props。</p>
+<p>22 组件名称必须以大写字母开头。<br>23 组件可以在它的输出中引用其它组件。<br>24 组件的返回值只能有一个根元素，和vue的template类似。<br>25 不改变它自己的输入值，当传入的值相同时，总是会返回相同的结果，这样的函数称之为“纯函数”，所有的React组件必须像“纯函数”那样使用它们的参数。<br>26 状态与属性非常相似，单状态是私有的，完全受控于当前组件。<br>27 5个步骤把函数转换成类：</p>
+<ul>
+<li>创建一个名称扩展为React.Component的类</li>
+<li>创建一个叫做render()的空方法</li>
+<li>将函数体移动到 render() 方法中</li>
+<li>在 render() 方法中，使用 this.props 替换 props</li>
+<li>删除剩余的空函数声明</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!&lt;/h1&gt;</span><br><span class="line">        &lt;h2&gt;It is &#123;this.props.date.toLocaleTimeString()&#125;.&lt;/h2&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -308,8 +316,8 @@
 <nav id="article-nav">
   
   
-    <a href="../../14/临时随笔/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">随便写个随笔占个位置</div>
+    <a href="../ES6中class知识点总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6中class的知识点总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
