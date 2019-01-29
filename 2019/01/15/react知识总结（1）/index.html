@@ -8,18 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>React | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 JSX是一种Javascript语法扩展。2 JSX中可以任意使用Javascript表达式，但要放在{}里。3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。4 编译之后JSX会被转换为普通的Javascript对象。5 可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。6 标签中可以定义以字符串或JS表达式为值的属性。注意：使用">
+  <meta name="description" content="1 JSX是一种Javascript语法扩展，是React.createElement()方法的语法糖，它们最终返回ReactElement对象（本质就是普通的js对象，模拟了真实dom结构，所以结构复杂了点）。2 JSX中可以任意使用Javascript表达式，但要放在{}里。3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。4 编译之后JSX会被转换为普通的Ja">
 <meta name="keywords" content="技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React">
 <meta property="og:url" content="http://yoursite.com/2019/01/15/react知识总结（1）/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1 JSX是一种Javascript语法扩展。2 JSX中可以任意使用Javascript表达式，但要放在{}里。3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。4 编译之后JSX会被转换为普通的Javascript对象。5 可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。6 标签中可以定义以字符串或JS表达式为值的属性。注意：使用">
+<meta property="og:description" content="1 JSX是一种Javascript语法扩展，是React.createElement()方法的语法糖，它们最终返回ReactElement对象（本质就是普通的js对象，模拟了真实dom结构，所以结构复杂了点）。2 JSX中可以任意使用Javascript表达式，但要放在{}里。3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。4 编译之后JSX会被转换为普通的Ja">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-15T12:08:49.754Z">
+<meta property="og:image" content="http://pl9syc281.bkt.clouddn.com/19-01-22-7ce8faaf018aa2bcb9be3affffd5f91d.png">
+<meta property="og:image" content="http://pl9syc281.bkt.clouddn.com/19-01-23-91e264c4f0d63f2b48b270dc7fa2e3a8.png">
+<meta property="og:updated_time" content="2019-01-24T01:01:53.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React">
-<meta name="twitter:description" content="1 JSX是一种Javascript语法扩展。2 JSX中可以任意使用Javascript表达式，但要放在{}里。3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。4 编译之后JSX会被转换为普通的Javascript对象。5 可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。6 标签中可以定义以字符串或JS表达式为值的属性。注意：使用">
+<meta name="twitter:description" content="1 JSX是一种Javascript语法扩展，是React.createElement()方法的语法糖，它们最终返回ReactElement对象（本质就是普通的js对象，模拟了真实dom结构，所以结构复杂了点）。2 JSX中可以任意使用Javascript表达式，但要放在{}里。3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。4 编译之后JSX会被转换为普通的Ja">
+<meta name="twitter:image" content="http://pl9syc281.bkt.clouddn.com/19-01-22-7ce8faaf018aa2bcb9be3affffd5f91d.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -189,8 +192,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1 JSX是一种Javascript语法扩展。<br>2 JSX中可以任意使用Javascript表达式，但要放在{}里。<br>3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。<br>4 编译之后JSX会被转换为普通的Javascript对象。<br>5 可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。<br>6 标签中可以定义以字符串或JS表达式为值的属性。注意：使用以JS表达式为值为属性值时，外面不要再套引号了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;img src=&#123;user.avatarUrl&#125;&gt;&lt;/img&gt;;</span><br></pre></td></tr></table></figure></p>
-<p>7 单标签需要闭合。<br>8 JSX标签可以嵌套。<br>9 Babel 转译器会把 JSX 转换成一个名为 React.createElement() 的方法调用。<br>10 React DOM 使用 camelCase 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称。<br>11 标签中的class变成了className。<br>12 元素是构成React应用的最小单位，与浏览器的DOM元素不同，React当中的元素事实上是普通的对象，React DOM 可以确保浏览器DOM的数据内容与React元素保持一致。<br>14 要将React元素渲染到根DOM节点中，我们通过把它们都传递给 ReactDOM.render() 的方法来将其渲染到页面上：</p>
+        <p>1 JSX是一种Javascript语法扩展，是React.createElement()方法的语法糖，它们最终返回ReactElement对象（本质就是普通的js对象，模拟了真实dom结构，所以结构复杂了点）。<br>2 JSX中可以任意使用Javascript表达式，但要放在{}里。<br>3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。<br>4 编译之后JSX会被转换为普通的Javascript对象。<br>5 可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。<br>6 标签中可以定义以字符串或JS表达式为值的属性。注意：使用以JS表达式为值为属性值时，外面不要再套引号了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;img src=&#123;user.avatarUrl&#125;&gt;&lt;/img&gt;;</span><br></pre></td></tr></table></figure></p>
+<p>7 单标签需要闭合。<br>8 JSX标签可以嵌套。<br>9 Babel 转译器会把 JSX 转换成一个名为 React.createElement() 的方法调用,<a href="https://babeljs.io/repl" target="_blank" rel="noopener">在线演示</a>,React.createElement()的第一个参数是dom标签名，第二个参数是dom属性内容，后面的参数是标签内的内容，该方法通过层层嵌套使用来实现复杂的dom结构。<br><img src="http://pl9syc281.bkt.clouddn.com/19-01-22-7ce8faaf018aa2bcb9be3affffd5f91d.png" alt=""><br>10 React DOM 使用 camelCase 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称。<br>11 标签中的class变成了className(为了避免跟类class混淆)。<br>12 元素是构成React应用的最小单位，与浏览器的DOM元素不同，React当中的元素事实上是普通的对象，React DOM 可以确保浏览器DOM的数据内容与React元素保持一致。<br>14 要将React元素渲染到根DOM节点中，我们通过把它们都传递给 ReactDOM.render() 的方法来将其渲染到页面上：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</span><br><span class="line">ReactDOM.render(element, document.getElementById(&apos;root&apos;));</span><br></pre></td></tr></table></figure>
 <p>15 React元素都是不可变的，元素被创建之后，就无法再改变其内容和属性，所以更新页面唯一的方法就是创建一个新的元素，传入ReactDOM.render() 方法。<br>16 React DOM 首先会比较元素内容先后的不同，而在渲染过程中只会更新改变了的部分。<br>17 组件可以将UI切分成一些独立的、可复用的部件。<br>18 组件从概念上看就像是函数，它可以接收任意的输入值（称之为“props”），并返回一个需要在页面上展示的React元素。<br>19 定义一个组件最简单的方式是使用JavaScript函数。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -211,6 +214,10 @@
 <li>删除剩余的空函数声明</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!&lt;/h1&gt;</span><br><span class="line">        &lt;h2&gt;It is &#123;this.props.date.toLocaleTimeString()&#125;.&lt;/h2&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>28 react就是一个JavaScript库，react和react-router, react-redux结合起来才叫框架，它本身只是充当一个前端渲染的库而已，没有什么异步处理机制、模块化、表单验证等。<br>29 不要直接更新状态，应当使用setState（），其参数可以是一个对象，也可以是用一个函数返回一个对象，当调用 setState() 时，React 将提供的对象合并到当前状态。<br>30 状态通常被称为局部或封装。 除了拥有并设置它的组件外，其它组件不可访问。<br>31 单向数据流：任何状态始终由某些特定组件所有，并且从该状态导出的任何数据或 UI 只能影响树中下方的组件。<br>32 传统html绑定事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=&quot;activateLasers()&quot;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
+<p>react绑定事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;activateLasers&#125;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>React事件绑定属性的命名采用驼峰式写法，而不是小写。<br>如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串(DOM元素的写法)。<br>33  Keys可以在DOM中的某些元素被增加或删除的时候帮助React识别哪些元素发生了变化。因此你应当给数组中的每一个元素赋予一个确定的标识。如果不指定显式的键值，那么React将默认使用索引用作为列表项目的键值。<br>34 元素位于map()方法内时需要设置键属性。<br>35 数组元素中使用的key在其兄弟之间应该是独一无二的。然而，它们不需要是全局唯一的。当生成两个不同的数组时，可以使用相同的键.<br>36 key会作为给React的提示，但不会传递给组件。<br>37 其值由React控制的输入表单元素称为“受控组件”。如<code>&lt;input type=&quot;text&quot;&gt;</code>, <code>&lt;textarea&gt;</code>, 和 <code>&lt;select&gt;</code> 都十分类似 - 他们都通过传入一个value属性来实现对组件的控制。<br>38<code>&lt;input type=&quot;file&quot;&gt;</code>,该标签的 value 属性是只读的， 所以它是 React 中的一个非受控组件。<br>39 react是facebook在2013年推出的一个用于构建用户界面的库。<br>40 react特点：声明式写法，组件化。。。。<br>41 react 开发环境：node，npm，脚手架，IDE工具。<br>42 react脚手架工具：create-react-app,终端安装：<code>npm install -g create-react-app</code>，生成项目：<code>create-react-app my-app</code>,进入项目后<code>npm i</code>安装依赖，<code>npm start</code>运行项目。<br>43 react中写组件是以.js作为后缀（vue是以.vue作为后缀）<br>44 react组件的生命周期分为三大类：1 组件初始化（组件从创建到挂载到dom上的过程）2 组件更新 3 组件卸载<br><img src="http://pl9syc281.bkt.clouddn.com/19-01-23-91e264c4f0d63f2b48b270dc7fa2e3a8.png" alt=""><br>45 多个组件需要分享一个相同的数据，最好的办法是将共有的状态提升到离他们最近的父组件中进行管理，这样的做法叫状态提升。react不同与双向绑定最主要的特点就是单向数据流<br>46 context设计的目的是为了共享共享对于组件来说的全局数据<br>（如当前用户，语言，主题等等），不要仅仅是为了避免props在多层级组件下的传递而使用context。</p>
 
       
 
@@ -314,6 +321,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="../../19/理解前端/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          框架和库的区别
+        
+      </div>
+    </a>
   
   
     <a href="../ES6中class知识点总结/" id="article-nav-older" class="article-nav-link-wrap">
