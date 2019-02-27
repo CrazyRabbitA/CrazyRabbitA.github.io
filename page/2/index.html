@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前端顾驰的个人博客">
 <meta name="keywords" content="顾驰的博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前端顾驰的个人博客">
 <meta property="og:locale" content="zh-Hans">
@@ -224,186 +224,39 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Alfred用法总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2019/01/13/Alfred用法总结/">Alfred + 七牛云实现markdown图床</a>
+    </h1>
+  
+
+        
+        <a href="../../2019/01/13/Alfred用法总结/" class="archive-article-date">
+  	<time datetime="2019-01-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-13</time>
+</a>
+        
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文主要参考<a href="https://blog.csdn.net/Gdeer/article/details/83046888" target="_blank" rel="noopener">Alfred workflow 配合七牛云实现 markdown 图床</a>，原文写的很好很详细，我只是做一点补充。<br>前言：该方法最终用起来确实很爽，但是也有个很大的坑点，用七牛云的对象存储做图床，如果没有做域名加速的话，七牛给的临时域名只能用一个月，到期之后空间内图片的外链就无法使用了，这就太坑了，总不能每个月建个空间，每个月给图片搬家吧，但是又舍不得这种方法，于是就去搞域名加速，发现需要有备案的域名，域名备案又需要有服务器。。。所以如果单纯是想给博客的静态文件找个图床的话，就不要用这种方法了，成本高也过于麻烦。恰逢想买个服务器玩玩，于是就买了一个阿里云的最便宜的服务器和一个域名，然后做域名解析，把域名映射到买的服务器上，最后最麻烦的就是备案了，流程熟的话还好，一开始不熟，走了不少弯路。等域名备案成功之后，就可以去七牛云上对应的存储空间那里设置加速域名了，七牛的教程很详细，就不赘述了，我也是折腾了很久，现在才刚刚搞定，之前的图片也丢了很多，现在慢慢补回来，所幸的是以后就可以放心的用了。</p>
+<h6 id="需要从七牛云那里拿到的4个参数："><a href="#需要从七牛云那里拿到的4个参数：" class="headerlink" title="需要从七牛云那里拿到的4个参数："></a>需要从七牛云那里拿到的4个参数：</h6><p><img src="http://cdn.guchi.fun/19-02-21-aca1c6d99cec6b03dcf6e4d29aa5542a.png" alt="需要从七牛云拿到的4个参数"><br><a href="https://github.com/qiniu/qshell/blob/master/docs/qupload.md" target="_blank" rel="noopener">可以在config.json中做更多自定义配置</a></p>
+<h6 id="双击工作流中的Hotkey文件自定义快捷键（我自定义的是control-command-v）"><a href="#双击工作流中的Hotkey文件自定义快捷键（我自定义的是control-command-v）" class="headerlink" title="双击工作流中的Hotkey文件自定义快捷键（我自定义的是control+command+v）"></a>双击工作流中的Hotkey文件自定义快捷键（我自定义的是<code>control+command+v</code>）</h6><p><img src="http://pl9syc281.bkt.clouddn.com/19-01-13-9134944eedae89ab09198a833ce263a0.png" alt=""><br>使用<code>command+shift+4</code>只是实现截屏，并没有把截屏的图片放到粘贴板上，所以要想同时放到粘贴板上，使用快捷键<code>command+shift+control+4</code>。<br>所以一整套的流程就是：<br>1.使用<code>command+shift+control+4</code>截屏并保存到粘贴板上。<br>2.使用<code>control+command+v</code>触发Alfred的工作流，将粘贴板上的图片上传到七牛云上之前设定好的那个存储空间，并拿到外链。<br>3.在markdown编辑器中使用<code>command+v</code>，会以markdown插入图片的方式一键导入该图片，整个过程结束，简单粗暴。</p>
+<p>这个方法不仅仅能导入截图，对于本地图片也一样适用，只需要把本地图片<code>command+c</code>复制到粘贴板上，然后<code>control+command+v</code>上传图片，最后<code>command+v</code>粘贴到编辑器上。</p><br><p>另外结合Alfred的Clipboard可以进一步提升效率，可以一次性截取或从本地选取多张图片保存到粘贴板上，然后在需要在编辑器中使用某张图片时，快捷键<code>option+command+c</code>打开粘贴板，从中选择要使用的图片，然后<code>control+command+v</code>上传图片，最后在编辑器中使用<code>command+v</code>粘贴就可以了。不熟悉Alfred Clipboard使用的可以参考这里,<a href="https://www.jianshu.com/p/1efc688d6095" target="_blank" rel="noopener">Mac效率神器-Alfred以及使用的一些奇技淫巧</a></p>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2019/02/23/react学习总结1/" class="archive-article-date">
-  	<time datetime="2019-02-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/02/23/react学习总结1/">react学习总结1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2019/02/22/面试文章链接汇总/" class="archive-article-date">
-  	<time datetime="2019-02-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/02/22/面试文章链接汇总/">面试梳理链接汇总</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">other</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2019/02/04/node/" class="archive-article-date">
-  	<time datetime="2019-02-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/02/04/node/">node</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2019/01/30/服务器/" class="archive-article-date">
-  	<time datetime="2019-01-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/01/30/服务器/">服务器相关知识</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2019/01/29/items的使用与配置/" class="archive-article-date">
-  	<time datetime="2019-01-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/01/29/items的使用与配置/">item2配置和使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -415,211 +268,123 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2019/01/13/Alfred用法总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2019/01/24/路由/" class="archive-article-date">
-  	<time datetime="2019-01-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-24</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2019 新的开始" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/01/24/路由/">路由</a>
+      <a class="article-title" href="../../2019/01/06/2019 新的开始/">2019 新的开始</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="../../2019/01/06/2019 新的开始/" class="archive-article-date">
+  	<time datetime="2019-01-06T08:50:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center><img src="http://cdn.guchi.fun/deadEnd.jpg" alt="新的开始"></center>
+
+<p>  2019，新的一年，不想颓废下去了，打算多做些让自己踏实心安的事情，顺便改掉一些坏习惯。首先就是养成写博客的习惯，好记性不如烂笔头，更何况还没有好记性，处理过的问题，不理解的东西，不去好好总结归纳，就会一直稀里糊涂的，时间久了，就什么都留不下了，曾经花费过的时间，收益甚少，遂决定，逼迫一下自己，多思考，多学习，多总结。</p>
+
+<p>也是最近刚开始接触使用<a href="https://github.com/HarleyWang93/blog/issues/1" target="_blank" rel="noopener">hexo和github快速简单的搭建个人博客</a>，感觉很不错，不用自己买服务器，也不用自己从头搭建页面，虽然比直接在掘金简书上写博客要稍微麻烦一点，但是管理起来还是很有感觉的，自定义的去配置想要的东西，修改自己想要的样式，还是蛮有意思的.</p>
+
+<p></p><p>首先要熟悉markdown语法，熟悉一款markdown编辑器，学会如何修改hexo网站配置文件和主题配置文件，理解更新和部署的流程，记住常用的几个命令(随后会总结下)，先熟悉这些，习惯后就可以专注于博客内容了。</p><p></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">life</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2019/01/06/2019 新的开始/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2019/01/19/理解前端/" class="archive-article-date">
-  	<time datetime="2019-01-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-19</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/01/19/理解前端/">框架和库的区别</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">other</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2019/01/15/ES6中class知识点总结/" class="archive-article-date">
-  	<time datetime="2019-01-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/01/15/ES6中class知识点总结/">ES6中class的知识点总结</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2019/01/15/react知识总结（1）/" class="archive-article-date">
-  	<time datetime="2019-01-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/01/15/react知识总结（1）/">React</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2019/01/14/CSS实现div高度随宽度等比例变化/" class="archive-article-date">
-  	<time datetime="2019-01-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/01/14/CSS实现div高度随宽度等比例变化/">CSS实现div高度随宽度等比例变化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
-  
-
-    
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="extend next" rel="next" href="page/2/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="../../">&laquo; Prev</a><a class="page-number" href="../../">1</a><span class="page-number current">2</span>
     </nav>
   
 
@@ -643,9 +408,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
