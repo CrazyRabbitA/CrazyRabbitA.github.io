@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>react知识点 | Hexo</title>
+  <title>前端面试题总结(1) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习react前置知识：js，es6，webpack，npm 用到的es6中的内容：解构赋值，class，展开运算符， react 开发环境：node，npm，脚手架，IDE工具。 react特点：声明式开发（关注数据而不再操作dom），可以与其他框架并存，组件化，单向数据流，视图层框架，函数式编程（便于复杂组件拆分，便于自动化测试） facebook推出，2013年开源，函数式编程思想，16之">
-<meta name="keywords" content="react">
+  <meta name="description" content="今天开始，从头扫盲，一天一篇。">
+<meta name="keywords" content="interview">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react知识点">
-<meta property="og:url" content="http://yoursite.com/2019/02/23/react学习总结1/index.html">
+<meta property="og:title" content="前端面试题总结(1)">
+<meta property="og:url" content="http://yoursite.com/2019/03/15/前端面试总结1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="学习react前置知识：js，es6，webpack，npm 用到的es6中的内容：解构赋值，class，展开运算符， react 开发环境：node，npm，脚手架，IDE工具。 react特点：声明式开发（关注数据而不再操作dom），可以与其他框架并存，组件化，单向数据流，视图层框架，函数式编程（便于复杂组件拆分，便于自动化测试） facebook推出，2013年开源，函数式编程思想，16之">
+<meta property="og:description" content="今天开始，从头扫盲，一天一篇。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pl9syc281.bkt.clouddn.com/19-01-22-7ce8faaf018aa2bcb9be3affffd5f91d.png">
-<meta property="og:image" content="http://pl9syc281.bkt.clouddn.com/19-01-23-91e264c4f0d63f2b48b270dc7fa2e3a8.png">
-<meta property="og:image" content="http://cdn.guchi.fun/19-03-05-146548ac8057ef86aadd3802eae12782.jpeg">
-<meta property="og:updated_time" content="2019-03-15T03:59:36.330Z">
+<meta property="og:updated_time" content="2019-03-15T05:03:50.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react知识点">
-<meta name="twitter:description" content="学习react前置知识：js，es6，webpack，npm 用到的es6中的内容：解构赋值，class，展开运算符， react 开发环境：node，npm，脚手架，IDE工具。 react特点：声明式开发（关注数据而不再操作dom），可以与其他框架并存，组件化，单向数据流，视图层框架，函数式编程（便于复杂组件拆分，便于自动化测试） facebook推出，2013年开源，函数式编程思想，16之">
-<meta name="twitter:image" content="http://pl9syc281.bkt.clouddn.com/19-01-22-7ce8faaf018aa2bcb9be3affffd5f91d.png">
+<meta name="twitter:title" content="前端面试题总结(1)">
+<meta name="twitter:description" content="今天开始，从头扫盲，一天一篇。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -233,160 +229,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react学习总结1" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-前端面试总结1" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      react知识点
+      前端面试题总结(1)
     </h1>
   
 
         
         <a href="" class="archive-article-date">
-  	<time datetime="2019-02-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
+  	<time datetime="2019-03-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>学习react前置知识：js，es6，webpack，npm</li>
-<li>用到的es6中的内容：解构赋值，class，展开运算符，</li>
-<li>react 开发环境：node，npm，脚手架，IDE工具。</li>
-<li>react特点：声明式开发（关注数据而不再操作dom），可以与其他框架并存，组件化，单向数据流，视图层框架，函数式编程（便于复杂组件拆分，便于自动化测试）</li>
-<li>facebook推出，2013年开源，函数式编程思想，16之后的版本称之为React Fiber</li>
-<li>react就是一个JavaScript库，一个视图层框架，它本身只是充当一个前端渲染的库而已，解决数据与页面渲染的问题，无法解决复杂组件传值的问题，没有什么异步处理机制、模块化、表单验证等。react和react-router, react-redux（数据层框架）结合起来才能去构建大型复杂的项目，</li>
-<li>相比于vue，灵活性更大一点，处理复杂业务有更多的选择方案，vue提供了更多的api，实现功能变得更简单，但也因此灵活性受到了限制。</li>
-<li>查看npm全局安装内容的指令：<code>npm list --depth=0 -global</code></li>
-<li>环境搭建：方法一：外部引入js文件；方法二：脚手架工具（前端开发辅助工具，可以自动快速的帮忙构建一个大型项目的开发流程和目录，允许以一定的方式来实现js文件之间的相互引用），官方指定脚手架工具：Create-react-app，安装之前要确保已经安装了node和npm。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br><span class="line">cd my-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
-<h4 id="JSX-相关"><a href="#JSX-相关" class="headerlink" title="JSX 相关"></a>JSX 相关</h4><ol>
-<li>JSX是一种Javascript语法扩展，是React.createElement()方法的语法糖，该方法最终返回ReactElement对象（本质就是普通的js对象，模拟了真实dom结构，所以结构复杂了点）。</li>
-<li>使用场景：render函数返回一段JSX代码-&gt;react底层解析JSX代码并调用React.createElement方法生成虚拟dom（js对象）-&gt;虚拟dom还原成真实dom。</li>
-<li>Babel 转译器会把 JSX 转换成一个名为 React.createElement() 的方法调用,编译之后JSX会被转换为普通的Javascript对象。<a href="https://babeljs.io/repl" target="_blank" rel="noopener">在线演示</a>,React.createElement()的第一个参数是dom标签名，第二个参数是dom属性内容，后面的参数是标签内的内容，该方法通过层层嵌套使用来实现复杂的dom结构。<img src="http://pl9syc281.bkt.clouddn.com/19-01-22-7ce8faaf018aa2bcb9be3affffd5f91d.png" alt=""></li>
-<li>JSX中可以任意使用Javascript表达式，但要放在{}里。</li>
-<li>标签中的class变成了className(为了避免跟类class混淆)。</li>
-<li>书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。</li>
-<li>可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。</li>
-<li>标签中可以定义以字符串或JS表达式为值的属性。注意：使用以JS表达式为值为属性值时，外面不要再套引号了：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;img src=&#123;user.avatarUrl&#125;&gt;&lt;/img&gt;;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>6 单标签需要闭合，使用自己自定义的组件时，组件名首字母必须大写。<br>8 JSX标签可以嵌套。<br>10 React DOM 使用 camelCase 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称。</p>
-<p>12 jsx中写注释：单行注释：(一定要换行来写)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">//我是注释</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>多行注释：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;/*我是注释*/&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="元素渲染"><a href="#元素渲染" class="headerlink" title="元素渲染"></a>元素渲染</h3><ul>
-<li>元素是构成React应用的最小单位，与浏览器的DOM元素不同，React当中的元素事实上是普通的对象，React DOM 可以确保浏览器DOM的数据内容与React元素保持一致。</li>
-<li>要将React元素渲染到根DOM节点中，我们通过把它们都传递给 ReactDOM.render() 的方法来将其渲染到页面上：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</span><br><span class="line">ReactDOM.render(element, document.getElementById(&apos;root&apos;));</span><br></pre></td></tr></table></figure>
-<ul>
-<li>React元素都是不可变的，元素被创建之后，就无法再改变其内容和属性，所以更新页面唯一的方法就是创建一个新的元素，传入ReactDOM.render() 方法。</li>
-<li>React DOM 首先会比较元素内容先后的不同，而在渲染过程中只会更新改变了的部分。</li>
-<li>组件可以将UI切分成一些独立的、可复用的部件。<br>18 组件从概念上看就像是函数，它可以接收任意的输入值（称之为“props”），并返回一个需要在页面上展示的React元素。<br>19 定义一个组件最简单的方式是使用JavaScript函数。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>20 也可以使用 ES6 class 来定义一个组件:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Welcome extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return &lt;h1&gt;Hello, &#123;this.props.name&#125;&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>21 React元素不一定都是Dom标签，也可以是用户自定义的组件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</span><br></pre></td></tr></table></figure>
-<p>等同于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可见：标签名对应的是函数名，属性和属性值组成键值对成为参数。<br>等同于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  element,</span><br><span class="line">  document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>22 组件名称必须以大写字母开头。<br>23 组件可以在它的输出中引用其它组件。<br>24 组件的返回值只能有一个根元素，和vue的template类似。<br>25 不改变它自己的输入值，当传入的值相同时，总是会返回相同的结果，这样的函数称之为“纯函数”，所有的React组件必须像“纯函数”那样使用它们的参数。<br>26 状态与属性非常相似，单状态是私有的，完全受控于当前组件。<br>27 5个步骤把函数转换成类：</p>
-<ul>
-<li>创建一个名称扩展为React.Component的类</li>
-<li>创建一个叫做render()的空方法</li>
-<li>将函数体移动到 render() 方法中</li>
-<li>在 render() 方法中，使用 this.props 替换 props</li>
-<li>删除剩余的空函数声明</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!&lt;/h1&gt;</span><br><span class="line">        &lt;h2&gt;It is &#123;this.props.date.toLocaleTimeString()&#125;.&lt;/h2&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>29 不要直接更新状态，应当使用setState（），其参数可以是一个对象，也可以是用一个函数返回一个对象，当调用 setState() 时，React 将提供的对象合并到当前状态。<br>30 状态通常被称为局部或封装。 除了拥有并设置它的组件外，其它组件不可访问。<br>31 单向数据流：任何状态始终由某些特定组件所有，并且从该状态导出的任何数据或 UI 只能影响树中下方的组件。<br>32 传统html绑定事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=&quot;activateLasers()&quot;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
-<p>react绑定事件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;activateLasers&#125;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-<p>React事件绑定属性的命名采用驼峰式写法，而不是小写。<br>如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串(DOM元素的写法)。<br>33  Keys可以在DOM中的某些元素被增加或删除的时候帮助React识别哪些元素发生了变化。因此你应当给数组中的每一个元素赋予一个确定的标识。如果不指定显式的键值，那么React将默认使用索引用作为列表项目的键值。<br>34 元素位于map()方法内时需要设置键属性。<br>35 数组元素中使用的key在其兄弟之间应该是独一无二的。然而，它们不需要是全局唯一的。当生成两个不同的数组时，可以使用相同的键.<br>36 key会作为给React的提示，但不会传递给组件。<br>37 其值由React控制的输入表单元素称为“受控组件”。如<code>&lt;input type=&quot;text&quot;&gt;</code>, <code>&lt;textarea&gt;</code>, 和 <code>&lt;select&gt;</code> 都十分类似 - 他们都通过传入一个value属性来实现对组件的控制。<br>38<code>&lt;input type=&quot;file&quot;&gt;</code>,该标签的 value 属性是只读的， 所以它是 React 中的一个非受控组件。<br>40 react特点：声明式写法，组件化。。。。</p>
-<p>43 react中写组件是以.js作为后缀（vue是以.vue作为后缀）<br>44 react组件的生命周期分为三大类：1 组件初始化（组件从创建到挂载到dom上的过程）2 组件更新 3 组件卸载<br><img src="http://pl9syc281.bkt.clouddn.com/19-01-23-91e264c4f0d63f2b48b270dc7fa2e3a8.png" alt=""><br>45 多个组件需要分享一个相同的数据，最好的办法是将共有的状态提升到离他们最近的父组件中进行管理，这样的做法叫状态提升。react不同与双向绑定最主要的特点就是单向数据流<br>46 context设计的目的是为了共享共享对于组件来说的全局数据<br>（如当前用户，语言，主题等等），不要仅仅是为了避免props在多层级组件下的传递而使用context。</p>
-<p>有时候如果不希望输入的内容被转义，可以使用一个属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dangerouslySetInnerHtml=&#123;&#123;__html:内容&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>label的作用是扩大点击的区域<br>react中定义一个组件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;</span><br><span class="line">class xxx extends React.component&#123;</span><br><span class="line">render()&#123;</span><br><span class="line">return .....</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">export default xxx;</span><br></pre></td></tr></table></figure></p>
-<p>react-scripts 是一个工具，用来执行package.json中script中的指令。<br>src 下的index.js是整个项目的入口</p>
-<ol>
-<li>package.json中srcipt中的命令需要用<code>npm run</code>来执行，npm start 是 npm run start的简写形式。</li>
-</ol>
-<h4 id="项目思路"><a href="#项目思路" class="headerlink" title="项目思路"></a>项目思路</h4><p>关键字：事件绑定，列表渲染</p>
-<ul>
-<li>使用脚手架create-react-app 快速搭建起项目。</li>
-<li>熟悉package.json及项目结构，找到入口文件（默认是src下的index.js）。</li>
-<li>熟悉模块引入（require）和导出（export）的规范，包括es6的解构赋值的方法。</li>
-<li>react-dom中的render方法用来把一个组件挂载到某个dom结点上。</li>
-<li>es6中的class及其继承。</li>
-<li>理解jsx语法。</li>
-<li>组件中的状态放到this.state中，更新this.state数据的唯一方法是调用this.setState方法。 </li>
-<li>render函数return的内容最外层必须有一个包裹元素，Fragment标签作为一个占位符，作用就是作为render函数return内容的最外层包裹标签，在实际渲染时不会渲染出来，用之前要<code>import {Fragment} from &#39;react&#39;</code></li>
-<li>绑定事件时事件首字母大写，使用bind绑定this指向，<a href="https://www.jianshu.com/p/bc541afad6ee" target="_blank" rel="noopener">call,apply,bind的用法</a>，bind的返回值是一个函数，bind第一个参数是this指向，第二个参数时开始接收的参数列表。this指向的绑定统一的放到页面的顶部。</li>
-<li>jsx中使用{}插入函数表达式，{}中还可以继续插入{}进行嵌套</li>
-<li>react不允许更改state中的内容，只能从state中拷贝一个副本，修改完后重新调用setState方法进行更新state,state或props中的内容一旦发生改变，render函数就会重新执行，页面就会自动刷新渲染。以前经常把一个对象作为setState的参数，新版常用的做法是使用箭头函数返回一个对象。this.setState方法有个默认的参数prevState，代表之前的this.state对象。</li>
-<li>父组件向子组件传值：父组件通过向子组件中定义属性并赋值，子组件通过this.props.父组件定义的属性名，从而拿到属性值。只允许父组件向子组件传递数据，而不允许子组件修改这个数据，这就是react单向数据流的思想。（假想一个父组件下有很多个子组件，并且这些子组件都用到了父组件中的一个数据，如果子组件可以修改父组件传递的这个数据，那么其他同样引用这个数据的子组件也会受到影响，而且也不容易定位到究竟是哪个组件出了问题）</li>
-<li>子组件向父组件传值：子组件调用父组件的方法改变父组件中的数据，子组件的状态也会因此而改变了。具体的做法就是父组件把父组件中的方法（绑定this到父组件）作为子组件的属性传给子组件，然后在子组件中绑定事件，触发事件后调用子组件中的方法，再在子组件的方法中通过this.props调用父组件绑定的事件，进而就可以改变父组件中的数据了。</li>
-<li>使用propTypes对父组件传值的类型做校验，使用defaultProps给父组件传的值设定默认值。<a href="https://reactjs.org/docs/typechecking-with-proptypes.html" target="_blank" rel="noopener">属性校验及设置默认 </a></li>
-<li>当父组件的render执行时，它的所有子组件的render也将被执行。</li>
-<li>ref帮助在react里面直接获取dom元素。需要看文档再总结了</li>
-</ul>
-<h3 id="react虚拟dom"><a href="#react虚拟dom" class="headerlink" title="react虚拟dom"></a>react虚拟dom</h3><p>核心思想：减少了对真实dom的<strong>创建</strong>以及减少了对真实dom的<strong>对比</strong>，取而代之的是对虚拟dom（js对象）的创建和对比从而极大的提升了性能。<br>实现方式：<br>1 state(数据)<br>2 JSX(模版)<br>3  数据+模版 生成虚拟dom（js对象，用来描述真实dom），这一步相比于直接生成真实dom<em>损耗了性能</em>。<br>4  用虚拟dom的结构生成真实dom。比如真实dom为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;span&gt;hello&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>对应的虚拟dom为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&apos;div&apos;,&#123;id:&apos;root&apos;&#125;,[&apos;span&apos;,&#123;&#125;,&apos;hello&apos;]]</span><br></pre></td></tr></table></figure>
-<p>第一个参数为标签名，第二个参数为标签的属性，第三个参数为标签的内容（在此用嵌套来实现复杂结构）</p>
-<p>5 state 发生变化（如span中的hello变成world）<br>6 数据+模版 生成新的虚拟dom，性能<strong><em>极大提升</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&apos;div&apos;,&#123;id:&apos;root&apos;&#125;,[&apos;span&apos;,&#123;&#125;,&apos;world&apos;]]</span><br></pre></td></tr></table></figure>
-<p>7 比较原始虚拟dom和新的虚拟dom的区别（diff算法），普通js对象的对比***极大的提升了性能</p>
-<hr>
-<p>8 发现span中的内容发生改变，直接操作dom，改变span中的内容。</p>
-<p>优点：1.性能极大提升<br>2.使得跨端应用成为可能（react native）。虚拟dom转换成真实dom后可以在浏览器环境中渲染出来，但是原生环境中并没有dom，这时可以把虚拟dom（js对象）转换成原生应用中对应的组件，从而可以显示出来。</p>
-<h4 id="diff算法"><a href="#diff算法" class="headerlink" title="diff算法"></a>diff算法</h4><p>setState是一个异步的方法，之所以是异步，是为了防止在极短的时间内state中的数据发生多次改变，这样的话反复生成虚拟dom也是很耗费性能的，而react想做的是拿数据变化的最终结果来生成虚拟dom，再与之前的虚拟dom做对比，从而提升性能。<br>setState函数接受另一个函数作为第二个参数，当setState异步执行完成之后就会调用这个方法。<br>算法原理：虚拟dom之间比较的结果最终用来操作真实dom。同层比较，相同的话比较下一层，不同的话就把不同地方那里的所有下面的内容删掉，然后用新的虚拟dom的那部分进行重新渲染真实dom。<br>列表渲染时的key值是为了更好更快的比对虚拟dom。</p>
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>生命周期函数是在某一时刻组件会自动调用执行的函数。<br>componentWillReceiveProps,当一个组件从父组件接收参数，且这个组件已经存在与父组件中，才会执行（第一次存在于父组件中不会执行），只要父组件的render重新执行，该生命周期函数就会执行。<br>shouldComponentUpdate,在组件更新之前执行，该函数最后需要返回一个布尔值，用来决定组件是否要被更新，返回true的话就继续执行后面的生命周期，返回false的话不再继续向下执行。一般用来对子组件做性能优化。<br>componentWillMount,在组件即将被挂载到页面的时刻自动执行。<br>render,在state或props发生变化的时候执行。<br>componentDidMount,在组件被挂载到页面之后执行。一般在这里处理ajax请求，异步获取数据。<br>componentWillUnmount,当这个组件即将被从页面中剔除的时候执行。</p>
-<p>react提升性能的方式总结<br>react项目更改端口号：<br>在package.json中修改<br>  <code>&quot;start&quot;:&quot;react-scripts start&quot;</code>,<br>为<code>&quot;start&quot;:&quot;set PORT=9000 &amp;&amp; react-scripts start&quot;</code>,</p>
-<p>charles:抓取浏览器向外发送的请求，并对请求内容做处理。<br><a href="https://www.jianshu.com/p/b31d75c1dea7" target="_blank" rel="noopener">charles下载和配置</a></p>
-<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>redux是js状态容器，提供可预测化的状态管理。<br>三大原则：<br>1 单一数据源，整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。<br>2 State 是只读的，唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。<br>3 使用纯函数（给定固定的输入就一定有固定的输出，而且不能有负作用，一般来说就是不能有异步的操作，不能有跟时间相关的操作）来执行修改，为了描述 action 如何改变 state tree ，你需要编写 reducers。</p>
-<p>关键字： createStore , store.dispatch , store.getState , store.subscribe.</p>
-<p>Redux（数据层框架）=Reducer+Flux（过时了）,redux是flux的升级版。<br><img src="http://cdn.guchi.fun/19-03-05-146548ac8057ef86aadd3802eae12782.jpeg" alt=""><br>reducer:负责存储整个项目应用中的数据，返回的必须是一个函数<br>创建store需要引入redux的createStore方法并把reducer中的数据作为参数传入，为了使用Chrome的redux调试工具，需要在createStore中传入第二个参数：window.<strong>REDUX_DEVTOOLS_EXTENSION</strong> &amp;&amp; window.<strong>REDUX_DEVTOOLS_EXTENSION</strong>()</p>
-<p>如何实现子组件中input框的内容发生改变的同时改变store中的数据：</p>
-<ol>
-<li>给这个input框的onChange事件绑定一个函数（如函数名为inputChange）</li>
-<li>在inputChange中创建一个action对象，action必有一个type属性（这里定义为‘input-content-change’），然后自定义一个value属性，属性值为e.target.value</li>
-<li>然后在inputChange中调用store.dispatch（action）方法把action传给store</li>
-<li>store把当前的数据和接收到的action传给ruducer</li>
-<li>在reducer的返回函数里对action中的type值进行判断，如果满足条件（type值为‘input-content-change’）,就执行以下逻辑：先对state做一个深拷贝(因为reducer可以接受state但是不可以修改state)，然后将action中的数据赋值给拷贝对象，最后返回</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export default (state,action)=&#123;</span><br><span class="line">if(action.type===&quot;input-content-change&quot;)&#123;</span><br><span class="line">const newState=JSON.parse(JSON.stringify(state))</span><br><span class="line">newState.value=action.value</span><br><span class="line">return newState</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>6 在组件中订阅store，用store.subscribe方法，该方法接受一个回掉函数（命名为followChange），当store中的数据发生改变时，就会调用该方法<br>7 在followChange 方法中调用state方法对this.state中的数据重新赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.setState(store.getState())</span><br></pre></td></tr></table></figure>
-<p>优化：<br>1 把action的type属性拆分出来放到一个统一的js文件里面，然后在组件和reducer.js文件中引入这个统一的文件，目的是为了防止组件和reducer.js文件中action的type不一致导致的问题。<br>2 把创建action对象的方法拆分出来统一放到一个js文件里,目的是为了提高代码的可维护性，便于自动化测试。</p>
-<p>1 要使用redux首先安装依赖：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install redux --save</span><br></pre></td></tr></table></figure>
-<p>2 然后建立一个名为store的文件夹，然后建立一个index.js文件，里面引入并调用redux库中的createStore方法来创建一个store对象，这个文件只是返回最终的store对象结果，存储数据和处理数据则交给reducer来做。createStore方法接收两个参数，第一个参数是reducer.js返回的处理过的数据，第二个参数是为了在chrome浏览器上使用redux插件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123;createStore&#125; from &apos;redux&apos;</span><br><span class="line">import reducer from &apos;./reducer&apos;</span><br><span class="line"></span><br><span class="line">const store = createStore(</span><br><span class="line">    reducer,</span><br><span class="line">    window.__REDUX_DEVTOOLS_EXTENSION__ &amp;&amp; window.__REDUX_DEVTOOLS_EXTENSION__()</span><br><span class="line">)</span><br><span class="line">export default store</span><br></pre></td></tr></table></figure>
-<p>3 在store文件夹下建立一个reducer.js文件，该文件export一个函数，这个函数接受两个参数state和action并最终返回一个对象作为index.js中createStore的第一个参数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import &#123;input_content_change,list_add_data&#125; from &apos;../actionType&apos;</span><br><span class="line"></span><br><span class="line">const defaultState=&#123;</span><br><span class="line">    placeHolder:&apos;beautiful girl&apos;,</span><br><span class="line">    value:&apos;&apos;,</span><br><span class="line">    list:[&apos;杨幂&apos;,&apos;迪丽热巴&apos;]</span><br><span class="line">&#125;</span><br><span class="line">export default (state=defaultState,action)=&gt;&#123;</span><br><span class="line">    if(action.type===input_content_change)&#123;</span><br><span class="line">        const newState=JSON.parse(JSON.stringify(state))</span><br><span class="line">        newState.value=action.value</span><br><span class="line">        return newState</span><br><span class="line">    &#125;</span><br><span class="line">    if(action.type===list_add_data)&#123;</span><br><span class="line">        const newState=JSON.parse(JSON.stringify(state))</span><br><span class="line">        newState.value=&apos;&apos;</span><br><span class="line">        newState.list=action.list</span><br><span class="line">        return newState</span><br><span class="line">    &#125;</span><br><span class="line">    return state</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4 组件中通过store.getState()方法来获取store中的state数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">constructor(props)&#123;</span><br><span class="line">      super(props)</span><br><span class="line">      this.state=store.getState()</span><br><span class="line">      store.subscribe(this.followChange)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>5 react组件想要改变store中的数据，先要创建一个action对象，然后通过store.dispitch方法把action传递给store</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> const action=&#123;</span><br><span class="line">            type:input_content_change,</span><br><span class="line">            value:e.target.value</span><br><span class="line">        &#125;</span><br><span class="line">store.dispatch(action)</span><br></pre></td></tr></table></figure>
-<p>6 store接收到action数据后会自动把action数据连同store中的当前state对象一起传给reducer，作为reducer export函数的两个参数，然后在这个函数里自定义业务逻辑，最终返回一个新的state对象给store。store用这个新的state替换掉之前的store中的state<br>7 store数据发生改变之后react组件会感知到store发生改变（通过store.subscribe方法来感知store变化，并在此绑定一个回调对this.state的数据进行更新），页面就重新渲染了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> constructor(props)&#123;</span><br><span class="line">        super(props)</span><br><span class="line">        this.state=store.getState()</span><br><span class="line">        store.subscribe(this.followChange)</span><br><span class="line">    &#125;</span><br><span class="line">followChange()&#123;</span><br><span class="line">        this.setState(store.getState())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>中软国际：得力西大厦</p>
-<h3 id="react-ui框架-antd"><a href="#react-ui框架-antd" class="headerlink" title="react ui框架 antd"></a>react ui框架 antd</h3><p>蚂蚁金服搞的</p>
-<p>UI组件(傻瓜组件)负责页面的渲染，容器组件（聪明组件）负责页面的逻辑。<br>无状态组件：当一个普通组件只有render函数时，完全可以用一个无状态组件来替换掉这个组件，一个普通组件其实包括很多东西，如生命周期，定义在组件实例上的函数等等，而一个无状态组件则简单很多，它就是一个普通函数，接收一个参数，返回一段JSX片段，所以从性能上要比普通组件好很多。无状态组件使用场景：定义一个ui组件，只负责页面渲染，没有任何的逻辑操作，这时候适合用无状态组件来提升性能。</p>
-<p><a href="https://github.com/reduxjs/redux-thunk" target="_blank" rel="noopener">redux-thunk</a>是redux的中间件(中间指的是action和store之间，本质是对store.dispatch方法的一个封装(升级))，没有用中间件之前，store.dispatch接收到一个action对象，并把这个action对象传给store,在使用中间件之后（升级版的store.dispatch方法），store.dispatch方法如果接受到的还是一个action对象，就跟之前一样处理，如果接收到的是一个函数，就会执行这个函数，最终依然是返回一个action对象给store，区别就是可以在这个函数里写入一些异步代码或其他复杂的业务逻辑，最终使得组件变得更简洁，更容易测试和维护。<br><a href="https://github.com/zalmoxisus/redux-devtools-extension" target="_blank" rel="noopener">redux-devtools-extension</a><br><a href="https://github.com/redux-saga/redux-saga" target="_blank" rel="noopener">redux-saga</a></p>
-<p>react-redux是一个第三方模块，可以帮助在react中更方便的使用redux。<br>react-redux核心api：<br>1 provider组件，连接store，provider组件下的所有子组件都有能力获取到store中的数据<br>2 connect，provider组件下的子组件通过该方法与store做连接。</p>
-<p>在项目中引用css文件会在全局生效，为了避免样式冲突，使用styled-components来管理样式,功能是让组件自己的样式只对自己生效而不干扰其他组件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install styled-components --save</span><br></pre></td></tr></table></figure>
-<p><a href="https://blog.csdn.net/qq_32063079/article/details/83277054" target="_blank" rel="noopener">injectGlobal的弃用,以及使用createGlobalStyle来定义全局样式</a><br><a href="https://meyerweb.com/eric/tools/css/reset/" target="_blank" rel="noopener">为保证浏览器兼容性，引入reset.css</a></p>
+        <p>今天开始，从头扫盲，一天一篇。</p>
 
       
 
@@ -421,7 +284,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
         		</li>
       		
 		</ul>
@@ -477,7 +340,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/23/react学习总结1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/15/前端面试总结1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -491,18 +354,9 @@
   
 <nav id="article-nav">
   
-    <a href="../webpack知识汇总/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          webpack知识汇总
-        
-      </div>
-    </a>
   
-  
-    <a href="../react零碎知识点/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">react知识点</div>
+    <a href="../../09/Vue知识梳理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue梳理总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
