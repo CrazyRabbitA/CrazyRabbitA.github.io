@@ -278,8 +278,9 @@
 <li>地理(Geolocation) API</li>
 <li>表单控件，calendar、date、time、email、url、search</li>
 <li>本地离线存储 localStorage，sessionStorage </li>
-<li>新的技术webworker, websocket, Geolocation<br>如何区分： DOCTYPE声明\新增的结构元素\功能元素<br>  17<br><strong>display:none和visibility:hidden的区别？</strong><br>display:none  隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。<br>visibility:hidden  隐藏对应的元素，但是在文档布局中仍保留原来的空间。</li>
+<li>新的技术webworker, websocket, Geolocation<br>如何区分： DOCTYPE声明\新增的结构元素\功能元素</li>
 </ul>
+<p><strong>display:none和visibility:hidden的区别？</strong><br>display:none  隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。<br>visibility:hidden  隐藏对应的元素，但是在文档布局中仍保留原来的空间。<br><strong>函数节流和函数防抖</strong></p>
 <p>Expires，Max-Age的区别？</p>
 
       
@@ -305,6 +306,85 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="2019/03/15/前端面试总结1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-函数节流防抖" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/03/15/函数节流防抖/">函数节流防抖</a>
+    </h1>
+  
+
+        
+        <a href="2019/03/15/函数节流防抖/" class="archive-article-date">
+  	<time datetime="2019-03-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>事件(scroll,keydown,resize等)触发太频繁，浏览器来不及处理，导致页面出现卡顿。节流防抖就是针对此类场景的优化方法。</p>
+<h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><p>==节流就是保证一段时间内只执行一次核心代码。==<br>函数节流应用的实际场景，多数在监听页面元素滚动事件的时候会用到。<br>节流demo代码（页面滚动，500ms内只执行一次核心代码）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      #jieliu &#123;</span><br><span class="line">        height: 4000px;</span><br><span class="line">        background: green;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body id=&quot;jieliu&quot;&gt;&lt;/body&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    let jL = document.querySelector(&quot;#jieliu&quot;);</span><br><span class="line">    let doCore = true;</span><br><span class="line">    jL.onscroll = function() &#123;</span><br><span class="line">      if (!doCore) &#123;</span><br><span class="line">        return;</span><br><span class="line">      &#125;</span><br><span class="line">      doCore = false;</span><br><span class="line">      console.log(&quot;在这里执行核心代码&quot;);</span><br><span class="line">      setTimeout(function() &#123;</span><br><span class="line">        doCore = true;</span><br><span class="line">      &#125;, 500);</span><br><span class="line">    &#125;;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><p>==防抖就是规定函数至少间隔多久执行。==<br>函数防抖的应用场景，最常见的就是用户注册时候的手机号码验证和邮箱验证了。只有等用户输入完毕后，前端才需要检查格式是否正确，如果不正确，再弹出提示语。<br>防抖demo（input停止输入500ms后执行核心函数，500ms内有重复输入的话核心函数往后推迟执行。）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;</span><br><span class="line">    &lt;title&gt;防抖&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      body &#123;</span><br><span class="line">        text-align: center;</span><br><span class="line">      &#125;</span><br><span class="line">      #fangdou &#123;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 50px;</span><br><span class="line">        border: solid 1px green;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; id=&quot;fangdou&quot; autofocus /&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    //核心函数</span><br><span class="line">    function core() &#123;</span><br><span class="line">      console.log(&quot;执行核心代码&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    let fD = document.querySelector(&quot;#fangdou&quot;);</span><br><span class="line">    let timer = false;</span><br><span class="line">    fD.onkeydown = function() &#123;</span><br><span class="line">      clearTimeout(timer);</span><br><span class="line">      timer = setTimeout(core, 500);</span><br><span class="line">    &#125;;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>防抖、节流的使用场景：<br>当只需要处理最后一次触发事件时，用函数防抖。如窗口大小值变化时并不需要计算中间变化的过程，只需要窗口大小改变完成后的值。<br>当事件触发过于频繁，我们需要限制事件处理程序的调用频率时，用函数节流。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2019/03/15/函数节流防抖/">展开全文 >></a>
         </p>
       
 
@@ -509,86 +589,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="2019/03/06/杂/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-webpack知识汇总" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2019/02/23/webpack知识汇总/">webpack知识汇总</a>
-    </h1>
-  
-
-        
-        <a href="2019/02/23/webpack知识汇总/" class="archive-article-date">
-  	<time datetime="2019-02-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>webpack是一个前端静态资源打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。（比如将很多有依赖关系的js文件打包成一个，加快页面中资源的下载速度），也可以提高兼容性，可以将一些浏览器尚不支持的新特性转换为可以支持格式（比如使用loader将es6转成es5，给css3的新特性针对不同的浏览器加不同的前缀）</li>
-<li>node和npm的关系：npm作者已经将npm（用来管理js的）开发完成，于是发邮件通知 jQuery、Bootstrap、Underscore 作者，希望他们把代码放到npm远程仓库，但是没有收到回应，于是npm的发展遇到了瓶颈。Node.js作者也将Node.js开发完成，但是Node.js缺少一个包管理器，于是他和 npm 的作者一拍即合、抱团取暖，最终 Node.js 内置了 npm，npm成为了node官方的包管理工具，安装node时会自动安装npm。。</li>
-<li>命令行中执行npm install+包名的时候，实际上是在向npm服务器请求下载该js包并安装到本地，所以npm install时是需要网络的。</li>
-<li>webpack有几个核心概念：Entry（入口），Module（模块），Chunk(代码块)，Loader（模块转换器），Plugin（插件）下面一个个具体来研究。</li>
-<li>Entry(入口)：它指示webpack应该从哪个模块开始着手，来作为其构建内部依赖图的开始。下面的截图都以一个使用vue-cli搭建的后台管理的一个项目为例。 <img src="http://cdn.guchi.fun/19-02-23-b994a918e2c92a534e69527ab5f2aa8e.png" alt="">使用vue-cli搭建项目时会在src文件夹下生成一个App.vue组件和对应的main.js，这个main.js就是默认的入口文件。<br>6.前置知识1 文件路径中以‘/’开头代表绝对路径，以‘./’开头代表当前目录，以‘../开头代表上一级目录’。2 path是node的内置模块，require时直接require文件名就行了：<code>const path = require(&#39;path&#39;)</code> 3 path.resolve接收一个相对路径，返回一个绝对路径，当有多个参数时，操作时为从左到右依次对各个参数执行cd操作，返回的是最后所在的文件夹的绝对路径。</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2019/02/23/webpack知识汇总/">展开全文 >></a>
         </p>
       
 
@@ -938,6 +938,86 @@
 
 
   
+    <article id="post-webpack知识汇总" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/02/23/webpack知识汇总/">webpack知识汇总</a>
+    </h1>
+  
+
+        
+        <a href="2019/02/23/webpack知识汇总/" class="archive-article-date">
+  	<time datetime="2019-02-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>webpack是一个前端静态资源打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。（比如将很多有依赖关系的js文件打包成一个，加快页面中资源的下载速度），也可以提高兼容性，可以将一些浏览器尚不支持的新特性转换为可以支持格式（比如使用loader将es6转成es5，给css3的新特性针对不同的浏览器加不同的前缀）</li>
+<li>node和npm的关系：npm作者已经将npm（用来管理js的）开发完成，于是发邮件通知 jQuery、Bootstrap、Underscore 作者，希望他们把代码放到npm远程仓库，但是没有收到回应，于是npm的发展遇到了瓶颈。Node.js作者也将Node.js开发完成，但是Node.js缺少一个包管理器，于是他和 npm 的作者一拍即合、抱团取暖，最终 Node.js 内置了 npm，npm成为了node官方的包管理工具，安装node时会自动安装npm。。</li>
+<li>命令行中执行npm install+包名的时候，实际上是在向npm服务器请求下载该js包并安装到本地，所以npm install时是需要网络的。</li>
+<li>webpack有几个核心概念：Entry（入口），Module（模块），Chunk(代码块)，Loader（模块转换器），Plugin（插件）下面一个个具体来研究。</li>
+<li>Entry(入口)：它指示webpack应该从哪个模块开始着手，来作为其构建内部依赖图的开始。下面的截图都以一个使用vue-cli搭建的后台管理的一个项目为例。 <img src="http://cdn.guchi.fun/19-02-23-b994a918e2c92a534e69527ab5f2aa8e.png" alt="">使用vue-cli搭建项目时会在src文件夹下生成一个App.vue组件和对应的main.js，这个main.js就是默认的入口文件。<br>6.前置知识1 文件路径中以‘/’开头代表绝对路径，以‘./’开头代表当前目录，以‘../开头代表上一级目录’。2 path是node的内置模块，require时直接require文件名就行了：<code>const path = require(&#39;path&#39;)</code> 3 path.resolve接收一个相对路径，返回一个绝对路径，当有多个参数时，操作时为从左到右依次对各个参数执行cd操作，返回的是最后所在的文件夹的绝对路径。</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2019/02/23/webpack知识汇总/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-面试文章链接汇总" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1258,159 +1338,6 @@
 
 
   
-    <article id="post-items的使用与配置" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2019/01/29/items的使用与配置/">item2配置和使用</a>
-    </h1>
-  
-
-        
-        <a href="2019/01/29/items的使用与配置/" class="archive-article-date">
-  	<time datetime="2019-01-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>发现了一篇关于配置item的很不错的博客，于是就跟着配置了一下，<a href="https://www.cnblogs.com/weixuqin/p/7029177.html" target="_blank" rel="noopener">原文</a>写的很详细，就不再赘述了，简单总结一下：</p>
-<ol>
-<li>将iTem2设置为默认终端：iTerm2 -&gt; Make iTerm2 Default Term。</li>
-<li>iTem2 -&gt;performance -&gt;key中设置 <code>option+space</code>快捷键来显示隐藏终端。</li>
-<li>主题配色，这里可以参考一个更详细的教程 <a href="https://www.jianshu.com/p/6e964940139c" target="_blank" rel="noopener">item2主题色配置</a>。</li>
-<li>为了使用下面更酷炫的功能，需要安装一个叫<strong>oh-my-zsh</strong>插件，我用的crul安装，终端输入：<code>sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code>，安装好之后需要对一个隐藏配置文件进行编辑，<code>open .zshrc</code>打开这个文件。</li>
-<li>按教程配置主题和字体。</li>
-<li>配置语法高亮（语法错误时会变红）。</li>
-<li>配置自动提示功能。1 会自动提示可能要输入的命令,按<code>-&gt;</code>快速输入。2 输入一段命令后（npm node cd …)后<code>空格+Tab</code>会在下面提示可能要输入的选项,再次点击<code>Tab</code>配合方向键可以进行选择。</li>
-<li>设置终端背景和透明度。</li>
-</ol>
-<p>最终效果图：<br><img src="http://cdn.guchi.fun/19-02-21-7092c9e970f2909006642b66dcab3548.png" alt=""></p>
-<p>顺便总结几个常用的item命令，多了也记不住了</p>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:left">命令</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">command + t</td>
-<td style="text-align:left">新建标签</td>
-</tr>
-<tr>
-<td style="text-align:left">command + w</td>
-<td style="text-align:left">关闭标签</td>
-</tr>
-<tr>
-<td style="text-align:left">command + 数字 command + 左右方向键</td>
-<td style="text-align:left">切换标签</td>
-</tr>
-<tr>
-<td style="text-align:left">command + f</td>
-<td style="text-align:left">查找</td>
-</tr>
-<tr>
-<td style="text-align:left">ctrl + p</td>
-<td style="text-align:left">上一条命令</td>
-</tr>
-<tr>
-<td style="text-align:left">ctrl + l</td>
-<td style="text-align:left">清屏</td>
-</tr>
-<tr>
-<td style="text-align:left">ctrl + u</td>
-<td style="text-align:left">清除当前行</td>
-</tr>
-<tr>
-<td style="text-align:left">ctrl + a</td>
-<td style="text-align:left">到行首</td>
-</tr>
-<tr>
-<td style="text-align:left">ctrl + e</td>
-<td style="text-align:left">到行尾</td>
-</tr>
-<tr>
-<td style="text-align:left">command +/command -</td>
-<td style="text-align:left">放大/缩小终端界面</td>
-</tr>
-<tr>
-<td style="text-align:left">command + enter</td>
-<td style="text-align:left">切换全屏</td>
-</tr>
-<tr>
-<td style="text-align:left">commond+i</td>
-<td style="text-align:left">设置item</td>
-</tr>
-<tr>
-<td style="text-align:left">command + d</td>
-<td style="text-align:left">垂直分屏</td>
-</tr>
-<tr>
-<td style="text-align:left">command + shift + d</td>
-<td style="text-align:left">水平分屏</td>
-</tr>
-</tbody>
-</table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">skill</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2019/01/29/items的使用与配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="extend next" rel="next" href="page/2/">Next &raquo;</a>
@@ -1508,14 +1435,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">life</a>
               </li>
              
@@ -1524,7 +1443,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1532,11 +1459,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">interview</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1548,7 +1479,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
               </li>
              
               <li class="article-tag-list-item">
