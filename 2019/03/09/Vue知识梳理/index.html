@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>React | Hexo</title>
+  <title>vue梳理总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 JSX是一种Javascript语法扩展，是React.createElement()方法的语法糖，它们最终返回ReactElement对象（本质就是普通的js对象，模拟了真实dom结构，所以结构复杂了点）。2 JSX中可以任意使用Javascript表达式，但要放在{}里。3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。4 编译之后JSX会被转换为普通的Ja">
-<meta name="keywords" content="react">
+  <meta name="description" content="VUE 构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？ vue-cli 工程常用的 npm 命令有哪些？ 请说出vue-cli工程中每个文件夹和文件的用处? vue的两个核心？ 对渐进式框架的理解 vue常用指令 v-if和v-show的区别及各自使用场景 v-on指令常用修饰符 v-on可以监听多个方法吗？ key的作用 vue事件中如何使用event对象？ vue异步更新队">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React">
-<meta property="og:url" content="http://yoursite.com/2019/01/15/react知识总结（1）/index.html">
+<meta property="og:title" content="vue梳理总结">
+<meta property="og:url" content="http://yoursite.com/2019/03/09/Vue知识梳理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1 JSX是一种Javascript语法扩展，是React.createElement()方法的语法糖，它们最终返回ReactElement对象（本质就是普通的js对象，模拟了真实dom结构，所以结构复杂了点）。2 JSX中可以任意使用Javascript表达式，但要放在{}里。3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。4 编译之后JSX会被转换为普通的Ja">
+<meta property="og:description" content="VUE 构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？ vue-cli 工程常用的 npm 命令有哪些？ 请说出vue-cli工程中每个文件夹和文件的用处? vue的两个核心？ 对渐进式框架的理解 vue常用指令 v-if和v-show的区别及各自使用场景 v-on指令常用修饰符 v-on可以监听多个方法吗？ key的作用 vue事件中如何使用event对象？ vue异步更新队">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pl9syc281.bkt.clouddn.com/19-01-22-7ce8faaf018aa2bcb9be3affffd5f91d.png">
-<meta property="og:image" content="http://pl9syc281.bkt.clouddn.com/19-01-23-91e264c4f0d63f2b48b270dc7fa2e3a8.png">
-<meta property="og:updated_time" content="2019-02-27T01:18:57.305Z">
+<meta property="og:updated_time" content="2019-03-15T03:50:57.092Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React">
-<meta name="twitter:description" content="1 JSX是一种Javascript语法扩展，是React.createElement()方法的语法糖，它们最终返回ReactElement对象（本质就是普通的js对象，模拟了真实dom结构，所以结构复杂了点）。2 JSX中可以任意使用Javascript表达式，但要放在{}里。3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。4 编译之后JSX会被转换为普通的Ja">
-<meta name="twitter:image" content="http://pl9syc281.bkt.clouddn.com/19-01-22-7ce8faaf018aa2bcb9be3affffd5f91d.png">
+<meta name="twitter:title" content="vue梳理总结">
+<meta name="twitter:description" content="VUE 构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？ vue-cli 工程常用的 npm 命令有哪些？ 请说出vue-cli工程中每个文件夹和文件的用处? vue的两个核心？ 对渐进式框架的理解 vue常用指令 v-if和v-show的区别及各自使用场景 v-on指令常用修饰符 v-on可以监听多个方法吗？ key的作用 vue事件中如何使用event对象？ vue异步更新队">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -84,6 +81,8 @@
 				<li><a href="../../../../tags/shill">skill</a></li>
 	        
 				<li><a href="../../../../tags/life">life</a></li>
+	        
+				<li><a href="../../../../tags/interview">interview</a></li>
 	        
 				<li><a href="../../../../tags/other">other</a></li>
 	        
@@ -165,6 +164,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -185,31 +186,33 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 7.6923076923076925%"><a href="../../../../index.html">主页</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../index.html">主页</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/node">node</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/node">node</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/vue">vue</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/vue">vue</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/react">react</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/react">react</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/es6">es6</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/es6">es6</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/web">web</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/web">web</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/css">css</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/css">css</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/js">js</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/js">js</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/work">work</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/work">work</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/job">job</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/job">job</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/shill">skill</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/shill">skill</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/life">life</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/life">life</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/other">other</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/interview">interview</a></li>
+		        
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/other">other</a></li>
 		        
 				</ul>
 			</nav>
@@ -226,61 +229,75 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react知识总结（1）" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Vue知识梳理" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      React
+      vue梳理总结
     </h1>
   
 
         
         <a href="" class="archive-article-date">
-  	<time datetime="2019-01-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
+  	<time datetime="2019-03-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1 JSX是一种Javascript语法扩展，是React.createElement()方法的语法糖，它们最终返回ReactElement对象（本质就是普通的js对象，模拟了真实dom结构，所以结构复杂了点）。<br>2 JSX中可以任意使用Javascript表达式，但要放在{}里。<br>3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。<br>4 编译之后JSX会被转换为普通的Javascript对象。<br>5 可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。<br>6 标签中可以定义以字符串或JS表达式为值的属性。注意：使用以JS表达式为值为属性值时，外面不要再套引号了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;img src=&#123;user.avatarUrl&#125;&gt;&lt;/img&gt;;</span><br></pre></td></tr></table></figure></p>
-<p>7 单标签需要闭合，使用自己自定义的组件时，组件名首字母必须大写。<br>8 JSX标签可以嵌套。<br>9 Babel 转译器会把 JSX 转换成一个名为 React.createElement() 的方法调用,<a href="https://babeljs.io/repl" target="_blank" rel="noopener">在线演示</a>,React.createElement()的第一个参数是dom标签名，第二个参数是dom属性内容，后面的参数是标签内的内容，该方法通过层层嵌套使用来实现复杂的dom结构。<br><img src="http://pl9syc281.bkt.clouddn.com/19-01-22-7ce8faaf018aa2bcb9be3affffd5f91d.png" alt=""><br>10 React DOM 使用 camelCase 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称。<br>11 标签中的class变成了className(为了避免跟类class混淆)。<br>12 元素是构成React应用的最小单位，与浏览器的DOM元素不同，React当中的元素事实上是普通的对象，React DOM 可以确保浏览器DOM的数据内容与React元素保持一致。<br>14 要将React元素渲染到根DOM节点中，我们通过把它们都传递给 ReactDOM.render() 的方法来将其渲染到页面上：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</span><br><span class="line">ReactDOM.render(element, document.getElementById(&apos;root&apos;));</span><br></pre></td></tr></table></figure>
-<p>15 React元素都是不可变的，元素被创建之后，就无法再改变其内容和属性，所以更新页面唯一的方法就是创建一个新的元素，传入ReactDOM.render() 方法。<br>16 React DOM 首先会比较元素内容先后的不同，而在渲染过程中只会更新改变了的部分。<br>17 组件可以将UI切分成一些独立的、可复用的部件。<br>18 组件从概念上看就像是函数，它可以接收任意的输入值（称之为“props”），并返回一个需要在页面上展示的React元素。<br>19 定义一个组件最简单的方式是使用JavaScript函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>20 也可以使用 ES6 class 来定义一个组件:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Welcome extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return &lt;h1&gt;Hello, &#123;this.props.name&#125;&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>21 React元素不一定都是Dom标签，也可以是用户自定义的组件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</span><br></pre></td></tr></table></figure>
-<p>等同于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可见：标签名对应的是函数名，属性和属性值组成键值对成为参数。<br>等同于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  element,</span><br><span class="line">  document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>22 组件名称必须以大写字母开头。<br>23 组件可以在它的输出中引用其它组件。<br>24 组件的返回值只能有一个根元素，和vue的template类似。<br>25 不改变它自己的输入值，当传入的值相同时，总是会返回相同的结果，这样的函数称之为“纯函数”，所有的React组件必须像“纯函数”那样使用它们的参数。<br>26 状态与属性非常相似，单状态是私有的，完全受控于当前组件。<br>27 5个步骤把函数转换成类：</p>
-<ul>
-<li>创建一个名称扩展为React.Component的类</li>
-<li>创建一个叫做render()的空方法</li>
-<li>将函数体移动到 render() 方法中</li>
-<li>在 render() 方法中，使用 this.props 替换 props</li>
-<li>删除剩余的空函数声明</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!&lt;/h1&gt;</span><br><span class="line">        &lt;h2&gt;It is &#123;this.props.date.toLocaleTimeString()&#125;.&lt;/h2&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>28 react就是一个JavaScript库，react和react-router, react-redux结合起来才叫框架，它本身只是充当一个前端渲染的库而已，没有什么异步处理机制、模块化、表单验证等。<br>29 不要直接更新状态，应当使用setState（），其参数可以是一个对象，也可以是用一个函数返回一个对象，当调用 setState() 时，React 将提供的对象合并到当前状态。<br>30 状态通常被称为局部或封装。 除了拥有并设置它的组件外，其它组件不可访问。<br>31 单向数据流：任何状态始终由某些特定组件所有，并且从该状态导出的任何数据或 UI 只能影响树中下方的组件。<br>32 传统html绑定事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=&quot;activateLasers()&quot;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
-<p>react绑定事件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;activateLasers&#125;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-<p>React事件绑定属性的命名采用驼峰式写法，而不是小写。<br>如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串(DOM元素的写法)。<br>33  Keys可以在DOM中的某些元素被增加或删除的时候帮助React识别哪些元素发生了变化。因此你应当给数组中的每一个元素赋予一个确定的标识。如果不指定显式的键值，那么React将默认使用索引用作为列表项目的键值。<br>34 元素位于map()方法内时需要设置键属性。<br>35 数组元素中使用的key在其兄弟之间应该是独一无二的。然而，它们不需要是全局唯一的。当生成两个不同的数组时，可以使用相同的键.<br>36 key会作为给React的提示，但不会传递给组件。<br>37 其值由React控制的输入表单元素称为“受控组件”。如<code>&lt;input type=&quot;text&quot;&gt;</code>, <code>&lt;textarea&gt;</code>, 和 <code>&lt;select&gt;</code> 都十分类似 - 他们都通过传入一个value属性来实现对组件的控制。<br>38<code>&lt;input type=&quot;file&quot;&gt;</code>,该标签的 value 属性是只读的， 所以它是 React 中的一个非受控组件。<br>39 react是facebook在2013年推出的一个用于构建用户界面的库。<br>40 react特点：声明式写法，组件化。。。。<br>41 react 开发环境：node，npm，脚手架，IDE工具。<br>42 react脚手架工具：create-react-app,终端安装：<code>npm install -g create-react-app</code>，生成项目：<code>create-react-app my-app</code>,进入项目后<code>npm i</code>安装依赖，<code>npm start</code>运行项目。<br>43 react中写组件是以.js作为后缀（vue是以.vue作为后缀）<br>44 react组件的生命周期分为三大类：1 组件初始化（组件从创建到挂载到dom上的过程）2 组件更新 3 组件卸载<br><img src="http://pl9syc281.bkt.clouddn.com/19-01-23-91e264c4f0d63f2b48b270dc7fa2e3a8.png" alt=""><br>45 多个组件需要分享一个相同的数据，最好的办法是将共有的状态提升到离他们最近的父组件中进行管理，这样的做法叫状态提升。react不同与双向绑定最主要的特点就是单向数据流<br>46 context设计的目的是为了共享共享对于组件来说的全局数据<br>（如当前用户，语言，主题等等），不要仅仅是为了避免props在多层级组件下的传递而使用context。</p>
-<ol>
-<li>前置知识：js，es6，webpack，npm</li>
-<li>facebook推出，2013年开源，函数式编程思想，16之后的版本称之为React Fiber</li>
-<li>相比于vue，灵活性更大一点，处理复杂业务有更多的选择方案，vue提供了更多的api，实现功能变得更简单，但也因此灵活性受到了限制。</li>
-<li>环境搭建：方法一：外部引入js文件；方法二：脚手架工具（前端开发辅助工具，可以自动快速的帮忙构建一个大型项目的开发流程和目录，允许以一定的方式来实现js文件之间的相互引用），官方指定脚手架工具：Create-react-app，安装之前要确保已经安装了node和npm。</li>
+        <h3 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h3><ol>
+<li>构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？</li>
+<li>vue-cli 工程常用的 npm 命令有哪些？</li>
+<li>请说出vue-cli工程中每个文件夹和文件的用处?</li>
+<li>vue的两个核心？</li>
+<li>对渐进式框架的理解</li>
+<li>vue常用指令</li>
+<li>v-if和v-show的区别及各自使用场景</li>
+<li>v-on指令常用修饰符</li>
+<li>v-on可以监听多个方法吗？</li>
+<li>key的作用</li>
+<li>vue事件中如何使用event对象？</li>
+<li>vue异步更新队列，以及$nextTick的使用</li>
+<li>vue中data为什么必须是函数，然后return一个对象？</li>
+<li>v-for和v-if的优先级</li>
+<li>vue组件传值：父传子，子传父，兄弟传（需要再敲demo熟悉一下）</li>
+<li>vue中 keep-alive 组件的作用？</li>
+<li>vue中如何编写可复用的组件？</li>
+<li>什么是vue生命周期？有哪些？每个时期做了什么？<a href="https://www.kancloud.cn/hanxuming/vue-iq/733839" target="_blank" rel="noopener">生命周期</a></li>
+<li>vue如何监听键盘事件中的按键？</li>
+<li>vue更新数组时触发视图更新的方法？</li>
+<li>vue中对象更改检测的注意事项？</li>
+<li>如何解决非工程化项目，网速慢时初始化页面闪动问题？</li>
+<li>v-for产生的列表，如何实现active样式的切换？</li>
+<li>vue-cli工作中如何自定义一个过滤器？</li>
+<li>什么是SPA，优缺点？</li>
+<li>计算属性和方法的区别？</li>
 </ol>
-<p>查看npm全局安装内容的指令：<code>npm list --depth=0 -global</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br><span class="line">cd my-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
-<p>react-scripts 是一个工具，用来执行package.json中script中的指令。<br>src 下的index.js是整个项目的入口</p>
+<p>必背的概念：<br>vue生命周期： vue 实例从开始创建、初始化数据、编译模板、挂载Dom→渲染、更新→渲染、卸载等一系列过程。<br>SPA：只有一张web页面的应用，浏览器一开始会加载必需的HTML、CSS和JavaScript，所有的操作都在这张页面上完成，都由JavaScript来控制。<br>优点：<br>1 交互体验好。内容的改变不需要重新加载整个页面，显示流畅。<br>2 良好的前后端分离模式。后端不再负责模板渲染、输出页面工作，后端API通用化，即同一套后端程序代码，不用修改就可以用于Web界面、手机、平板等多种客户端。也因此减轻了服务器压力。<br>缺点：<br>1 首次加载时间长<br>2 不利于SEO<br>3 由于单页Web应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退功能<br>计算属性和方法的区别？<br>  1 计算属性是基于它所依赖的数据进行更新，在有在相关依赖的数据发生变化了才会进行更新，而普通的方法基于事件调用。<br>  2 计算属性是有缓存的，只要它所依赖的数据没有发生改变，后面的每一次访问计算属性中的值，都是之前缓存的结果，不会重复执行。<br>使用计算属性还是methods取决于是否需要缓存，当遍历大数组和做大量计算时，应当使用计算属性，除非你不希望得到缓存。</p>
+<h3 id="VUE-ROUTER"><a href="#VUE-ROUTER" class="headerlink" title="VUE-ROUTER"></a>VUE-ROUTER</h3><ol>
+<li>vue-router的有两种模式，什么区别？ <a href="https://segmentfault.com/q/1010000010340823" target="_blank" rel="noopener">参考链接</a></li>
+<li>vue-router如何实现动态加载路由组件（ 懒加载 ）？</li>
+<li></li>
+</ol>
+<p>总结：</p>
+<ol>
+<li>hash，URL中‘#’后面的内容，特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。history，利用了 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法。（需要特定浏览器支持）</li>
+</ol>
+<p>相关知识点和链接：<br><a href="https://blog.csdn.net/callmeCassie/article/details/86765109" target="_blank" rel="noopener">url中 # 的作用</a>，#代表网页中的一个位置。其右面的字符，就是该位置的标识符。比如，<code>http://www.example.com/index.html#print</code>就代表网页index.html的print位置。浏览器读取这个URL后，会自动将print位置滚动至可视区域。<br>‘#’是用来指导浏览器动作的，对服务器端完全无用。所以，HTTP请求中不包括#。<br>在第一个#后面出现的任何字符，都会被浏览器解读为位置标识符。这意味着，这些字符都不会被发送到服务器端。<br>单单改变#后的部分，浏览器只会滚动到相应位置，不会重新加载网页。<br>改变#会改变浏览器的访问历史。<br>chrome浏览器的前进后退按钮长按会显示历史记录。</p>
+<h3 id="VUEX"><a href="#VUEX" class="headerlink" title="VUEX"></a>VUEX</h3><ol>
+<li>什么是vuex？解决什么问题？</li>
+<li></li>
+</ol>
+<p>vuex概念：专门为vue开发的状态管理器，采用集中式存储管理应用中的所有组件状态。</p>
+<h3 id="VUE工程化"><a href="#VUE工程化" class="headerlink" title="VUE工程化"></a>VUE工程化</h3><ol>
+<li>vue打包命令？打包后又生成了哪些文件？为什么不将js打包成一个而是要拆分成几个？</li>
+<li>vue如何优化首屏加载速度？</li>
+<li></li>
+</ol>
 
       
 
@@ -315,7 +332,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -371,7 +388,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/15/react知识总结（1）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/09/Vue知识梳理/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -385,18 +402,18 @@
   
 <nav id="article-nav">
   
-    <a href="../ES6中class知识点总结/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../15/前端面试总结/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          ES6中class的知识点总结
+          前端面试题总结
         
       </div>
     </a>
   
   
-    <a href="../../14/CSS实现div高度随宽度等比例变化/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CSS实现div高度随宽度等比例变化</div>
+    <a href="../../06/杂/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">杂</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -522,19 +539,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">life</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">skill</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,19 +583,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">life</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">skill</a>
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
               </li>
             
             <div class="clearfix"></div>

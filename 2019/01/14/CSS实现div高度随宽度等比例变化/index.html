@@ -9,14 +9,14 @@
   <title>CSS实现div高度随宽度等比例变化 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这应该是一个很简单的问题，奈何学艺不精，直到业务中遇到了这样的场景，才发现之前的方法都不好用了，网上搜索了下，果然有技巧，在这总结一下。原文链接：纯Css实现Div高度根据自适应宽度（百分比）调整div的宽度百分比和高度百分比是相对于父元素的宽高的，宽度很容易拿到，但如果父元素是靠子元素撑开的，自身没有高度的话，那么在子div上设置高度百分比是没有用的。先看下要实现的效果：由于子div里要放图片，">
-<meta name="keywords" content="技术">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS实现div高度随宽度等比例变化">
 <meta property="og:url" content="http://yoursite.com/2019/01/14/CSS实现div高度随宽度等比例变化/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="这应该是一个很简单的问题，奈何学艺不精，直到业务中遇到了这样的场景，才发现之前的方法都不好用了，网上搜索了下，果然有技巧，在这总结一下。原文链接：纯Css实现Div高度根据自适应宽度（百分比）调整div的宽度百分比和高度百分比是相对于父元素的宽高的，宽度很容易拿到，但如果父元素是靠子元素撑开的，自身没有高度的话，那么在子div上设置高度百分比是没有用的。先看下要实现的效果：由于子div里要放图片，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-21T06:17:50.565Z">
+<meta property="og:updated_time" content="2019-03-15T03:52:35.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS实现div高度随宽度等比例变化">
 <meta name="twitter:description" content="这应该是一个很简单的问题，奈何学艺不精，直到业务中遇到了这样的场景，才发现之前的方法都不好用了，网上搜索了下，果然有技巧，在这总结一下。原文链接：纯Css实现Div高度根据自适应宽度（百分比）调整div的宽度百分比和高度百分比是相对于父元素的宽高的，宽度很容易拿到，但如果父元素是靠子元素撑开的，自身没有高度的话，那么在子div上设置高度百分比是没有用的。先看下要实现的效果：由于子div里要放图片，">
@@ -81,6 +81,8 @@
 				<li><a href="../../../../tags/shill">skill</a></li>
 	        
 				<li><a href="../../../../tags/life">life</a></li>
+	        
+				<li><a href="../../../../tags/interview">interview</a></li>
 	        
 				<li><a href="../../../../tags/other">other</a></li>
 	        
@@ -162,6 +164,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -182,31 +186,33 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 7.6923076923076925%"><a href="../../../../index.html">主页</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../index.html">主页</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/node">node</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/node">node</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/vue">vue</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/vue">vue</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/react">react</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/react">react</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/es6">es6</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/es6">es6</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/web">web</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/web">web</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/css">css</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/css">css</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/js">js</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/js">js</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/work">work</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/work">work</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/job">job</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/job">job</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/shill">skill</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/shill">skill</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/life">life</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/life">life</a></li>
 		        
-					<li style="width: 7.6923076923076925%"><a href="../../../../tags/other">other</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/interview">interview</a></li>
+		        
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/other">other</a></li>
 		        
 				</ul>
 			</nav>
@@ -280,7 +286,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -350,11 +356,11 @@
   
 <nav id="article-nav">
   
-    <a href="../../15/react知识总结（1）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../15/ES6中class知识点总结/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          React
+          ES6中class的知识点总结
         
       </div>
     </a>
@@ -487,19 +493,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">life</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">skill</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,19 +537,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">life</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">skill</a>
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
               </li>
             
             <div class="clearfix"></div>

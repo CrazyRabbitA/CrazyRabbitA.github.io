@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>webpack知识汇总 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端顾驰的个人博客">
-<meta name="keywords" content="顾驰的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="webpack是一个前端静态资源打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。（比如将很多有依赖关系的js文件打包成一个，加快页面中资源的下载速度），也可以提高兼容性，可以将一些浏览器尚不支持的新特性转换为可以支持格式（比如使用loader将es6转成es5，给css3的新特性针对不同的浏览器加不同的前缀） node和npm的关系：npm作者已经将">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack知识汇总">
+<meta property="og:url" content="http://yoursite.com/2019/02/23/webpack知识汇总/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前端顾驰的个人博客">
+<meta property="og:description" content="webpack是一个前端静态资源打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。（比如将很多有依赖关系的js文件打包成一个，加快页面中资源的下载速度），也可以提高兼容性，可以将一些浏览器尚不支持的新特性转换为可以支持格式（比如使用loader将es6转成es5，给css3的新特性针对不同的浏览器加不同的前缀） node和npm的关系：npm作者已经将">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://cdn.guchi.fun/19-02-23-b994a918e2c92a534e69527ab5f2aa8e.png">
+<meta property="og:updated_time" content="2019-03-15T03:39:28.282Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="前端顾驰的个人博客">
+<meta name="twitter:title" content="webpack知识汇总">
+<meta name="twitter:description" content="webpack是一个前端静态资源打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。（比如将很多有依赖关系的js文件打包成一个，加快页面中资源的下载速度），也可以提高兼容性，可以将一些浏览器尚不支持的新特性转换为可以支持格式（比如使用loader将es6转成es5，给css3的新特性针对不同的浏览器加不同的前缀） node和npm的关系：npm作者已经将">
+<meta name="twitter:image" content="http://cdn.guchi.fun/19-02-23-b994a918e2c92a534e69527ab5f2aa8e.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -57,33 +60,33 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="../index.html">主页</a></li>
+				<li><a href="../../../../index.html">主页</a></li>
 	        
-				<li><a href="../tags/node">node</a></li>
+				<li><a href="../../../../tags/node">node</a></li>
 	        
-				<li><a href="../tags/vue">vue</a></li>
+				<li><a href="../../../../tags/vue">vue</a></li>
 	        
-				<li><a href="../tags/react">react</a></li>
+				<li><a href="../../../../tags/react">react</a></li>
 	        
-				<li><a href="../tags/es6">es6</a></li>
+				<li><a href="../../../../tags/es6">es6</a></li>
 	        
-				<li><a href="../tags/web">web</a></li>
+				<li><a href="../../../../tags/web">web</a></li>
 	        
-				<li><a href="../tags/css">css</a></li>
+				<li><a href="../../../../tags/css">css</a></li>
 	        
-				<li><a href="../tags/js">js</a></li>
+				<li><a href="../../../../tags/js">js</a></li>
 	        
-				<li><a href="../tags/work">work</a></li>
+				<li><a href="../../../../tags/work">work</a></li>
 	        
-				<li><a href="../tags/job">job</a></li>
+				<li><a href="../../../../tags/job">job</a></li>
 	        
-				<li><a href="../tags/shill">skill</a></li>
+				<li><a href="../../../../tags/shill">skill</a></li>
 	        
-				<li><a href="../tags/life">life</a></li>
+				<li><a href="../../../../tags/life">life</a></li>
 	        
-				<li><a href="../tags/interview">interview</a></li>
+				<li><a href="../../../../tags/interview">interview</a></li>
 	        
-				<li><a href="../tags/other">other</a></li>
+				<li><a href="../../../../tags/other">other</a></li>
 	        
 			</ul>
 		</nav>
@@ -185,33 +188,33 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 7.142857142857143%"><a href="../index.html">主页</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../index.html">主页</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/node">node</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/node">node</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/vue">vue</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/vue">vue</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/react">react</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/react">react</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/es6">es6</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/es6">es6</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/web">web</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/web">web</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/css">css</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/css">css</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/js">js</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/js">js</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/work">work</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/work">work</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/job">job</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/job">job</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/shill">skill</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/shill">skill</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/life">life</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/life">life</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/interview">interview</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/interview">interview</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../tags/other">other</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/other">other</a></li>
 		        
 				</ul>
 			</nav>
@@ -228,150 +231,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-webpack知识汇总" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../2019/03/15/前端面试总结/" class="archive-article-date">
-  	<time datetime="2019-03-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../2019/03/15/前端面试总结/">前端面试题总结</a>
+    <h1 class="article-title" itemprop="name">
+      webpack知识汇总
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../2019/03/09/Vue知识梳理/" class="archive-article-date">
-  	<time datetime="2019-03-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../2019/03/09/Vue知识梳理/">vue梳理总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../2019/03/06/杂/" class="archive-article-date">
-  	<time datetime="2019-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../2019/03/06/杂/">杂</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">other</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../2019/02/23/webpack知识汇总/" class="archive-article-date">
+        
+        <a href="" class="archive-article-date">
   	<time datetime="2019-02-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../2019/02/23/webpack知识汇总/">webpack知识汇总</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>webpack是一个前端静态资源打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。（比如将很多有依赖关系的js文件打包成一个，加快页面中资源的下载速度），也可以提高兼容性，可以将一些浏览器尚不支持的新特性转换为可以支持格式（比如使用loader将es6转成es5，给css3的新特性针对不同的浏览器加不同的前缀）</li>
+<li>node和npm的关系：npm作者已经将npm（用来管理js的）开发完成，于是发邮件通知 jQuery、Bootstrap、Underscore 作者，希望他们把代码放到npm远程仓库，但是没有收到回应，于是npm的发展遇到了瓶颈。Node.js作者也将Node.js开发完成，但是Node.js缺少一个包管理器，于是他和 npm 的作者一拍即合、抱团取暖，最终 Node.js 内置了 npm，npm成为了node官方的包管理工具，安装node时会自动安装npm。。</li>
+<li>命令行中执行npm install+包名的时候，实际上是在向npm服务器请求下载该js包并安装到本地，所以npm install时是需要网络的。</li>
+<li>webpack有几个核心概念：Entry（入口），Module（模块），Chunk(代码块)，Loader（模块转换器），Plugin（插件）下面一个个具体来研究。</li>
+<li>Entry(入口)：它指示webpack应该从哪个模块开始着手，来作为其构建内部依赖图的开始。下面的截图都以一个使用vue-cli搭建的后台管理的一个项目为例。 <img src="http://cdn.guchi.fun/19-02-23-b994a918e2c92a534e69527ab5f2aa8e.png" alt="">使用vue-cli搭建项目时会在src文件夹下生成一个App.vue组件和对应的main.js，这个main.js就是默认的入口文件。<br>6.前置知识1 文件路径中以‘/’开头代表绝对路径，以‘./’开头代表当前目录，以‘../开头代表上一级目录’。2 path是node的内置模块，require时直接require文件名就行了：<code>const path = require(&#39;path&#39;)</code> 3 path.resolve接收一个相对路径，返回一个绝对路径，当有多个参数时，操作时为从左到右依次对各个参数执行cd操作，返回的是最后所在的文件夹的绝对路径。</li>
+</ol>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -383,250 +298,114 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/23/webpack知识汇总/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../2019/02/23/react零碎知识点/" class="archive-article-date">
-  	<time datetime="2019-02-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="../../../03/06/杂/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          杂
+        
+      </div>
+    </a>
+  
+  
+    <a href="../react零碎知识点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react知识点</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../2019/02/23/react零碎知识点/">react知识点</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../2019/02/23/react学习总结1/" class="archive-article-date">
-  	<time datetime="2019-02-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../2019/02/23/react学习总结1/">react知识点</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../2019/02/22/面试文章链接汇总/" class="archive-article-date">
-  	<time datetime="2019-02-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../2019/02/22/面试文章链接汇总/">面试梳理链接汇总</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../2019/02/04/node/" class="archive-article-date">
-  	<time datetime="2019-02-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../2019/02/04/node/">node</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../2019/01/30/服务器/" class="archive-article-date">
-  	<time datetime="2019-01-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../2019/01/30/服务器/">服务器相关知识</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../2019/01/29/items的使用与配置/" class="archive-article-date">
-  	<time datetime="2019-01-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../2019/01/29/items的使用与配置/">item2配置和使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">skill</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="extend next" rel="next" href="page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -650,8 +429,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
