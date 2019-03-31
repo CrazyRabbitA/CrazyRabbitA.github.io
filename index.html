@@ -230,46 +230,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-前端面试总结1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-Css知识点总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="2019/03/15/前端面试总结1/">前端面试题总结(1)</a>
+      <a class="article-title" href="2019/03/31/Css知识点总结/">Css知识点总结</a>
     </h1>
   
 
         
-        <a href="2019/03/15/前端面试总结1/" class="archive-article-date">
-  	<time datetime="2019-03-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
+        <a href="2019/03/31/Css知识点总结/" class="archive-article-date">
+  	<time datetime="2019-03-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天开始，从头扫盲，一天一篇。<br><strong>如何理解HTMl语义化？</strong><br>主要包括标签语义化和类名语义化。使用nav,header,footer,aside,artical,section等这些新增语义化的标签代替div，使得整个html结构逻辑更加清晰；使用类似于nav，container，wraper，banner，mask，logo等能表示用途的类名，让人一目了然。<br>语义化的好处：</p>
+        <p><strong>如何理解HTMl语义化？</strong><br>主要包括标签语义化和类名语义化。使用nav,header,footer,aside,artical,section等这些新增语义化的标签代替div，使得整个html结构逻辑更加清晰；使用类似于nav，container，wraper，banner，mask，logo等能表示用途的类名，让人一目了然。<br>语义化的好处：</p>
 <ul>
 <li>便于搜索引擎检索和收录</li>
 <li>没有css的时候也能呈现清晰的网页结构</li>
 <li>便于盲人设备，读屏器等理解页面</li>
 <li>便于团队开发和维护</li>
 </ul>
-<p><strong>优雅降级和渐进增强</strong><br>渐进增强（Progressive Enhancement）：一开始就针对低版本浏览器进行构建页面，完成基本的功能，然后再针对高级浏览器进行交互和功能的追加以达到更好的体验。相当于向上兼容<br>优雅降级（Graceful Degradation）：一开始就构建站点的完整功能，然后针对低版本浏览器进行测试和修复。 使其可以在低版本浏览器上正常浏览。相当于向下兼容<br>两者的区别在于优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带。<br><strong>浏览器是如何解析页面的？</strong><br>解析代码：HTML 代码解析为 DOM，CSS 代码解析为 CSSOM（CSS Object Model）。<br>对象合成：将 DOM 和 CSSOM 合成一棵渲染树（render tree）。<br>布局：计算出渲染树的布局（layout）。<br>绘制：将渲染树绘制到屏幕。<br>以上四步并非严格按顺序执行，往往第一步还没完成，第二步和第三步就已经开始了。所以，会看到这种情况：网页的 HTML 代码还没下载完，但浏览器已经显示出内容了。<br><strong>不同浏览器的内核？</strong><br>内核指的就是渲染引擎<br>Firefox：Gecko 引擎<br>Safari：WebKit 引擎<br>Chrome：Blink 引擎<br>IE: Trident 引擎<br>Edge: EdgeHTML 引擎<br><strong>不同浏览器的c3属性前缀？</strong><br>chrome和safari: -webkit<br>Firfox:  -moz<br>IE:  -ms<br>Opera: -o<br><strong>JS哪些操作会造成内存泄露?</strong><br>1意外的全局变量引起的内存泄露（在函数内部声明变量时没有用var）<br>2闭包引起的内存泄露<br>3没有清理的DOM元素引用<br>4被遗忘的定时器或者回调<br>5子元素存在引起的内存泄露<br><strong>如何避免内存泄漏</strong><br>1减少不必要的全局变量，或者生命周期长的对象，及时对无用的数据进行垃圾回收<br>2注意程序逻辑，避免死循环<br>3避免创建过多的对象<br><strong>简述同步和异步的区别</strong><br>同步是阻塞模式，异步是非阻塞模式。 同步就是指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信息才继续执行下去； 异步是指进程不需要一直等下去，而是继续执行下面的操作，不管其他进程的状态。当有消息返回时系统会通知进程进行处理，这样可以提高执行的效率。<br><strong>怎样添加、移除、移动、复制、创建和查找节点？</strong><br>看DOM总结<br><strong>meta viewport 是做什么用的？</strong><br>控制页面在移动端不要缩小</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=“viewport” content=“width=device-width,user-scalable=no,intial-scal=1.0,maximum-scale=1.0,minimum-scale=1.0”&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>盒模型？</strong><br>box-sizing常用的属性有哪些？<br>content-box（默认值，w3c盒模型），border-box（ie盒模型），inherit<br>content-box:宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框(元素默认效果)。<br>border-box:宽度和高度是内容区+内边距+边框<br><strong>css reset和normalize.css的区别？</strong><br>HTML标签在浏览器中都有默认的样式，不同的浏览器的默认样式之间存在差别，开发时浏览器的默认样式可能会给我们带来多浏览器兼容性问题，影响开发效率。<br>Reset 相对「暴力」，不管你有没有用，统统重置成一样的效果，且影响的范围很大，讲求跨浏览器的一致性。<br>Normalize 相对「平和」，注重通用的方案，重置掉该重置的样式，保留有用的 user agent 样式，同时进行一些 bug 的修复，这点是 reset 所缺乏的。<br><strong>选择器优先级？</strong><br>选择器类型<br>1、ID　　#id<br>2、class　　.class<br>3、标签　　p<br>4、通用　　*<br>5、属性　　[type=”text”]<br>6、伪类　　：hover<br>7、伪元素　　::first-line<br>8、子选择器、相邻选择器<br>权重计算规则<br>！important&gt;行内样式&gt;ID选择器&gt;类，伪类，伪元素选择器&gt;标签选择器&gt;通配符选择器&gt;默认样式<br><strong>清除浮动？</strong><br>清除浮动的目的主要是因为浮动的元素脱离文档流，无法撑开父元素。<br>1.父级div定义 height<br>原理：父级div手动定义height，就解决了父级div无法自动获取到高度的问题。  优点：简单、代码少 缺点：只适合高度固定的布局，高度如果发生变化就会出问题<br>2.父级div定义 overflow:hidden<br>原理：必须定义width或zoom:1，同时不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度  优点：简单、代码少、浏览器支持好<br>3 父元素结尾处加空div标签并添加 clear:both<br>原理：添加一个空div，利用css提高的clear:both清除浮动，让父级div能自动获取到高度  优点：简单、代码少、浏览器支持好、不容易出现怪问题<br>缺点：增加很多空div，让人感觉很不好<br>4给父元素添加一个clearfix的类，再给这个类添加after伪元素，伪元素内定义content：’’；display：block；clear:both;<br><strong>BFC是什么？</strong><br>什么是BFC（block formatting context块级格式化上下文）？<br>BFC是一个独立的布局环境，其中的元素布局是不受外界的影响。<br>BFC布局规则：.<br>1内部的Box会在垂直方向，一个接一个地放置。<br>2.同一个BFC中的两个相邻Box的margin会发生重叠<br>3.计算BFC的高度时，浮动元素也参与计算<br>4.BFC的区域不会与区域外浮动的Box重叠。<br>5.每个Box的左margin外侧与父元素左padding内侧接触，与即使存在浮动也是如此。<br>5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。<br><strong>bfc能干嘛</strong><br>1.利用BFC避免外边距折叠<br>BFC产生外边距折叠要满足一个条件：两个相邻元素要处于同一个BFC中。所以，若两个相邻元素在不同的BFC中，就能避免外边距折叠。<br>2.BFC包含浮动<br>BFC能包含浮动，也能解决容器高度不会被撑开的问题。<br>3.自适应两栏布局<br>4.可以阻止元素被浮动元素覆盖<br><strong>如何触发bfc：</strong><br>1、float的值不是none。<br>2、position的值不是static或者relative。(position属性值有7个,static， absolute,relative,fixed,sticky,inherit,initial)<br>3、display的值是inline-block、table-cell、flex、table-caption<br>4、overflow的值不是visible（overflow的属性值有visible，hidden，scroll，auto，inherit<br><strong>margin合并条件？</strong><br>两个相邻子块盒上面的下margin与下面的上margin<br>（假设没有内边距或边框把外边距分隔开），第一个子元素的上边距会和父元素的上边距合并；最后一个子元素的下边距会和父元素的下边距合并。<br>（假设没有内边距或边框把外边距分隔开）一个元素上外边距与下外边距就碰到了一起，它们会发生合并（前提是一个为正一个为负，）。<br>合并规则？<br>同正取最大值<br>一正一负取代数和<br>同负为绝对值大的那个<br><strong>JS数据类型？</strong><br>String,number,bolean,null,undefined,symble,object<br><strong>什么是promise？</strong><br>Promise是异步编程的一种解决方案。Promise对象表示了异步操作的最终状态（完成或失败）和返回的结果。<br>then方法可以接受两个回调函数作为参数。第一个回调函数是Promise对象的状态变为resolved时调用，第二个回调函数是Promise对象的状态变为rejected时调用。第二个函数是可选的。分别称之为成功回调和失败回调。成功回调接收异步操作成功的结果为参数，失败回调接收异步操作失败报出的错误作为参数。<br>如何自己生成promise对象？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function xxx()&#123;</span><br><span class="line">return new Promise(function(resolve,reject)&#123;</span><br><span class="line">setTimeOut(()=&gt;&#123;</span><br><span class="line">resolve()或是reject（）</span><br><span class="line">&#125;，3000) &#125;</span><br><span class="line">xxx().then()</span><br></pre></td></tr></table></figure>
-<p><strong>什么是立即执行函数？</strong><br>造出一个函数作用于，防止污染全局变量<br><strong>如何实现深拷贝？</strong><br>在深拷贝中，无论原型对象的成员变量是值类型还是引用类型，都将复制一份给拷贝对象，深拷贝将原型对象的所有引用对象也复制一份给拷贝对象。<br>1 JSON.stringify/parse的方法<br>先用JSON.stringify 将一个 JavaScript 值转成一个 JSON 字符串。<br>再用JSON.parse 将一个 JSON 字符串转成一个 JavaScript 值或对象。<br>这种方法有属性丢失，因为undefined、function、symbol 会在转换过程中被忽略，而且不能复制不可枚举的属性。。。<br>2递归方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function deepClone (oldObj) &#123;</span><br><span class="line">  // 如果不是对象或是null，undefined，直接返回</span><br><span class="line">  if (!oldObj &amp;&amp; typeof oldObj !== &apos;object&apos;) &#123;</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line">  var newObj = oldObj.constructor === Array ? [] : &#123;&#125;</span><br><span class="line">  for (let key in oldObj) &#123;</span><br><span class="line">    if (oldObj.hasOwnProperty(key)) &#123;</span><br><span class="line">      if (oldObj[key] &amp;&amp; typeof oldObj[key] === &apos;object&apos;) &#123;</span><br><span class="line">        newObj[key] = oldObj[key].constructor === Array ? [] : &#123;&#125;</span><br><span class="line">        newObj[key] = deepClone(oldObj[key])</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        newObj[key] = oldObj[key]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return newObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>什么是cookie：</strong><br>cookie是服务器保存在浏览器的一小段文本信息，用来记录用户信息http响应通过set-cookie来设置cookie，浏览器访问 指定域名时必须在请求头里带上cookie。<br><strong>cookie的作用：</strong><br>Cookie 主要用来分辨两个请求是否来自同一个浏览器，以及用来保存一些状态信息<br><strong>cookie的常用的场合：</strong><br>对话管理：保存登录、购物车等需要记录的信息。<br>个性化：保存用户的偏好，比如网页的字体大小、背景色等等。<br>追踪：记录和分析用户行为。<br><strong>cookie的内容：</strong><br>Cookie 的名字<br>Cookie 的值（真正的数据写在这里面）<br>到期时间<br>所属域名（默认是当前域名）<br>生效的路径（默认是当前网址）<br><strong>cookie大小和数量限制：</strong><br>不同浏览器对 Cookie 数量和大小的限制，是不一样的。一般来说，单个域名设置的 Cookie 不应超过30个，每个 Cookie 的大小不能超过4KB。超过限制以后，Cookie 将被忽略，不会被设置<br><strong>共享cookie的条件：</strong><br>两个网址只要域名相同和端口相同，就可以共享 Cookie。注意，这里不要求协议相同。<br><strong>后台设置cookie：</strong><br>如何改变一个预先设置好的cookie：如果服务器想改变一个早先设置的 Cookie，必须同时满足四个条件：Cookie 的key、domain、path和secure都匹配。<br><strong>cookie和session的区别？</strong><br> 1、cookie数据存放在客户的浏览器上，session数据放在服务器上。<br> 2、cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗<br>考虑到安全应当使用session。<br> 3、session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用COOKIE。<br> 4、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。<br> 5、所以：将登陆信息等重要信息存放为SESSION，其他信息如果需要保留，可以放在COOKIE中<br>session是服务器端的内存，一般通过在cookie里设置sessionId实现，sessionid是随机数<br><strong>cookie，sessionstorage，localstorage的区别？</strong><br>相同点：都存储在客户端 不同点：</p>
-<ol>
-<li>存储大小<br>cookie数据大小不能超过4k。<br>sessionStorage和localStorage 可以达到5M或更大。</li>
-<li>有效时间<br>localStorage 存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；<br>sessionStorage 数据在当前浏览器窗口关闭后自动删除。<br>cookie 设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭</li>
-<li>数据与服务器之间的交互方式<br>cookie的数据会自动的传递到服务器，服务器端也可以写cookie到客户端<br>sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。</li>
-</ol>
-<p><strong>get和post的区别？</strong><br>1 get一般用于从服务器获取数据，post一般用于向服务器发送数据<br>2 GET参数通过URL传递，POST放在Request body中。<br>3 GET请求在URL中传送的参数是有长度限制的，而POST么有。<br>4 GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。<br>5 GET请求只能进行url编码，而POST支持多种编码方式。<br>6 对参数的数据类型，GET只接受ASCII字符，而POST没有限制。<br>7 GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。<br>8 GET请求会被浏览器主动cache，而POST不会，除非手动设置。<br>9 GET在浏览器回退时是无害的，而POST会再次提交请求。<br>10 get产生的url可以被存到书签，post 产生的url不可以<br>11 最重要的区别：<br>GET产生一个TCP数据包；POST产生两个TCP数据包。所以get比post 速度快<br>对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；<br>而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）。<br>也就是说，GET只需要汽车跑一趟就把货送到了，而POST得跑两趟，第一趟，先去和服务器打个招呼“嗨，我等下要送一批货来，你们打开门迎接我”，然后再回头把货送过去。<br>GET和POST本质上就是TCP链接，并无差别。但是由于HTTP的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同。<br><strong>html5有哪些新特性？如何区分 HTML 和 HTML5？</strong><br>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。</p>
+<p><strong>html5有哪些新特性？如何区分 HTML 和 HTML5？</strong><br>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。</p>
 <ul>
 <li>更多语义化标签（header,nav,footer,aside,article,section）</li>
 <li>音频、视频API(audio,video)</li>
@@ -280,8 +268,19 @@
 <li>本地离线存储 localStorage，sessionStorage </li>
 <li>新的技术webworker, websocket, Geolocation<br>如何区分： DOCTYPE声明\新增的结构元素\功能元素</li>
 </ul>
-<p><strong>display:none和visibility:hidden的区别？</strong><br>display:none  隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。<br>visibility:hidden  隐藏对应的元素，但是在文档布局中仍保留原来的空间。<br><strong>函数节流和函数防抖</strong></p>
-<p>Expires，Max-Age的区别？</p>
+<p><strong>CSS3有哪些新特性？</strong></p>
+<ul>
+<li>圆角（边框半径）：border-radius 属性用于创建圆角</li>
+<li>盒阴影：box-shadow: 10px 10px 5px #888888</li>
+<li>RGBA和透明度</li>
+<li>媒体查询：定义两套css，当浏览器的尺寸变化时会采用不同的属性</li>
+<li>边框图片：border-image: url(border.png) 30 30 round</li>
+<li>font-face属性：定义自己的字体</li>
+<li>文字阴影：text-shadow： 5px 5px 5px #FF0000;（水平阴影，垂直阴影，模糊距离，阴影颜色）</li>
+</ul>
+<p><strong>盒模型？</strong><br>通过box-sizing属性指定为哪种盒模型，默认为content-box<br>W3C盒模型（content-box）：内容区宽高指的就是content的宽高<br>IE盒模型（border-box）：内容区宽高指的是content+padding+border<br><strong>清除浮动？</strong><br>清除浮动的目的主要是因为浮动的元素脱离文档流，无法撑开父元素。<br>1.父级div定义 height<br>原理：父级div手动定义height，就解决了父级div无法自动获取到高度的问题。  优点：简单、代码少 缺点：只适合高度固定的布局，高度如果发生变化就会出问题<br>2.父级div定义 overflow:hidden<br>原理：必须定义width或zoom:1，同时不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度  优点：简单、代码少、浏览器支持好<br>3 父元素结尾处加空div标签并添加 clear:both<br>原理：添加一个空div，利用css提高的clear:both清除浮动，让父级div能自动获取到高度  优点：简单、代码少、浏览器支持好、不容易出现怪问题<br>缺点：增加很多空div，让人感觉很不好<br>4给父元素添加一个clearfix的类，再给这个类添加after伪元素，伪元素内定义content：’’；display：block；clear:both;<br><strong>BFC是什么？</strong><br>什么是BFC（block formatting context块级格式化上下文）？<br>BFC是一个独立的布局环境，其中的元素布局是不受外界的影响。<br>BFC布局规则：.<br>1内部的Box会在垂直方向，一个接一个地放置。<br>2.同一个BFC中的两个相邻Box的margin会发生重叠<br>3.计算BFC的高度时，浮动元素也参与计算<br>4.BFC的区域不会与区域外浮动的Box重叠。<br>5.每个Box的左margin外侧与父元素左padding内侧接触，与即使存在浮动也是如此。<br>5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。<br><strong>bfc能干嘛</strong><br>1.利用BFC避免外边距折叠<br>BFC产生外边距折叠要满足一个条件：两个相邻元素要处于同一个BFC中。所以，若两个相邻元素在不同的BFC中，就能避免外边距折叠。<br>2.BFC包含浮动<br>BFC能包含浮动，也能解决容器高度不会被撑开的问题。<br>3.自适应两栏布局<br>4.可以阻止元素被浮动元素覆盖<br><strong>如何触发bfc：</strong><br>1、float的值不是none。<br>2、position的值不是static或者relative。(position属性值有7个,static， absolute,relative,fixed,sticky,inherit,initial)<br>3、display的值是inline-block、table-cell、flex、table-caption<br>4、overflow的值不是visible（overflow的属性值有visible，hidden，scroll，auto，inherit</p>
+<p><strong>Css有哪些选择器，优先级？</strong><br>选择器类型<br>1、ID　　#id<br>2、class　　.class<br>3、标签　　p<br>4、通用　　*<br>5、属性　　[type=”text”]<br>6、伪类　　：hover<br>7、伪元素　　::first-line<br>8、子选择器、相邻选择器<br>权重计算规则<br>！important&gt;行内样式&gt;ID选择器&gt;类，伪类，伪元素选择器&gt;标签选择器&gt;通配符选择器&gt;默认样式<br><strong>margin合并条件？</strong><br>两个相邻子块盒上面的下margin与下面的上margin<br>（假设没有内边距或边框把外边距分隔开），第一个子元素的上边距会和父元素的上边距合并；最后一个子元素的下边距会和父元素的下边距合并。<br>（假设没有内边距或边框把外边距分隔开）一个元素上外边距与下外边距就碰到了一起，它们会发生合并（前提是一个为正一个为负，）。<br>合并规则？<br>同正取最大值<br>一正一负取代数和<br>同负为绝对值大的那个<br><strong>meta viewport 是做什么用的？</strong><br>告诉浏览器按照设备宽度显示页面，且不允许缩放。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=“viewport” content=“width=device-width,user-scalable=no,intial-scal=1.0,maximum-scale=1.0,minimum-scale=1.0”&gt;</span><br><span class="line"></span><br><span class="line">width=device-width   视口为设备宽度（就是人设置的一个宽度）//不设置的话默认为980px</span><br><span class="line">initial-scale=1.0    初始化的视口大小是1.0倍</span><br><span class="line">maximum-scale=1.0    最大的倍数是1.0倍</span><br><span class="line">user-scalable=0      不允许缩放视口</span><br></pre></td></tr></table></figure></p>
+<p><strong>优雅降级和渐进增强</strong><br>渐进增强（Progressive Enhancement）：一开始就针对低版本浏览器进行构建页面，完成基本的功能，然后再针对高级浏览器进行交互和功能的追加以达到更好的体验。相当于向上兼容<br>优雅降级（Graceful Degradation）：一开始就构建站点的完整功能，然后针对低版本浏览器进行测试和修复。 使其可以在低版本浏览器上正常浏览。相当于向下兼容<br>两者的区别在于优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带。<br><strong>display:none和visibility:hidden的区别？</strong><br>display:none  隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。（重流+重绘）<br>visibility:hidden  隐藏对应的元素，但是在文档布局中仍保留原来的空间。（重绘）<br><strong>css reset和normalize.css的区别？</strong><br>HTML标签在浏览器中都有默认的样式，不同的浏览器的默认样式之间存在差别，开发时浏览器的默认样式可能会给我们带来多浏览器兼容性问题，影响开发效率。<br>Reset 相对「暴力」，不管你有没有用，统统重置成一样的效果，且影响的范围很大，讲求跨浏览器的一致性。<br>Normalize 相对「平和」，注重通用的方案，重置掉该重置的样式，保留有用的 user agent 样式，同时进行一些 bug 的修复，这点是 reset 所缺乏的。<br><strong>浏览器是如何解析页面的？</strong><br>解析代码：HTML 代码解析为 DOM，CSS 代码解析为 CSSOM（CSS Object Model）。<br>对象合成：将 DOM 和 CSSOM 合成一棵渲染树（render tree）。<br>布局：计算出渲染树的布局（layout）。<br>绘制：将渲染树绘制到屏幕。<br>以上四步并非严格按顺序执行，往往第一步还没完成，第二步和第三步就已经开始了。所以，会看到这种情况：网页的 HTML 代码还没下载完，但浏览器已经显示出内容了。<br><strong>不同浏览器的内核？</strong><br>内核指的就是渲染引擎<br>Firefox：Gecko 引擎<br>Safari：WebKit 引擎<br>Chrome：Blink 引擎<br>IE: Trident 引擎<br>Edge: EdgeHTML 引擎<br><strong>不同浏览器的c3属性前缀？</strong><br>chrome和safari: -webkit<br>Firfox:  -moz<br>IE:  -ms<br>Opera: -o<br><strong>哪些属性可以继承，哪些不可以？</strong><br>可继承的属性：font-size, font-family, color<br>不可继承的样式：border, padding, margin, width, height<br><strong>怎么让Chrome支持小于12px 的文字？</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p&#123;font-size:10px;-webkit-transform:scale(0.8);&#125; //0.8是缩放比例</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -295,7 +294,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -305,7 +304,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="2019/03/15/前端面试总结1/">展开全文 >></a>
+          <a class="article-more-a" href="2019/03/31/Css知识点总结/">展开全文 >></a>
         </p>
       
 
@@ -335,32 +334,42 @@
 
 
   
-    <article id="post-函数节流防抖" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-今天搞懂this" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="2019/03/15/函数节流防抖/">函数节流防抖</a>
+      <a class="article-title" href="2019/03/31/今天搞懂this/">搞懂this</a>
     </h1>
   
 
         
-        <a href="2019/03/15/函数节流防抖/" class="archive-article-date">
-  	<time datetime="2019-03-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
+        <a href="2019/03/31/今天搞懂this/" class="archive-article-date">
+  	<time datetime="2019-03-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>事件(scroll,keydown,resize等)触发太频繁，浏览器来不及处理，导致页面出现卡顿。节流防抖就是针对此类场景的优化方法。</p>
-<h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><p>==节流就是保证一段时间内只执行一次核心代码。==<br>函数节流应用的实际场景，多数在监听页面元素滚动事件的时候会用到。<br>节流demo代码（页面滚动，500ms内只执行一次核心代码）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      #jieliu &#123;</span><br><span class="line">        height: 4000px;</span><br><span class="line">        background: green;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body id=&quot;jieliu&quot;&gt;&lt;/body&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    let jL = document.querySelector(&quot;#jieliu&quot;);</span><br><span class="line">    let doCore = true;</span><br><span class="line">    jL.onscroll = function() &#123;</span><br><span class="line">      if (!doCore) &#123;</span><br><span class="line">        return;</span><br><span class="line">      &#125;</span><br><span class="line">      doCore = false;</span><br><span class="line">      console.log(&quot;在这里执行核心代码&quot;);</span><br><span class="line">      setTimeout(function() &#123;</span><br><span class="line">        doCore = true;</span><br><span class="line">      &#125;, 500);</span><br><span class="line">    &#125;;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><p>==防抖就是规定函数至少间隔多久执行。==<br>函数防抖的应用场景，最常见的就是用户注册时候的手机号码验证和邮箱验证了。只有等用户输入完毕后，前端才需要检查格式是否正确，如果不正确，再弹出提示语。<br>防抖demo（input停止输入500ms后执行核心函数，500ms内有重复输入的话核心函数往后推迟执行。）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;</span><br><span class="line">    &lt;title&gt;防抖&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      body &#123;</span><br><span class="line">        text-align: center;</span><br><span class="line">      &#125;</span><br><span class="line">      #fangdou &#123;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 50px;</span><br><span class="line">        border: solid 1px green;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; id=&quot;fangdou&quot; autofocus /&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    //核心函数</span><br><span class="line">    function core() &#123;</span><br><span class="line">      console.log(&quot;执行核心代码&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    let fD = document.querySelector(&quot;#fangdou&quot;);</span><br><span class="line">    let timer = false;</span><br><span class="line">    fD.onkeydown = function() &#123;</span><br><span class="line">      clearTimeout(timer);</span><br><span class="line">      timer = setTimeout(core, 500);</span><br><span class="line">    &#125;;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>防抖、节流的使用场景：<br>当只需要处理最后一次触发事件时，用函数防抖。如窗口大小值变化时并不需要计算中间变化的过程，只需要窗口大小改变完成后的值。<br>当事件触发过于频繁，我们需要限制事件处理程序的调用频率时，用函数节流。</p>
+        <p>函数中的this究竟是谁取决于函数调用的场景。<br>函数完整的调用方法是使用call方法，this是call方法的第一个参数，它可以在函数调用时修改，在函数没有调用的时候，this的值是无法确定。</p>
+<h4 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a>纯粹的函数调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function test1(name) &#123;</span><br><span class="line">    console.log(name)</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">test(&apos;Tom&apos;)</span><br><span class="line">//Tom</span><br><span class="line">//window</span><br><span class="line"></span><br><span class="line">//严格模式下</span><br><span class="line">function test2(name)&#123;</span><br><span class="line">    &apos;use strict&apos;</span><br><span class="line">    console.log(name)</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">test2(&apos;Tom&apos;)</span><br><span class="line">//Tom</span><br><span class="line">//undefined</span><br></pre></td></tr></table></figure>
+<p>test(‘Tom’)是test.call(undefined, ‘Tom’)的简写，函数调用时都会执行.call的方法，如果不显式指出来，.call的第一个参数默认就是undefined。非严格模式下，.call()的第一个参数为undefined时this默认指向全局对象（window），严格模式下，禁止默认指向全局对象，this即为undefined。</p>
+<h4 id="对象中函数的调用（函数作为方法调用）"><a href="#对象中函数的调用（函数作为方法调用）" class="headerlink" title="对象中函数的调用（函数作为方法调用）"></a>对象中函数的调用（函数作为方法调用）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;</span><br><span class="line">    name: &apos;Jerry&apos;,</span><br><span class="line">    greet: function() &#123;</span><br><span class="line">        console.log(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.greet()  //第一种调用方法</span><br><span class="line">obj.greet.call(obj) //第二种调用方法</span><br><span class="line">//Jerry</span><br><span class="line">//Jerry</span><br><span class="line"></span><br><span class="line">第一种调用方法只是第二种调用方法的语法糖，第二种才是完整的调用方法。</span><br><span class="line"></span><br><span class="line">手动绑定this</span><br><span class="line">obj.greet.call(&#123;name:&apos;Tom&apos;&#125;)</span><br><span class="line">//Tom</span><br></pre></td></tr></table></figure>
+<p>结合纯粹的函数调用，得出结论：函数执行时首先看函数名前面是否有”.”，有的话，”.”前面是谁,this就是谁；没有的话this就是window（非严格模式）</p>
+<h4 id="构造函数中的this"><a href="#构造函数中的this" class="headerlink" title="构造函数中的this"></a>构造函数中的this</h4><p>构造函数在执行new之后会返回一个对象，这个对象就是this。所以：构造函数中this指向的是该构造函数所生成的实例对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Test() &#123;</span><br><span class="line">    this.name = &apos;Tom&apos;</span><br><span class="line">&#125;</span><br><span class="line">let p = new Test()</span><br><span class="line">console.log(typeof p)  //object</span><br><span class="line">console.log(p.name)    // Tom</span><br></pre></td></tr></table></figure>
+<h4 id="定时器中函数的调用"><a href="#定时器中函数的调用" class="headerlink" title="定时器中函数的调用"></a>定时器中函数的调用</h4><p>window.setTimeout()和window.setInterval()的函数中的this有些特殊，里面的this默认是window对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;,1000)</span><br><span class="line">//13693 （定时器的时钟号）</span><br><span class="line">//window</span><br></pre></td></tr></table></figure></p>
+<h4 id="自执行函数中的this"><a href="#自执行函数中的this" class="headerlink" title="自执行函数中的this"></a>自执行函数中的this</h4><p>自执行函数中的this始终指向window</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;)()</span><br><span class="line">//window</span><br></pre></td></tr></table></figure>
+<h4 id="dom事件绑定函数中的this"><a href="#dom事件绑定函数中的this" class="headerlink" title="dom事件绑定函数中的this"></a>dom事件绑定函数中的this</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//Dom零级事件绑定</span><br><span class="line">oDiv.onclick = function () &#123;</span><br><span class="line">    //this-&gt;oDiv</span><br><span class="line">&#125;;</span><br><span class="line">//Dom二级事件绑定</span><br><span class="line">oDiv.addEventListener(&quot;click&quot;, function () &#123;</span><br><span class="line">    //this-&gt;oDiv</span><br><span class="line">&#125;, false);</span><br></pre></td></tr></table></figure>
+<p>总之就是：dom事件绑定函数中的this指向的就是绑定事件的dom节点。</p>
+<h4 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h4><p>1 箭头函数不会创建自己的this,它只会从自己的作用域链的上一层继承this，所以在箭头函数中this的值和外层的this是一样的。在多层对象嵌套里箭头函数里this是和最最外层保持一致的。<br>2 不能用call方法修改this指向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  birth: 1990,</span><br><span class="line">  getAge: function () &#123;</span><br><span class="line">    var b = this.birth </span><br><span class="line">    var fn = function () &#123;</span><br><span class="line">        console.log(b)</span><br><span class="line">      return this.birth </span><br><span class="line">    &#125;</span><br><span class="line">    return fn()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.getAge()</span><br><span class="line">//1990</span><br><span class="line">//undefined (this指向了window)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    birth: 1990,</span><br><span class="line">    getAge: function (year) &#123;</span><br><span class="line">        var b = this.birth; // 1990</span><br><span class="line">        var fn = (y) =&gt; y - this.birth; // this.birth仍是1990</span><br><span class="line">        return fn.call(&#123; birth: 2000 &#125;, year);//箭头函数call的第一个参数无效</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getAge(2019); // 29</span><br></pre></td></tr></table></figure>
+<p>apply、call、bind 的区别<br>相同点：第一个参数都是this<br>call： this之后（第一个参数之后）的参数接受的是若干个<strong>参数列表</strong>,返回函数执行的结果。<br>apply：this之后（第一个参数之后）的参数接受的是一个<strong>参数数组</strong>，返回函数执行的结果。<br>bind:  this之后（第一个参数之后）的参数接受的是若干个<strong>参数列表</strong>，不返回函数执行的结果，而是返回一个<strong>新的函数</strong>,该函数中的this即为bind中指定的this。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    num: 10,</span><br><span class="line">    fn: function (a, b) &#123;</span><br><span class="line">        console.log(a + b + this.num)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var z=&#123;</span><br><span class="line">    num:100</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var b = a.fn;</span><br><span class="line"></span><br><span class="line">b.call(a, 1, 2) //13</span><br><span class="line">b.call(z,1,2)  //103</span><br><span class="line"></span><br><span class="line">b.apply(a, [1, 2]) //13</span><br><span class="line">b.apply(z, [1, 2]) //103</span><br><span class="line"></span><br><span class="line">b.bind(a, 1, 2) //ƒ (a, b) &#123;console.log(a + b + this.num)&#125;</span><br><span class="line">b.bind(z, 1, 2) //ƒ (a, b) &#123;console.log(a + b + this.num)&#125;</span><br><span class="line"></span><br><span class="line">b.bind(a, 1, 2)()</span><br><span class="line">b.bind(z, 1, 2)()</span><br><span class="line"></span><br><span class="line">let c = a.fn.bind(a)</span><br><span class="line">let d=a.fn.bind(z)</span><br><span class="line"></span><br><span class="line">c(1,2) //13</span><br><span class="line">d(1,2) //103</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -384,7 +393,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="2019/03/15/函数节流防抖/">展开全文 >></a>
+          <a class="article-more-a" href="2019/03/31/今天搞懂this/">展开全文 >></a>
         </p>
       
 
@@ -414,75 +423,52 @@
 
 
   
-    <article id="post-Vue知识梳理" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-跨域问题总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="2019/03/09/Vue知识梳理/">vue梳理总结</a>
+      <a class="article-title" href="2019/03/31/跨域问题总结/">跨域问题</a>
     </h1>
   
 
         
-        <a href="2019/03/09/Vue知识梳理/" class="archive-article-date">
-  	<time datetime="2019-03-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-09</time>
+        <a href="2019/03/31/跨域问题总结/" class="archive-article-date">
+  	<time datetime="2019-03-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h3><ol>
-<li>构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？</li>
-<li>vue-cli 工程常用的 npm 命令有哪些？</li>
-<li>请说出vue-cli工程中每个文件夹和文件的用处?</li>
-<li>vue的两个核心？</li>
-<li>对渐进式框架的理解</li>
-<li>vue常用指令</li>
-<li>v-if和v-show的区别及各自使用场景</li>
-<li>v-on指令常用修饰符</li>
-<li>v-on可以监听多个方法吗？</li>
-<li>key的作用</li>
-<li>vue事件中如何使用event对象？</li>
-<li>vue异步更新队列，以及$nextTick的使用</li>
-<li>vue中data为什么必须是函数，然后return一个对象？</li>
-<li>v-for和v-if的优先级</li>
-<li>vue组件传值：父传子，子传父，兄弟传（需要再敲demo熟悉一下）</li>
-<li>vue中 keep-alive 组件的作用？</li>
-<li>vue中如何编写可复用的组件？</li>
-<li>什么是vue生命周期？有哪些？每个时期做了什么？<a href="https://www.kancloud.cn/hanxuming/vue-iq/733839" target="_blank" rel="noopener">生命周期</a></li>
-<li>vue如何监听键盘事件中的按键？</li>
-<li>vue更新数组时触发视图更新的方法？</li>
-<li>vue中对象更改检测的注意事项？</li>
-<li>如何解决非工程化项目，网速慢时初始化页面闪动问题？</li>
-<li>v-for产生的列表，如何实现active样式的切换？</li>
-<li>vue-cli工作中如何自定义一个过滤器？</li>
-<li>什么是SPA，优缺点？</li>
-<li>计算属性和方法的区别？</li>
-</ol>
-<p>必背的概念：<br>vue生命周期： vue 实例从开始创建、初始化数据、编译模板、挂载Dom→渲染、更新→渲染、卸载等一系列过程。<br>SPA：只有一张web页面的应用，浏览器一开始会加载必需的HTML、CSS和JavaScript，所有的操作都在这张页面上完成，都由JavaScript来控制。<br>优点：<br>1 交互体验好。内容的改变不需要重新加载整个页面，显示流畅。<br>2 良好的前后端分离模式。后端不再负责模板渲染、输出页面工作，后端API通用化，即同一套后端程序代码，不用修改就可以用于Web界面、手机、平板等多种客户端。也因此减轻了服务器压力。<br>缺点：<br>1 首次加载时间长<br>2 不利于SEO<br>3 由于单页Web应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退功能<br>计算属性和方法的区别？<br>  1 计算属性是基于它所依赖的数据进行更新，在有在相关依赖的数据发生变化了才会进行更新，而普通的方法基于事件调用。<br>  2 计算属性是有缓存的，只要它所依赖的数据没有发生改变，后面的每一次访问计算属性中的值，都是之前缓存的结果，不会重复执行。<br>使用计算属性还是methods取决于是否需要缓存，当遍历大数组和做大量计算时，应当使用计算属性，除非你不希望得到缓存。</p>
-<h3 id="VUE-ROUTER"><a href="#VUE-ROUTER" class="headerlink" title="VUE-ROUTER"></a>VUE-ROUTER</h3><ol>
-<li>vue-router的有两种模式，什么区别？ <a href="https://segmentfault.com/q/1010000010340823" target="_blank" rel="noopener">参考链接</a></li>
-<li>vue-router如何实现动态加载路由组件（ 懒加载 ）？</li>
-<li></li>
-</ol>
-<p>总结：</p>
+        <p>什么是同源？<br>三个相同：协议相同，域名相同，端口相同。<br>即便两个不同的域名指向同一个ip地址，也非同源。</p>
+<p>同源的目的？<br>为了保证用户信息的安全，防止恶意的网站窃取数据。</p>
+<p>非同源有哪些限制？<br> 1 Cookie、LocalStorage 和 IndexedDB 无法读取<br> 2 DOM 无法获得<br> 3 AJAX 请求无效（可以发送，但浏览器会拒绝接受响应）<br> <br>什么是跨域？<br> 跨域是指一个域下的文档或脚本试图去请求另一个域下的资源。<br> <br>什么情况下会跨域？<br>1 域名协议端口有任意一个不同。<br>2 使用xhr发送请求。（浏览器正常发送请求，服务器正常返回响应，但浏览器认为这是不安全的，会把响应拦截掉，导致最终无法获取响应）</p>
+<p>有三个标签是允许跨域加载资源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=XXX&gt;</span><br><span class="line">&lt;link href=XXX&gt;</span><br><span class="line">&lt;script src=XXX&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="跨域解决方式"><a href="#跨域解决方式" class="headerlink" title="跨域解决方式"></a>跨域解决方式</h3><h5 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h5><p>jsonp原理：利用<code>script</code>标签没有跨域限制的特点。<br>实现过程：<br>1 先设置好回调函数  fn1(data){console.log(data.message)}<br>2 然后动态创建script标签，url的参数里有callback=fn1<br>3 服务器看到有callback，把原来要返回的json数据{“message”:“服务器数据”}变成fn1（{“message”:“服务器数据”}）返回给浏览器，然后fn1被执行。<br>4 具体操作中还会给回调函数加一个随机数，确保不会重名，对url进行拼接，还会对服务器返回的数据进行验证，最后移除动态创建的script标签。</p>
+<p>优点：兼容性好，简单易用<br>缺点：<br>1 只能发送get请求（因为通过动态创建script的方式向服务器发送请求，而script标签只能发送get请求）<br>2 需要后台服务器配合改动代码以提供支持<br>3 不安全，可能遭受xss攻击（服务器的响应中夹杂恶意代码）</p>
+<p>其他：<br>JSONP：json+padding（内填充），顾名思义，就是把JSON填充到一个盒子里，小括号就是那个盒子。<br>Jsonp是一个非官方协议，它是一个前后台约定，约定了如果后台发现请求参数里面包含了callback（默认是这个，也可以约定成别的），就把返回的值由原来的json对象，变成js 代码，js代码的形式是函数调用的形式，它的函数名是callback参数的值，函数的参数是原来要返回的json</p>
+<h5 id="CORES"><a href="#CORES" class="headerlink" title="CORES"></a>CORES</h5><p>原理：主要通过在服务器端设置：<code>Access-Control-Allow-Origin</code>字段来实现。<br>实现过程：<br>1 浏览器在发送请求时会判断请求属于哪种情况（简单请求还是复杂请求）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">简单请求：使用GET,POST,HEAD方法，且Content-Type只能为：text/plain，multipart/form-data，application/x-www-form-urlencoded中的一个。</span><br><span class="line">复杂请求：简单请求以外的所有请求。</span><br></pre></td></tr></table></figure>
+<p>2 浏览器如果发现是简单请求就先执行而后判断：</p>
+<ul>
+<li>自动在头信息之中，添加一个Origin字段，内容为请求来自哪个源(协议 + 域名 + 端口)</li>
+<li>如果服务器认为这个请求可以接受，就在Access-Control-Allow-Origin头部中回发相同的源信息(如果是公共资源，可以回发” *” )</li>
+<li> 如果Origin指定的源，不在许可范围内，服务器会返回一个正常的HTTP回应。浏览器发现，这个回应的头信息没有包含Access-Control-Allow-Origin字段，就知道出错了，从而抛出一个错误，被XMLHttpRequest的onerror回调函数捕获。但是，这种错误无法通过状态码识别，因为HTTP回应的状态码有可能是200</li>
+</ul>
+<p>3 如果浏览器发现是非简单请求则先判断再执行：<br>先发一个预检命令 通过后台服务器验证之后才会把跨域请求真正的发送出去（这样做增加了请求次数）后台可以设置Access-Control-Max-Age 来指定预检命令在浏览器中的缓存时间，在这个时间内，如果浏览器发现是同一个非简单请求，则不再预检，直接向服务器发送跨域请求。</p>
+<h5 id="服务器代理（Node中间件代理）"><a href="#服务器代理（Node中间件代理）" class="headerlink" title="服务器代理（Node中间件代理）"></a>服务器代理（Node中间件代理）</h5><p>同源策略是浏览器需要遵循的标准，而如果是服务器向服务器请求就无需遵循同源策略。<br>实现过程：</p>
 <ol>
-<li>hash，URL中‘#’后面的内容，特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。history，利用了 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法。（需要特定浏览器支持）</li>
+<li>浏览器向代理服务器发送请求。</li>
+<li>代理服务器向最终服务器发送请求。</li>
+<li>代理服务器拿到响应。</li>
+<li>代理服务器将响应返回给浏览器。</li>
 </ol>
-<p>相关知识点和链接：<br><a href="https://blog.csdn.net/callmeCassie/article/details/86765109" target="_blank" rel="noopener">url中 # 的作用</a>，#代表网页中的一个位置。其右面的字符，就是该位置的标识符。比如，<code>http://www.example.com/index.html#print</code>就代表网页index.html的print位置。浏览器读取这个URL后，会自动将print位置滚动至可视区域。<br>‘#’是用来指导浏览器动作的，对服务器端完全无用。所以，HTTP请求中不包括#。<br>在第一个#后面出现的任何字符，都会被浏览器解读为位置标识符。这意味着，这些字符都不会被发送到服务器端。<br>单单改变#后的部分，浏览器只会滚动到相应位置，不会重新加载网页。<br>改变#会改变浏览器的访问历史。<br>chrome浏览器的前进后退按钮长按会显示历史记录。</p>
-<h3 id="VUEX"><a href="#VUEX" class="headerlink" title="VUEX"></a>VUEX</h3><ol>
-<li>什么是vuex？解决什么问题？</li>
-<li></li>
-</ol>
-<p>vuex概念：专门为vue开发的状态管理器，采用集中式存储管理应用中的所有组件状态。</p>
-<h3 id="VUE工程化"><a href="#VUE工程化" class="headerlink" title="VUE工程化"></a>VUE工程化</h3><ol>
-<li>vue打包命令？打包后又生成了哪些文件？为什么不将js打包成一个而是要拆分成几个？</li>
-<li>vue如何优化首屏加载速度？</li>
-<li></li>
-</ol>
+<h5 id="nginx反向代理"><a href="#nginx反向代理" class="headerlink" title="nginx反向代理"></a>nginx反向代理</h5><p> </p>
+<p>参考链接：<br><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="noopener">阮一峰同源跨域</a><br><a href="https://github.com/ljianshu/Blog/issues/55" target="_blank" rel="noopener">9种跨域方式详解</a></p>
 
       
 
@@ -496,7 +482,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -506,7 +492,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="2019/03/09/Vue知识梳理/">展开全文 >></a>
+          <a class="article-more-a" href="2019/03/31/跨域问题总结/">展开全文 >></a>
         </p>
       
 
@@ -536,36 +522,35 @@
 
 
   
-    <article id="post-杂" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-闭包" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="2019/03/06/杂/">杂</a>
+      <a class="article-title" href="2019/03/31/闭包/">闭包</a>
     </h1>
   
 
         
-        <a href="2019/03/06/杂/" class="archive-article-date">
-  	<time datetime="2019-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
+        <a href="2019/03/31/闭包/" class="archive-article-date">
+  	<time datetime="2019-03-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>业务开发是基础，工程架构能力才是竞争力。<br>单页应用的问题：SEO不友好（seo需要解析一个url返回的html的内容去做推广内容，而vue，react项目的页面初始加载的时候html里是没有内容的，而是靠js在浏览器上动态生成的），首屏时间较长，用户体验差。</p>
-<p>多页应用特点：1 内容都由服务端用模版生成 2 每次页面跳转都要经过服务端 3 js更多只是做做动画<br>多页应用常用类库：jQuery（主要解决dom操作问题和浏览器兼容性问题），mootools，yui</p>
-<p>架构工具：1 无特定前端工具，跟后端配合 2 grunt 3 gulp（grunt升级版，比grunt更简洁效率更高） 4 webpack</p>
-<p>单页应用特点： 1 所有内容都在前端生成 2 js承担更多的业务逻辑，后端只提供api 3 页面路由跳转不需要经过后端<br>单页应用常用类库： react，vue，angular，backbone（一个经典的mvc框架，现在已经过时了）</p>
-<p>react和vue最主要的区别：react单向数据流，vue双向绑定</p>
-<p>架构工具：npm,bower,jspm</p>
-<p>技术选型参考因素：单页还是多页，浏览器兼容性，移动端还是pc端，toB还是toC</p>
-<p>业务逻辑向前端转移，js写的多了，html写的少了<br>react采用jsx的开发方式，vue用.vue文件的开发方式，angular2采用typescript开发</p>
-<p>webApp开发架构存在的意义：解放生产力（源代码处理，自动打包，自动更新页面显示，自动处理图片依赖，保证开发和正式环境的统一），围绕解决方案搭建环境，保证项目质量（code lint,不同环境排除差异，git commit预处理）</p>
-
+        <p>闭包定义：如果一个函数内部定义（或返回）了另一个函数，且这个函数内部用到了它自己作用域以外的变量，那么这个函数与定义该函数时的环境称为闭包。</p>
+<p>闭包形成条件：<br>1 函数嵌套<br>2 内部函数引用外部函数的局部变量</p>
+<p>闭包最大的特点： 记住它的诞生环境。无论何时何地调用，都可以访问到声明该函数时它所在的作用域环境。</p>
+<p>闭包核心知识点：<br>1 作用域链<br>2 函数会记住它的诞生环境</p>
+<p>闭包的作用：<br>1 读取函数内部变量<br>2 可以使一个变量长期保存在内存中。</p>
+<p>手写一个最简单的闭包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function a()&#123;</span><br><span class="line">    let num=100</span><br><span class="line">    return function()&#123;</span><br><span class="line">        console.log(num)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let b=a()</span><br><span class="line">b() //100</span><br></pre></td></tr></table></figure>
+<p>闭包为什么引起内存泄漏：<br>全局作用域只有当页面关闭时才会销毁，函数作用域只有在函数执行时才会产生，而且一般情况下会在函数执行完毕后销毁（释放内存），但是当函数返回一个引用类型的值（对象），且在该函数外被接收引用，那么这个函数作用域在函数执行完毕后也不会销毁，而是常驻内存。当外界接收引用不再需要时，函数的作用域依然不被销毁，就造成了内存泄漏，正确的做法是当外界不再需要接收引用时应该及时把引用指向null，这样局部作用域就会被销毁，所占的内存得以被回收。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> function outer()&#123;</span><br><span class="line"> var num=0;//内部变量</span><br><span class="line"> return function add()&#123;//通过return返回add函数，就可以在outer函数外访问了</span><br><span class="line"> num++;//内部函数有引用，作为add函数的一部分了</span><br><span class="line"> console.log(num);</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"> var func1=outer();</span><br><span class="line"> func1();//实际上是调用add函数， 输出1</span><br><span class="line"> func1();//输出2 因为outer函数内部的私有作用域会一直被占用</span><br><span class="line"> var func2=outer();</span><br><span class="line"> func2();// 输出1  每次重新引用函数的时候，闭包是全新的。</span><br><span class="line"> func2();// 输出2</span><br></pre></td></tr></table></figure>
       
 
       
@@ -578,7 +563,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">other</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -588,7 +573,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="2019/03/06/杂/">展开全文 >></a>
+          <a class="article-more-a" href="2019/03/31/闭包/">展开全文 >></a>
         </p>
       
 
@@ -618,730 +603,6 @@
 
 
   
-    <article id="post-react学习总结1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2019/02/23/react学习总结1/">react知识点</a>
-    </h1>
-  
-
-        
-        <a href="2019/02/23/react学习总结1/" class="archive-article-date">
-  	<time datetime="2019-02-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>学习react前置知识：js，es6，webpack，npm</li>
-<li>用到的es6中的内容：解构赋值，class，展开运算符，</li>
-<li>react 开发环境：node，npm，脚手架，IDE工具。</li>
-<li>react特点：声明式开发（关注数据而不再操作dom），可以与其他框架并存，组件化，单向数据流，视图层框架，函数式编程（便于复杂组件拆分，便于自动化测试）</li>
-<li>facebook推出，2013年开源，函数式编程思想，16之后的版本称之为React Fiber</li>
-<li>react就是一个JavaScript库，一个视图层框架，它本身只是充当一个前端渲染的库而已，解决数据与页面渲染的问题，无法解决复杂组件传值的问题，没有什么异步处理机制、模块化、表单验证等。react和react-router, react-redux（数据层框架）结合起来才能去构建大型复杂的项目，</li>
-<li>相比于vue，灵活性更大一点，处理复杂业务有更多的选择方案，vue提供了更多的api，实现功能变得更简单，但也因此灵活性受到了限制。</li>
-<li>查看npm全局安装内容的指令：<code>npm list --depth=0 -global</code></li>
-<li>环境搭建：方法一：外部引入js文件；方法二：脚手架工具（前端开发辅助工具，可以自动快速的帮忙构建一个大型项目的开发流程和目录，允许以一定的方式来实现js文件之间的相互引用），官方指定脚手架工具：Create-react-app，安装之前要确保已经安装了node和npm。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br><span class="line">cd my-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
-<h4 id="JSX-相关"><a href="#JSX-相关" class="headerlink" title="JSX 相关"></a>JSX 相关</h4><ol>
-<li>JSX是一种Javascript语法扩展，是React.createElement()方法的语法糖，该方法最终返回ReactElement对象（本质就是普通的js对象，模拟了真实dom结构，所以结构复杂了点）。</li>
-<li>使用场景：render函数返回一段JSX代码-&gt;react底层解析JSX代码并调用React.createElement方法生成虚拟dom（js对象）-&gt;虚拟dom还原成真实dom。</li>
-<li>Babel 转译器会把 JSX 转换成一个名为 React.createElement() 的方法调用,编译之后JSX会被转换为普通的Javascript对象。<a href="https://babeljs.io/repl" target="_blank" rel="noopener">在线演示</a>,React.createElement()的第一个参数是dom标签名，第二个参数是dom属性内容，后面的参数是标签内的内容，该方法通过层层嵌套使用来实现复杂的dom结构。<img src="http://pl9syc281.bkt.clouddn.com/19-01-22-7ce8faaf018aa2bcb9be3affffd5f91d.png" alt=""></li>
-<li>JSX中可以任意使用Javascript表达式，但要放在{}里。</li>
-<li>标签中的class变成了className(为了避免跟类class混淆)。</li>
-<li>书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。</li>
-<li>可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。</li>
-<li>标签中可以定义以字符串或JS表达式为值的属性。注意：使用以JS表达式为值为属性值时，外面不要再套引号了：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;img src=&#123;user.avatarUrl&#125;&gt;&lt;/img&gt;;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>6 单标签需要闭合，使用自己自定义的组件时，组件名首字母必须大写。<br>8 JSX标签可以嵌套。<br>10 React DOM 使用 camelCase 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称。</p>
-<p>12 jsx中写注释：单行注释：(一定要换行来写)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">//我是注释</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>多行注释：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;/*我是注释*/&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="元素渲染"><a href="#元素渲染" class="headerlink" title="元素渲染"></a>元素渲染</h3><ul>
-<li>元素是构成React应用的最小单位，与浏览器的DOM元素不同，React当中的元素事实上是普通的对象，React DOM 可以确保浏览器DOM的数据内容与React元素保持一致。</li>
-<li>要将React元素渲染到根DOM节点中，我们通过把它们都传递给 ReactDOM.render() 的方法来将其渲染到页面上：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</span><br><span class="line">ReactDOM.render(element, document.getElementById(&apos;root&apos;));</span><br></pre></td></tr></table></figure>
-<ul>
-<li>React元素都是不可变的，元素被创建之后，就无法再改变其内容和属性，所以更新页面唯一的方法就是创建一个新的元素，传入ReactDOM.render() 方法。</li>
-<li>React DOM 首先会比较元素内容先后的不同，而在渲染过程中只会更新改变了的部分。</li>
-<li>组件可以将UI切分成一些独立的、可复用的部件。<br>18 组件从概念上看就像是函数，它可以接收任意的输入值（称之为“props”），并返回一个需要在页面上展示的React元素。<br>19 定义一个组件最简单的方式是使用JavaScript函数。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>20 也可以使用 ES6 class 来定义一个组件:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Welcome extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return &lt;h1&gt;Hello, &#123;this.props.name&#125;&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>21 React元素不一定都是Dom标签，也可以是用户自定义的组件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</span><br></pre></td></tr></table></figure>
-<p>等同于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可见：标签名对应的是函数名，属性和属性值组成键值对成为参数。<br>等同于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  element,</span><br><span class="line">  document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>22 组件名称必须以大写字母开头。<br>23 组件可以在它的输出中引用其它组件。<br>24 组件的返回值只能有一个根元素，和vue的template类似。<br>25 不改变它自己的输入值，当传入的值相同时，总是会返回相同的结果，这样的函数称之为“纯函数”，所有的React组件必须像“纯函数”那样使用它们的参数。<br>26 状态与属性非常相似，单状态是私有的，完全受控于当前组件。<br>27 5个步骤把函数转换成类：</p>
-<ul>
-<li>创建一个名称扩展为React.Component的类</li>
-<li>创建一个叫做render()的空方法</li>
-<li>将函数体移动到 render() 方法中</li>
-<li>在 render() 方法中，使用 this.props 替换 props</li>
-<li>删除剩余的空函数声明</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!&lt;/h1&gt;</span><br><span class="line">        &lt;h2&gt;It is &#123;this.props.date.toLocaleTimeString()&#125;.&lt;/h2&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>29 不要直接更新状态，应当使用setState（），其参数可以是一个对象，也可以是用一个函数返回一个对象，当调用 setState() 时，React 将提供的对象合并到当前状态。<br>30 状态通常被称为局部或封装。 除了拥有并设置它的组件外，其它组件不可访问。<br>31 单向数据流：任何状态始终由某些特定组件所有，并且从该状态导出的任何数据或 UI 只能影响树中下方的组件。<br>32 传统html绑定事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=&quot;activateLasers()&quot;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
-<p>react绑定事件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;activateLasers&#125;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-<p>React事件绑定属性的命名采用驼峰式写法，而不是小写。<br>如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串(DOM元素的写法)。<br>33  Keys可以在DOM中的某些元素被增加或删除的时候帮助React识别哪些元素发生了变化。因此你应当给数组中的每一个元素赋予一个确定的标识。如果不指定显式的键值，那么React将默认使用索引用作为列表项目的键值。<br>34 元素位于map()方法内时需要设置键属性。<br>35 数组元素中使用的key在其兄弟之间应该是独一无二的。然而，它们不需要是全局唯一的。当生成两个不同的数组时，可以使用相同的键.<br>36 key会作为给React的提示，但不会传递给组件。<br>37 其值由React控制的输入表单元素称为“受控组件”。如<code>&lt;input type=&quot;text&quot;&gt;</code>, <code>&lt;textarea&gt;</code>, 和 <code>&lt;select&gt;</code> 都十分类似 - 他们都通过传入一个value属性来实现对组件的控制。<br>38<code>&lt;input type=&quot;file&quot;&gt;</code>,该标签的 value 属性是只读的， 所以它是 React 中的一个非受控组件。<br>40 react特点：声明式写法，组件化。。。。</p>
-<p>43 react中写组件是以.js作为后缀（vue是以.vue作为后缀）<br>44 react组件的生命周期分为三大类：1 组件初始化（组件从创建到挂载到dom上的过程）2 组件更新 3 组件卸载<br><img src="http://pl9syc281.bkt.clouddn.com/19-01-23-91e264c4f0d63f2b48b270dc7fa2e3a8.png" alt=""><br>45 多个组件需要分享一个相同的数据，最好的办法是将共有的状态提升到离他们最近的父组件中进行管理，这样的做法叫状态提升。react不同与双向绑定最主要的特点就是单向数据流<br>46 context设计的目的是为了共享共享对于组件来说的全局数据<br>（如当前用户，语言，主题等等），不要仅仅是为了避免props在多层级组件下的传递而使用context。</p>
-<p>有时候如果不希望输入的内容被转义，可以使用一个属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dangerouslySetInnerHtml=&#123;&#123;__html:内容&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>label的作用是扩大点击的区域<br>react中定义一个组件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;</span><br><span class="line">class xxx extends React.component&#123;</span><br><span class="line">render()&#123;</span><br><span class="line">return .....</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">export default xxx;</span><br></pre></td></tr></table></figure></p>
-<p>react-scripts 是一个工具，用来执行package.json中script中的指令。<br>src 下的index.js是整个项目的入口</p>
-<ol>
-<li>package.json中srcipt中的命令需要用<code>npm run</code>来执行，npm start 是 npm run start的简写形式。</li>
-</ol>
-<h4 id="项目思路"><a href="#项目思路" class="headerlink" title="项目思路"></a>项目思路</h4><p>关键字：事件绑定，列表渲染</p>
-<ul>
-<li>使用脚手架create-react-app 快速搭建起项目。</li>
-<li>熟悉package.json及项目结构，找到入口文件（默认是src下的index.js）。</li>
-<li>熟悉模块引入（require）和导出（export）的规范，包括es6的解构赋值的方法。</li>
-<li>react-dom中的render方法用来把一个组件挂载到某个dom结点上。</li>
-<li>es6中的class及其继承。</li>
-<li>理解jsx语法。</li>
-<li>组件中的状态放到this.state中，更新this.state数据的唯一方法是调用this.setState方法。 </li>
-<li>render函数return的内容最外层必须有一个包裹元素，Fragment标签作为一个占位符，作用就是作为render函数return内容的最外层包裹标签，在实际渲染时不会渲染出来，用之前要<code>import {Fragment} from &#39;react&#39;</code></li>
-<li>绑定事件时事件首字母大写，使用bind绑定this指向，<a href="https://www.jianshu.com/p/bc541afad6ee" target="_blank" rel="noopener">call,apply,bind的用法</a>，bind的返回值是一个函数，bind第一个参数是this指向，第二个参数时开始接收的参数列表。this指向的绑定统一的放到页面的顶部。</li>
-<li>jsx中使用{}插入函数表达式，{}中还可以继续插入{}进行嵌套</li>
-<li>react不允许更改state中的内容，只能从state中拷贝一个副本，修改完后重新调用setState方法进行更新state,state或props中的内容一旦发生改变，render函数就会重新执行，页面就会自动刷新渲染。以前经常把一个对象作为setState的参数，新版常用的做法是使用箭头函数返回一个对象。this.setState方法有个默认的参数prevState，代表之前的this.state对象。</li>
-<li>父组件向子组件传值：父组件通过向子组件中定义属性并赋值，子组件通过this.props.父组件定义的属性名，从而拿到属性值。只允许父组件向子组件传递数据，而不允许子组件修改这个数据，这就是react单向数据流的思想。（假想一个父组件下有很多个子组件，并且这些子组件都用到了父组件中的一个数据，如果子组件可以修改父组件传递的这个数据，那么其他同样引用这个数据的子组件也会受到影响，而且也不容易定位到究竟是哪个组件出了问题）</li>
-<li>子组件向父组件传值：子组件调用父组件的方法改变父组件中的数据，子组件的状态也会因此而改变了。具体的做法就是父组件把父组件中的方法（绑定this到父组件）作为子组件的属性传给子组件，然后在子组件中绑定事件，触发事件后调用子组件中的方法，再在子组件的方法中通过this.props调用父组件绑定的事件，进而就可以改变父组件中的数据了。</li>
-<li>使用propTypes对父组件传值的类型做校验，使用defaultProps给父组件传的值设定默认值。<a href="https://reactjs.org/docs/typechecking-with-proptypes.html" target="_blank" rel="noopener">属性校验及设置默认 </a></li>
-<li>当父组件的render执行时，它的所有子组件的render也将被执行。</li>
-<li>ref帮助在react里面直接获取dom元素。需要看文档再总结了</li>
-</ul>
-<h3 id="react虚拟dom"><a href="#react虚拟dom" class="headerlink" title="react虚拟dom"></a>react虚拟dom</h3><p>核心思想：减少了对真实dom的<strong>创建</strong>以及减少了对真实dom的<strong>对比</strong>，取而代之的是对虚拟dom（js对象）的创建和对比从而极大的提升了性能。<br>实现方式：<br>1 state(数据)<br>2 JSX(模版)<br>3  数据+模版 生成虚拟dom（js对象，用来描述真实dom），这一步相比于直接生成真实dom<em>损耗了性能</em>。<br>4  用虚拟dom的结构生成真实dom。比如真实dom为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;span&gt;hello&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>对应的虚拟dom为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&apos;div&apos;,&#123;id:&apos;root&apos;&#125;,[&apos;span&apos;,&#123;&#125;,&apos;hello&apos;]]</span><br></pre></td></tr></table></figure>
-<p>第一个参数为标签名，第二个参数为标签的属性，第三个参数为标签的内容（在此用嵌套来实现复杂结构）</p>
-<p>5 state 发生变化（如span中的hello变成world）<br>6 数据+模版 生成新的虚拟dom，性能<strong><em>极大提升</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&apos;div&apos;,&#123;id:&apos;root&apos;&#125;,[&apos;span&apos;,&#123;&#125;,&apos;world&apos;]]</span><br></pre></td></tr></table></figure>
-<p>7 比较原始虚拟dom和新的虚拟dom的区别（diff算法），普通js对象的对比***极大的提升了性能</p>
-<hr>
-<p>8 发现span中的内容发生改变，直接操作dom，改变span中的内容。</p>
-<p>优点：1.性能极大提升<br>2.使得跨端应用成为可能（react native）。虚拟dom转换成真实dom后可以在浏览器环境中渲染出来，但是原生环境中并没有dom，这时可以把虚拟dom（js对象）转换成原生应用中对应的组件，从而可以显示出来。</p>
-<h4 id="diff算法"><a href="#diff算法" class="headerlink" title="diff算法"></a>diff算法</h4><p>setState是一个异步的方法，之所以是异步，是为了防止在极短的时间内state中的数据发生多次改变，这样的话反复生成虚拟dom也是很耗费性能的，而react想做的是拿数据变化的最终结果来生成虚拟dom，再与之前的虚拟dom做对比，从而提升性能。<br>setState函数接受另一个函数作为第二个参数，当setState异步执行完成之后就会调用这个方法。<br>算法原理：虚拟dom之间比较的结果最终用来操作真实dom。同层比较，相同的话比较下一层，不同的话就把不同地方那里的所有下面的内容删掉，然后用新的虚拟dom的那部分进行重新渲染真实dom。<br>列表渲染时的key值是为了更好更快的比对虚拟dom。</p>
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>生命周期函数是在某一时刻组件会自动调用执行的函数。<br>componentWillReceiveProps,当一个组件从父组件接收参数，且这个组件已经存在与父组件中，才会执行（第一次存在于父组件中不会执行），只要父组件的render重新执行，该生命周期函数就会执行。<br>shouldComponentUpdate,在组件更新之前执行，该函数最后需要返回一个布尔值，用来决定组件是否要被更新，返回true的话就继续执行后面的生命周期，返回false的话不再继续向下执行。一般用来对子组件做性能优化。<br>componentWillMount,在组件即将被挂载到页面的时刻自动执行。<br>render,在state或props发生变化的时候执行。<br>componentDidMount,在组件被挂载到页面之后执行。一般在这里处理ajax请求，异步获取数据。<br>componentWillUnmount,当这个组件即将被从页面中剔除的时候执行。</p>
-<p>react提升性能的方式总结<br>react项目更改端口号：<br>在package.json中修改<br>  <code>&quot;start&quot;:&quot;react-scripts start&quot;</code>,<br>为<code>&quot;start&quot;:&quot;set PORT=9000 &amp;&amp; react-scripts start&quot;</code>,</p>
-<p>charles:抓取浏览器向外发送的请求，并对请求内容做处理。<br><a href="https://www.jianshu.com/p/b31d75c1dea7" target="_blank" rel="noopener">charles下载和配置</a></p>
-<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>redux是js状态容器，提供可预测化的状态管理。<br>三大原则：<br>1 单一数据源，整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。<br>2 State 是只读的，唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。<br>3 使用纯函数（给定固定的输入就一定有固定的输出，而且不能有负作用，一般来说就是不能有异步的操作，不能有跟时间相关的操作）来执行修改，为了描述 action 如何改变 state tree ，你需要编写 reducers。</p>
-<p>关键字： createStore , store.dispatch , store.getState , store.subscribe.</p>
-<p>Redux（数据层框架）=Reducer+Flux（过时了）,redux是flux的升级版。<br><img src="http://cdn.guchi.fun/19-03-05-146548ac8057ef86aadd3802eae12782.jpeg" alt=""><br>reducer:负责存储整个项目应用中的数据，返回的必须是一个函数<br>创建store需要引入redux的createStore方法并把reducer中的数据作为参数传入，为了使用Chrome的redux调试工具，需要在createStore中传入第二个参数：window.<strong>REDUX_DEVTOOLS_EXTENSION</strong> &amp;&amp; window.<strong>REDUX_DEVTOOLS_EXTENSION</strong>()</p>
-<p>如何实现子组件中input框的内容发生改变的同时改变store中的数据：</p>
-<ol>
-<li>给这个input框的onChange事件绑定一个函数（如函数名为inputChange）</li>
-<li>在inputChange中创建一个action对象，action必有一个type属性（这里定义为‘input-content-change’），然后自定义一个value属性，属性值为e.target.value</li>
-<li>然后在inputChange中调用store.dispatch（action）方法把action传给store</li>
-<li>store把当前的数据和接收到的action传给ruducer</li>
-<li>在reducer的返回函数里对action中的type值进行判断，如果满足条件（type值为‘input-content-change’）,就执行以下逻辑：先对state做一个深拷贝(因为reducer可以接受state但是不可以修改state)，然后将action中的数据赋值给拷贝对象，最后返回</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export default (state,action)=&#123;</span><br><span class="line">if(action.type===&quot;input-content-change&quot;)&#123;</span><br><span class="line">const newState=JSON.parse(JSON.stringify(state))</span><br><span class="line">newState.value=action.value</span><br><span class="line">return newState</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>6 在组件中订阅store，用store.subscribe方法，该方法接受一个回掉函数（命名为followChange），当store中的数据发生改变时，就会调用该方法<br>7 在followChange 方法中调用state方法对this.state中的数据重新赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.setState(store.getState())</span><br></pre></td></tr></table></figure>
-<p>优化：<br>1 把action的type属性拆分出来放到一个统一的js文件里面，然后在组件和reducer.js文件中引入这个统一的文件，目的是为了防止组件和reducer.js文件中action的type不一致导致的问题。<br>2 把创建action对象的方法拆分出来统一放到一个js文件里,目的是为了提高代码的可维护性，便于自动化测试。</p>
-<p>1 要使用redux首先安装依赖：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install redux --save</span><br></pre></td></tr></table></figure>
-<p>2 然后建立一个名为store的文件夹，然后建立一个index.js文件，里面引入并调用redux库中的createStore方法来创建一个store对象，这个文件只是返回最终的store对象结果，存储数据和处理数据则交给reducer来做。createStore方法接收两个参数，第一个参数是reducer.js返回的处理过的数据，第二个参数是为了在chrome浏览器上使用redux插件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123;createStore&#125; from &apos;redux&apos;</span><br><span class="line">import reducer from &apos;./reducer&apos;</span><br><span class="line"></span><br><span class="line">const store = createStore(</span><br><span class="line">    reducer,</span><br><span class="line">    window.__REDUX_DEVTOOLS_EXTENSION__ &amp;&amp; window.__REDUX_DEVTOOLS_EXTENSION__()</span><br><span class="line">)</span><br><span class="line">export default store</span><br></pre></td></tr></table></figure>
-<p>3 在store文件夹下建立一个reducer.js文件，该文件export一个函数，这个函数接受两个参数state和action并最终返回一个对象作为index.js中createStore的第一个参数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import &#123;input_content_change,list_add_data&#125; from &apos;../actionType&apos;</span><br><span class="line"></span><br><span class="line">const defaultState=&#123;</span><br><span class="line">    placeHolder:&apos;beautiful girl&apos;,</span><br><span class="line">    value:&apos;&apos;,</span><br><span class="line">    list:[&apos;杨幂&apos;,&apos;迪丽热巴&apos;]</span><br><span class="line">&#125;</span><br><span class="line">export default (state=defaultState,action)=&gt;&#123;</span><br><span class="line">    if(action.type===input_content_change)&#123;</span><br><span class="line">        const newState=JSON.parse(JSON.stringify(state))</span><br><span class="line">        newState.value=action.value</span><br><span class="line">        return newState</span><br><span class="line">    &#125;</span><br><span class="line">    if(action.type===list_add_data)&#123;</span><br><span class="line">        const newState=JSON.parse(JSON.stringify(state))</span><br><span class="line">        newState.value=&apos;&apos;</span><br><span class="line">        newState.list=action.list</span><br><span class="line">        return newState</span><br><span class="line">    &#125;</span><br><span class="line">    return state</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4 组件中通过store.getState()方法来获取store中的state数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">constructor(props)&#123;</span><br><span class="line">      super(props)</span><br><span class="line">      this.state=store.getState()</span><br><span class="line">      store.subscribe(this.followChange)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>5 react组件想要改变store中的数据，先要创建一个action对象，然后通过store.dispitch方法把action传递给store</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> const action=&#123;</span><br><span class="line">            type:input_content_change,</span><br><span class="line">            value:e.target.value</span><br><span class="line">        &#125;</span><br><span class="line">store.dispatch(action)</span><br></pre></td></tr></table></figure>
-<p>6 store接收到action数据后会自动把action数据连同store中的当前state对象一起传给reducer，作为reducer export函数的两个参数，然后在这个函数里自定义业务逻辑，最终返回一个新的state对象给store。store用这个新的state替换掉之前的store中的state<br>7 store数据发生改变之后react组件会感知到store发生改变（通过store.subscribe方法来感知store变化，并在此绑定一个回调对this.state的数据进行更新），页面就重新渲染了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> constructor(props)&#123;</span><br><span class="line">        super(props)</span><br><span class="line">        this.state=store.getState()</span><br><span class="line">        store.subscribe(this.followChange)</span><br><span class="line">    &#125;</span><br><span class="line">followChange()&#123;</span><br><span class="line">        this.setState(store.getState())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>中软国际：得力西大厦</p>
-<h3 id="react-ui框架-antd"><a href="#react-ui框架-antd" class="headerlink" title="react ui框架 antd"></a>react ui框架 antd</h3><p>蚂蚁金服搞的</p>
-<p>UI组件(傻瓜组件)负责页面的渲染，容器组件（聪明组件）负责页面的逻辑。<br>无状态组件：当一个普通组件只有render函数时，完全可以用一个无状态组件来替换掉这个组件，一个普通组件其实包括很多东西，如生命周期，定义在组件实例上的函数等等，而一个无状态组件则简单很多，它就是一个普通函数，接收一个参数，返回一段JSX片段，所以从性能上要比普通组件好很多。无状态组件使用场景：定义一个ui组件，只负责页面渲染，没有任何的逻辑操作，这时候适合用无状态组件来提升性能。</p>
-<p><a href="https://github.com/reduxjs/redux-thunk" target="_blank" rel="noopener">redux-thunk</a>是redux的中间件(中间指的是action和store之间，本质是对store.dispatch方法的一个封装(升级))，没有用中间件之前，store.dispatch接收到一个action对象，并把这个action对象传给store,在使用中间件之后（升级版的store.dispatch方法），store.dispatch方法如果接受到的还是一个action对象，就跟之前一样处理，如果接收到的是一个函数，就会执行这个函数，最终依然是返回一个action对象给store，区别就是可以在这个函数里写入一些异步代码或其他复杂的业务逻辑，最终使得组件变得更简洁，更容易测试和维护。<br><a href="https://github.com/zalmoxisus/redux-devtools-extension" target="_blank" rel="noopener">redux-devtools-extension</a><br><a href="https://github.com/redux-saga/redux-saga" target="_blank" rel="noopener">redux-saga</a></p>
-<p>react-redux是一个第三方模块，可以帮助在react中更方便的使用redux。<br>react-redux核心api：<br>1 provider组件，连接store，provider组件下的所有子组件都有能力获取到store中的数据<br>2 connect，provider组件下的子组件通过该方法与store做连接。</p>
-<p>在项目中引用css文件会在全局生效，为了避免样式冲突，使用styled-components来管理样式,功能是让组件自己的样式只对自己生效而不干扰其他组件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install styled-components --save</span><br></pre></td></tr></table></figure>
-<p><a href="https://blog.csdn.net/qq_32063079/article/details/83277054" target="_blank" rel="noopener">injectGlobal的弃用,以及使用createGlobalStyle来定义全局样式</a><br><a href="https://meyerweb.com/eric/tools/css/reset/" target="_blank" rel="noopener">为保证浏览器兼容性，引入reset.css</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2019/02/23/react学习总结1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-react零碎知识点" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2019/02/23/react零碎知识点/">react知识点</a>
-    </h1>
-  
-
-        
-        <a href="2019/02/23/react零碎知识点/" class="archive-article-date">
-  	<time datetime="2019-02-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>学习react前置知识：js，es6，webpack，npm</li>
-<li>facebook推出，2013年开源，函数式编程思想，16之后的版本称之为React Fiber</li>
-<li>相比于vue，灵活性更大一点，处理复杂业务有更多的选择方案，vue提供了更多的api，实现功能变得更简单，但也因此灵活性受到了限制。</li>
-<li>环境搭建：方法一：外部引入js文件；方法二：脚手架工具（前端开发辅助工具，可以自动快速的帮忙构建一个大型项目的开发流程和目录，允许以一定的方式来实现js文件之间的相互引用），官方指定脚手架工具：Create-react-app，安装之前要确保已经安装了node和npm。</li>
-</ol>
-<hr>
-<p>title: React<br>date: 2019/1/15</p>
-<h2 id="tags-react"><a href="#tags-react" class="headerlink" title="tags: react"></a>tags: react</h2><p>1 JSX是一种Javascript语法扩展，是React.createElement()方法的语法糖，它们最终返回ReactElement对象（本质就是普通的js对象，模拟了真实dom结构，所以结构复杂了点）。<br>2 JSX中可以任意使用Javascript表达式，但要放在{}里。<br>3 书写JSX时为方便可读性一般带上换行和缩进，也推荐在JSX外面扩上一个小括号。<br>4 编译之后JSX会被转换为普通的Javascript对象。<br>5 可以在if,for语句中使用JSX，把它赋值给变量，作为参数，作为返回值都可以。<br>6 标签中可以定义以字符串或JS表达式为值的属性。注意：使用以JS表达式为值为属性值时，外面不要再套引号了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;img src=&#123;user.avatarUrl&#125;&gt;&lt;/img&gt;;</span><br></pre></td></tr></table></figure></p>
-<p>7 单标签需要闭合，使用自己自定义的组件时，组件名首字母必须大写。<br>8 JSX标签可以嵌套。<br>9 Babel 转译器会把 JSX 转换成一个名为 React.createElement() 的方法调用,<a href="https://babeljs.io/repl" target="_blank" rel="noopener">在线演示</a>,React.createElement()的第一个参数是dom标签名，第二个参数是dom属性内容，后面的参数是标签内的内容，该方法通过层层嵌套使用来实现复杂的dom结构。<br><img src="http://pl9syc281.bkt.clouddn.com/19-01-22-7ce8faaf018aa2bcb9be3affffd5f91d.png" alt=""><br>10 React DOM 使用 camelCase 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称。<br>11 标签中的class变成了className(为了避免跟类class混淆)。<br>12 元素是构成React应用的最小单位，与浏览器的DOM元素不同，React当中的元素事实上是普通的对象，React DOM 可以确保浏览器DOM的数据内容与React元素保持一致。<br>14 要将React元素渲染到根DOM节点中，我们通过把它们都传递给 ReactDOM.render() 的方法来将其渲染到页面上：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</span><br><span class="line">ReactDOM.render(element, document.getElementById(&apos;root&apos;));</span><br></pre></td></tr></table></figure>
-<p>15 React元素都是不可变的，元素被创建之后，就无法再改变其内容和属性，所以更新页面唯一的方法就是创建一个新的元素，传入ReactDOM.render() 方法。<br>16 React DOM 首先会比较元素内容先后的不同，而在渲染过程中只会更新改变了的部分。<br>17 组件可以将UI切分成一些独立的、可复用的部件。<br>18 组件从概念上看就像是函数，它可以接收任意的输入值（称之为“props”），并返回一个需要在页面上展示的React元素。<br>19 定义一个组件最简单的方式是使用JavaScript函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>20 也可以使用 ES6 class 来定义一个组件:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Welcome extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return &lt;h1&gt;Hello, &#123;this.props.name&#125;&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>21 React元素不一定都是Dom标签，也可以是用户自定义的组件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</span><br></pre></td></tr></table></figure>
-<p>等同于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可见：标签名对应的是函数名，属性和属性值组成键值对成为参数。<br>等同于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  element,</span><br><span class="line">  document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>22 组件名称必须以大写字母开头。<br>23 组件可以在它的输出中引用其它组件。<br>24 组件的返回值只能有一个根元素，和vue的template类似。<br>25 不改变它自己的输入值，当传入的值相同时，总是会返回相同的结果，这样的函数称之为“纯函数”，所有的React组件必须像“纯函数”那样使用它们的参数。<br>26 状态与属性非常相似，单状态是私有的，完全受控于当前组件。<br>27 5个步骤把函数转换成类：</p>
-<ul>
-<li>创建一个名称扩展为React.Component的类</li>
-<li>创建一个叫做render()的空方法</li>
-<li>将函数体移动到 render() 方法中</li>
-<li>在 render() 方法中，使用 this.props 替换 props</li>
-<li>删除剩余的空函数声明</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!&lt;/h1&gt;</span><br><span class="line">        &lt;h2&gt;It is &#123;this.props.date.toLocaleTimeString()&#125;.&lt;/h2&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>28 react就是一个JavaScript库，react和react-router, react-redux结合起来才叫框架，它本身只是充当一个前端渲染的库而已，没有什么异步处理机制、模块化、表单验证等。<br>29 不要直接更新状态，应当使用setState（），其参数可以是一个对象，也可以是用一个函数返回一个对象，当调用 setState() 时，React 将提供的对象合并到当前状态。<br>30 状态通常被称为局部或封装。 除了拥有并设置它的组件外，其它组件不可访问。<br>31 单向数据流：任何状态始终由某些特定组件所有，并且从该状态导出的任何数据或 UI 只能影响树中下方的组件。<br>32 传统html绑定事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=&quot;activateLasers()&quot;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
-<p>react绑定事件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;activateLasers&#125;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-<p>React事件绑定属性的命名采用驼峰式写法，而不是小写。<br>如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串(DOM元素的写法)。<br>33  Keys可以在DOM中的某些元素被增加或删除的时候帮助React识别哪些元素发生了变化。因此你应当给数组中的每一个元素赋予一个确定的标识。如果不指定显式的键值，那么React将默认使用索引用作为列表项目的键值。<br>34 元素位于map()方法内时需要设置键属性。<br>35 数组元素中使用的key在其兄弟之间应该是独一无二的。然而，它们不需要是全局唯一的。当生成两个不同的数组时，可以使用相同的键.<br>36 key会作为给React的提示，但不会传递给组件。<br>37 其值由React控制的输入表单元素称为“受控组件”。如<code>&lt;input type=&quot;text&quot;&gt;</code>, <code>&lt;textarea&gt;</code>, 和 <code>&lt;select&gt;</code> 都十分类似 - 他们都通过传入一个value属性来实现对组件的控制。<br>38<code>&lt;input type=&quot;file&quot;&gt;</code>,该标签的 value 属性是只读的， 所以它是 React 中的一个非受控组件。<br>39 react是facebook在2013年推出的一个用于构建用户界面的库。<br>40 react特点：声明式写法，组件化。。。。<br>41 react 开发环境：node，npm，脚手架，IDE工具。<br>42 react脚手架工具：create-react-app,终端安装：<code>npm install -g create-react-app</code>，生成项目：<code>create-react-app my-app</code>,进入项目后<code>npm i</code>安装依赖，<code>npm start</code>运行项目。<br>43 react中写组件是以.js作为后缀（vue是以.vue作为后缀）<br>44 react组件的生命周期分为三大类：1 组件初始化（组件从创建到挂载到dom上的过程）2 组件更新 3 组件卸载<br><img src="http://pl9syc281.bkt.clouddn.com/19-01-23-91e264c4f0d63f2b48b270dc7fa2e3a8.png" alt=""><br>45 多个组件需要分享一个相同的数据，最好的办法是将共有的状态提升到离他们最近的父组件中进行管理，这样的做法叫状态提升。react不同与双向绑定最主要的特点就是单向数据流<br>46 context设计的目的是为了共享共享对于组件来说的全局数据<br>（如当前用户，语言，主题等等），不要仅仅是为了避免props在多层级组件下的传递而使用context。</p>
-<p>查看npm全局安装内容的指令：<code>npm list --depth=0 -global</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br><span class="line">cd my-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
-<p>react-scripts 是一个工具，用来执行package.json中script中的指令。<br>src 下的index.js是整个项目的入口</p>
-<ol>
-<li>package.json中srcipt中的命令需要用<code>npm run</code>来执行，npm start 是 npm run start的简写形式。</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2019/02/23/react零碎知识点/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-webpack知识汇总" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2019/02/23/webpack知识汇总/">webpack知识汇总</a>
-    </h1>
-  
-
-        
-        <a href="2019/02/23/webpack知识汇总/" class="archive-article-date">
-  	<time datetime="2019-02-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>webpack是一个前端静态资源打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。（比如将很多有依赖关系的js文件打包成一个，加快页面中资源的下载速度），也可以提高兼容性，可以将一些浏览器尚不支持的新特性转换为可以支持格式（比如使用loader将es6转成es5，给css3的新特性针对不同的浏览器加不同的前缀）</li>
-<li>node和npm的关系：npm作者已经将npm（用来管理js的）开发完成，于是发邮件通知 jQuery、Bootstrap、Underscore 作者，希望他们把代码放到npm远程仓库，但是没有收到回应，于是npm的发展遇到了瓶颈。Node.js作者也将Node.js开发完成，但是Node.js缺少一个包管理器，于是他和 npm 的作者一拍即合、抱团取暖，最终 Node.js 内置了 npm，npm成为了node官方的包管理工具，安装node时会自动安装npm。。</li>
-<li>命令行中执行npm install+包名的时候，实际上是在向npm服务器请求下载该js包并安装到本地，所以npm install时是需要网络的。</li>
-<li>webpack有几个核心概念：Entry（入口），Module（模块），Chunk(代码块)，Loader（模块转换器），Plugin（插件）下面一个个具体来研究。</li>
-<li>Entry(入口)：它指示webpack应该从哪个模块开始着手，来作为其构建内部依赖图的开始。下面的截图都以一个使用vue-cli搭建的后台管理的一个项目为例。 <img src="http://cdn.guchi.fun/19-02-23-b994a918e2c92a534e69527ab5f2aa8e.png" alt="">使用vue-cli搭建项目时会在src文件夹下生成一个App.vue组件和对应的main.js，这个main.js就是默认的入口文件。<br>6.前置知识1 文件路径中以‘/’开头代表绝对路径，以‘./’开头代表当前目录，以‘../开头代表上一级目录’。2 path是node的内置模块，require时直接require文件名就行了：<code>const path = require(&#39;path&#39;)</code> 3 path.resolve接收一个相对路径，返回一个绝对路径，当有多个参数时，操作时为从左到右依次对各个参数执行cd操作，返回的是最后所在的文件夹的绝对路径。</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2019/02/23/webpack知识汇总/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面试文章链接汇总" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2019/02/22/面试文章链接汇总/">面试梳理链接汇总</a>
-    </h1>
-  
-
-        
-        <a href="2019/02/22/面试文章链接汇总/" class="archive-article-date">
-  	<time datetime="2019-02-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://yuchengkai.cn/docs/frontend/vue.html#nexttick-%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90" target="_blank" rel="noopener">系统的重要的知识点</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2019/02/22/面试文章链接汇总/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-node" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2019/02/04/node/">node</a>
-    </h1>
-  
-
-        
-        <a href="2019/02/04/node/" class="archive-article-date">
-  	<time datetime="2019-02-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>nodejs是javascript的一个运行环境，是一个JS脚本解析器，主要用途是操作磁盘文件和搭建web服务器。</li>
-<li>node最初的目的是实现高性能的服务器</li>
-<li>node的显著特性：异步和事件驱动。</li>
-<li>node解决异步的方式：事件，异步api，非阻塞I/O</li>
-<li>node.js适合于高并发，i/o密集的web场景以及本地代码构建和实用工具的开发。</li>
-<li>node运行的环境：1 common.js（模块规范）2 global(全局对象) 3 process（进程）</li>
-<li>common.js:1每个文件都是一个模块，有自己的作用域 2 在模块内部module变量代表模块本身。 3 module.exports属性代表模块对外的接口。</li>
-<li>模块的输出永远是module.exports,exports只是module.exports的快捷方式，所以node<strong><em>不允许给exports赋值</em></strong>，如果创建的模块中既有exports又有module.exports模块，那么会返回module.exports而忽略exports.</li>
-<li>require规则：1 /表示绝对路径，./表示相对于当前文件的路径 2 支持js，json，node这三个拓展名，路径中不写拓展名的话会依次尝试。3 不写路径的话则认为是内置模块或各级node_modules内的第三方模块。</li>
-<li>require特性： 1 module被加载的时候执行，加载后缓存（在一个模块中多次require另一个模块，另一个模块只会被加载一次，再次require时只会用内存中的结果，不会再重新加载了）。2 一旦出现某个模块被循环加载，就只输出已经执行的部分，还未执行的部分不会输出（应当避免模块间循环加载）。</li>
-<li>终端中直接输入node进入命令交互模式，适合测试一些代码片段</li>
-<li>终端中node+文件名来运行一个文件。</li>
-<li>可以用NODE_PATH环境变量来指定额外的模块搜索路径。</li>
-<li>包：JS模块的基本单位是单个JS文件，复杂些的模块往往由多个子模块组成，为了便于管理和使用，把由多个子模块组成的大模块称做包，并把所有子模块放在同一个目录里。在组成一个包的所有子模块中，需要有一个入口模块，入口模块的导出对象被作为包的导出对象。在其它模块里使用包的时候，需要加载包的入口模块。</li>
-<li>npm install +包名，会自动从npm服务器上下载该包并安装到本地的node_modules目录中，直接npm install的话，会按照项目目录下的package.json中的内容依次下载安装。首先生成node_modules目录（如果没有的话），然后再在node_modules中安装。还有一点就是：NPM会根据包中申明的三方包依赖自动下载进一步依赖的三方包，且生成最终的目录结构。这样，用户只需关心自己直接使用的三方包，不需要自己去解决所有包的依赖关系。</li>
-<li>npm中包的版本号分为X.Y.Z三位，分别代表主版本号、次版本号和补丁版本号。如果只是修复bug，需要更新Z位。如果是新增了功能，但是向下兼容，需要更新Y位。如果有大变动，向下不兼容，需要更新X位。</li>
-<li>buffer（数据块）：用来<strong><em>处理二进制数据流</em></strong>，类似于整数数组，大小固定，创建后无法改变，使用c++在v8堆外分配物理内存，buffer是定义在global上的全局构造函数，不需要使用require来引用。可以用.length属性得到字节长度外，还可以用[index]方式读取指定位置的字节，Buffer与字符串有一个重要区别：字符串是只读的，并且对字符串的任何修改得到的都是一个新字符串，原字符串保持不变。至于Buffer，可以用[index]方式直接修改某个位置的字节。buffer能与字符串互相转换，总之，Buffer将JS的数据处理能力从字符串扩展到了任意二进制数据。</li>
-<li>Node.js 提供了多种流对象。所有的流都是 EventEmitter 的实例。Node.js 创建的流都是运作在字符串和 Buffer（或 Uint8Array）上。<br>19.</li>
-</ol>
-<ol>
-<li>当入口文件的文件名是index.js的时候加载模块时可以使用模块所在目录的路径代替模块文件路径，下面两个等效：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var cat = require(&apos;/home/user/lib/cat&apos;);</span><br><span class="line">var cat = require(&apos;/home/user/lib/cat/index&apos;);</span><br></pre></td></tr></table></figure>
-<p>可以在包目录下的package.json中定义入口模块的文件名和位置，总之，node会根据包目录下的package.json来找到该包的入口模块。<br>一个标准的工程目录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- /home/user/workspace/node-echo/   # 工程目录</span><br><span class="line">    - bin/                          # 存放命令行相关代码</span><br><span class="line">        node-echo</span><br><span class="line">    + doc/                          # 存放文档</span><br><span class="line">    - lib/                          # 存放API相关代码</span><br><span class="line">        echo.js</span><br><span class="line">    - node_modules/                 # 存放三方包</span><br><span class="line">        + argv/</span><br><span class="line">    + tests/                        # 存放测试用例</span><br><span class="line">    package.json                    # 元数据文件</span><br><span class="line">    README.md                       # 说明文件</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题,常用场景如下：</li>
-</ol>
-<ul>
-<li>从NPM服务器下载别人编写的三方包到本地使用。</li>
-<li>从NPM服务器下载并安装别人编写的命令行程序到本地使用。</li>
-<li>将自己编写的包或命令行程序上传到NPM服务器供别人使用。</li>
-</ul>
-<ol start="3">
-<li>npm常用命令：</li>
-</ol>
-<ul>
-<li>npm help +指令，查看该指令的用法</li>
-<li>在package.json所在目录下使用npm install . -g可先在本地安装当前命令行程序，可用于发布前的本地测试。</li>
-<li>使用npm update <package>可以把当前目录下node_modules子目录里边的对应模块更新至最新版本。</package></li>
-<li>使用npm update <package> -g可以把全局安装的对应命令行程序更新至最新版。</package></li>
-<li>使用npm cache clear可以清空NPM本地缓存，用于对付使用相同版本号发布新版本代码的人。</li>
-<li>使用npm unpublish <package>@<version>可以撤销发布自己发布过的某个版本代码。</version></package></li>
-</ul>
-<p>3 buffer常用api：</p>
-<ul>
-<li>Buffer.from(array) 返回一个 Buffer，包含传入的字节数组的拷贝。</li>
-<li>Buffer.from(arrayBuffer[, byteOffset [, length]]) 返回一个 Buffer，与传入的 ArrayBuffer 共享内存。</li>
-<li>Buffer.from(buffer) 返回一个 Buffer，包含传入的 Buffer 的内容的拷贝。</li>
-<li>Buffer.from(string[, encoding]) 返回一个 Buffer，包含传入的字符串的拷贝。</li>
-<li>Buffer.alloc(size[, fill[, encoding]]) 返回一个指定大小且已初始化的 Buffer。 该方法比Buffer.allocUnsafe(size) 慢，但能确保新创建的 Buffer 不会包含旧数据。</li>
-<li><p>Buffer.allocUnsafe(size) 与 Buffer.allocUnsafeSlow(size) 返回一个指定大小但未初始化的 Buffer。 因为 Buffer 是未初始化的，可能包含旧数据。</p>
-<ol start="4">
-<li>Node.js 中有四种基本的流类型：</li>
-</ol>
-</li>
-<li>Writable - 可写入数据的流（例如 fs.createWriteStream()）。</li>
-<li>Readable - 可读取数据的流（例如 fs.createReadStream()）。</li>
-<li>Duplex - 可读又可写的流（例如 net.Socket）。</li>
-<li>Transform - 在读写过程中可以修改或转换数据的 Duplex 流（例如 zlib.createDeflate()）。</li>
-</ul>
-<ol>
-<li>为什么js是单线程？：js是浏览器脚本语言，主要用途就是与用户互动和操作dom，多线程会带来复杂的同步问题，比如两个进程同时操作同一个dom。为了提高效率，允许js创建多个线程，但是子线程完全受主线程控制且不得操作dom。</li>
-<li>js代码分两种：同步任务和异步任务。<br>同步任务：在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；<br>异步任务：不进入主线程、而进入”任务队列”（task queue）的任务，异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数.</li>
-<li>任务队列：1首先，它是个队列，队列的特点就是先入先出。2 其次，它是一个事件队列，异步任务有结果后就在任务队列中放置一个事件。</li>
-<li>js运行机制：1 从上到下运行代码，发现同步代码（大多数代码是同步代码，赋值，比较，算术运算，循环等），就放到主线程中（立即执行），发现异步代码（ajax，定时器，promise等），就放到任务队列（所有的异步代码都不会立即执行）。2 </li>
-</ol>
-<ol start="6">
-<li>node和js都是单线程，即：所有的代码都运行在一个主线程中，为了能并行的处理多个任务，需要在主线程中调用异步的方法，而在异步方法的实现过程中采用了多线程。所以：虽然说node是单线程，但不代表它只有一个线程，在异步处理的方法中采用的是多线程机制。<img src="http://pl9syc281.bkt.clouddn.com/19-02-04-e5d715c3e5edb8ee459c87d82572eab0.png" alt=""></li>
-</ol>
-<p>可见永远不会打印出1（注意：该测试方法会把浏览器卡死，需尽快退出）</p>
-<ol start="2">
-<li>I/O：input/output，一个通用的概念，有磁盘I/O 模型，网络I/O 模型，数据库I/O模型等，有输入输出类型的交互系统都可以称为I/O 系统。</li>
-<li>阻塞I/O：数据输入后，必须等到有数据返回才继续往下执行。</li>
-<li>非阻塞I/O：</li>
-<li>事件轮询：存在于主线程中，负责不停的调用开发者编写的代码</li>
-</ol>
-<p>cpu密集：压缩，解压，加密，解密。超级快<br>i/o密集：文件操作，网络操作，数据库操作。超级慢<br>web常见场景： 静态资源获取，数据库操作，渲染页面， 可见web是典型的i/o密集场景。<br>高并发：单位时间内访问量非常大。<br>高并发应对之道：增加机器数，增加每台机器的cpu数。<br>进程：可以简单理解为一个正在运行的程序。cpu可以同时运行的进程数是有限的。<br>线程：进程内一个相对独立的，可调度的执行单元，与同属一个进程的线程共享进程的资源。</p>
-<p>终端中使用 node+js文件名来运行这个js文件<br>node中读取文件的操作都是异步的<br>终端输入npm root -g可以查看全局安装的依赖所在的文件夹的位置 cd到那个文件夹下 ls 可以查看都有哪些全局依赖<br>新版的npm做了优化，把依赖，依赖的依赖，依赖的依赖的依赖等都放到一个平级的目录中了（当前目录下的node_modules中）<br>使用node命令运行一个组件的时候实际上是吧组件中的代码放到了一个函数中去执行了：<br><code>function(exports,require,module,_filename,_dirname){//code}</code></p>
-<p>定义在global对象上的东西：commonjs，buffer，process，console，timer<br>node的内置模块1:path 用来处理文件路径和目录路径。<br>path.normalize 用来格式化路径<br>path.join 用来拼接路径<br>path.resolve 把相对路径转换成绝对路径<br>path.basename 返回路径的最后一部分<br>path.dirname 获取一个路径的文件的路径<br>path.extname 获取一个路径中文件的后缀<br>path.parse 把一个路径解析成一个对象，对象中包括根目录，basename，dirname，extname等信息，总之该方法就是帮忙分析一个路径。<br>path.format parse的逆操作分，过程中会有一些规则。<br>node支持使用c++编写二进制文件，编写的文件的后缀名是.node,</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2019/02/04/node/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-服务器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2019/01/30/服务器/">服务器相关知识</a>
-    </h1>
-  
-
-        
-        <a href="2019/01/30/服务器/" class="archive-article-date">
-  	<time datetime="2019-01-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>服务器：通常也称为主机，是一种高性能计算机，主要提供计算服务。根据服务类型的不同分为：文件服务器，数据库服务器，应用程序服务器，web服务器等。物理结构跟通用的计算机类似，主要有：处理器，硬盘，内存，数据总线。由于要提供高可靠的服务，所以在各方面性能（稳定性，安全性，处理能力等）上要求较高。</p>
-<p>服务器与个人电脑的区别：</p>
-<ol>
-<li>7x24小时不间断工作。</li>
-<li>个人电脑为个人服务，服务器可以服务多人。</li>
-<li>性能要求要高很多。</li>
-</ol>
-<p>虚拟主机：使用特殊的软硬件技术，把一台真实的物理服务器主机分割成多个逻辑存储单元。每个逻辑单元都没有物理实体，但是每一个逻辑单元都能像真实的物理主机一样在网络上工作，具有单独的IP地址（或共享的IP地址）、独立的域名以及完整的Internet服务器（支持WWW、FTP、E-mail等）功能。在外界看来，每一台虚拟主机和一台单独的主机的表现完全相同。所以这种被虚拟化的逻辑主机被形象地称为“虚拟主机”，虚拟主机技术使得在一台物理服务器上创建多个站点成为可能。<br>  优点：1 多台虚拟主机共享一台真实主机，增加了服务器和通讯线路的利用率，也使得成本大幅降低2 即买即用，配套服务由服务商专业提供，大大简化服务器管理的复杂性<br>  缺点：1 某些功能收到服务器商的限制（数据库类型，操作系统等）<br>  2 一台服务器主机只能够支持一定数量的虚拟主机，当超过这个数量时，用户将会感到性能急剧下降。<br>  3 自主性差，服务器方面出了问题网站无法自行解决，也无法随意安装软件等自定义操作。<br>  虚拟主机常见性能参数：</p>
-<ul>
-<li>操作系统。</li>
-<li>CPU。</li>
-<li>内存（重要指标）。</li>
-<li>网页空间。</li>
-<li>数据库空间类型。</li>
-<li>绑定域名。</li>
-<li>流量。</li>
-<li>带宽（每秒可以传输的数据量）。描述带宽的单位是bit(位)/s，而描述上传下载时的网络传输效率的单位是byte（字节）/s，1byte（字节）=8bit（位），所以带宽对应的理论下载速度要除上8，受各种因素影响，实际的下载速度还会再低一点。<a href="https://www.west.cn/docs/36781.html" target="_blank" rel="noopener">带宽独享和共享</a></li>
-</ul>
-<p>云服务器 ECS（Elastic Compute Service）是一种弹性可伸缩的计算服务，助降低 IT 成本，提升运维效率，使得可以专注于核心业务。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2019/01/30/服务器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="extend next" rel="next" href="page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -1484,6 +745,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">work</a>
               </li>
             
             <div class="clearfix"></div>

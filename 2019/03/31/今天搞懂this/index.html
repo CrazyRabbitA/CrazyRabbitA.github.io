@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>搞懂this | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端顾驰的个人博客">
-<meta name="keywords" content="顾驰的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="函数中的this究竟是谁取决于函数调用的场景。函数完整的调用方法是使用call方法，this是call方法的第一个参数，它可以在函数调用时修改，在函数没有调用的时候，this的值是无法确定。 纯粹的函数调用1234567891011121314151617function test1(name) &amp;#123;    console.log(name)    console.log(this)&amp;#1">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搞懂this">
+<meta property="og:url" content="http://yoursite.com/2019/03/31/今天搞懂this/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前端顾驰的个人博客">
+<meta property="og:description" content="函数中的this究竟是谁取决于函数调用的场景。函数完整的调用方法是使用call方法，this是call方法的第一个参数，它可以在函数调用时修改，在函数没有调用的时候，this的值是无法确定。 纯粹的函数调用1234567891011121314151617function test1(name) &amp;#123;    console.log(name)    console.log(this)&amp;#1">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-31T06:58:10.925Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="前端顾驰的个人博客">
+<meta name="twitter:title" content="搞懂this">
+<meta name="twitter:description" content="函数中的this究竟是谁取决于函数调用的场景。函数完整的调用方法是使用call方法，this是call方法的第一个参数，它可以在函数调用时修改，在函数没有调用的时候，this的值是无法确定。 纯粹的函数调用1234567891011121314151617function test1(name) &amp;#123;    console.log(name)    console.log(this)&amp;#1">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -57,33 +58,33 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="../../../index.html">主页</a></li>
+				<li><a href="../../../../index.html">主页</a></li>
 	        
-				<li><a href="../../../tags/node">node</a></li>
+				<li><a href="../../../../tags/node">node</a></li>
 	        
-				<li><a href="../../../tags/vue">vue</a></li>
+				<li><a href="../../../../tags/vue">vue</a></li>
 	        
-				<li><a href="../../../tags/react">react</a></li>
+				<li><a href="../../../../tags/react">react</a></li>
 	        
-				<li><a href="../../../tags/es6">es6</a></li>
+				<li><a href="../../../../tags/es6">es6</a></li>
 	        
-				<li><a href="../../../tags/web">web</a></li>
+				<li><a href="../../../../tags/web">web</a></li>
 	        
-				<li><a href="../../../tags/css">css</a></li>
+				<li><a href="../../../../tags/css">css</a></li>
 	        
-				<li><a href="../../../tags/js">js</a></li>
+				<li><a href="../../../../tags/js">js</a></li>
 	        
-				<li><a href="../../../tags/work">work</a></li>
+				<li><a href="../../../../tags/work">work</a></li>
 	        
-				<li><a href="../../../tags/job">job</a></li>
+				<li><a href="../../../../tags/job">job</a></li>
 	        
-				<li><a href="../../../tags/shill">skill</a></li>
+				<li><a href="../../../../tags/shill">skill</a></li>
 	        
-				<li><a href="../../../tags/life">life</a></li>
+				<li><a href="../../../../tags/life">life</a></li>
 	        
-				<li><a href="../../../tags/interview">interview</a></li>
+				<li><a href="../../../../tags/interview">interview</a></li>
 	        
-				<li><a href="../../../tags/other">other</a></li>
+				<li><a href="../../../../tags/other">other</a></li>
 	        
 			</ul>
 		</nav>
@@ -185,33 +186,33 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 7.142857142857143%"><a href="../../../index.html">主页</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../index.html">主页</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/node">node</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/node">node</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/vue">vue</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/vue">vue</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/react">react</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/react">react</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/es6">es6</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/es6">es6</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/web">web</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/web">web</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/css">css</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/css">css</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/js">js</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/js">js</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/work">work</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/work">work</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/job">job</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/job">job</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/shill">skill</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/shill">skill</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/life">life</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/life">life</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/interview">interview</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/interview">interview</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../../tags/other">other</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/other">other</a></li>
 		        
 				</ul>
 			</nav>
@@ -228,291 +229,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-今天搞懂this" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      搞懂this
+    </h1>
+  
+
+        
+        <a href="" class="archive-article-date">
+  	<time datetime="2019-03-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函数中的this究竟是谁取决于函数调用的场景。<br>函数完整的调用方法是使用call方法，this是call方法的第一个参数，它可以在函数调用时修改，在函数没有调用的时候，this的值是无法确定。</p>
+<h4 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a>纯粹的函数调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function test1(name) &#123;</span><br><span class="line">    console.log(name)</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">test(&apos;Tom&apos;)</span><br><span class="line">//Tom</span><br><span class="line">//window</span><br><span class="line"></span><br><span class="line">//严格模式下</span><br><span class="line">function test2(name)&#123;</span><br><span class="line">    &apos;use strict&apos;</span><br><span class="line">    console.log(name)</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">test2(&apos;Tom&apos;)</span><br><span class="line">//Tom</span><br><span class="line">//undefined</span><br></pre></td></tr></table></figure>
+<p>test(‘Tom’)是test.call(undefined, ‘Tom’)的简写，函数调用时都会执行.call的方法，如果不显式指出来，.call的第一个参数默认就是undefined。非严格模式下，.call()的第一个参数为undefined时this默认指向全局对象（window），严格模式下，禁止默认指向全局对象，this即为undefined。</p>
+<h4 id="对象中函数的调用（函数作为方法调用）"><a href="#对象中函数的调用（函数作为方法调用）" class="headerlink" title="对象中函数的调用（函数作为方法调用）"></a>对象中函数的调用（函数作为方法调用）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;</span><br><span class="line">    name: &apos;Jerry&apos;,</span><br><span class="line">    greet: function() &#123;</span><br><span class="line">        console.log(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.greet()  //第一种调用方法</span><br><span class="line">obj.greet.call(obj) //第二种调用方法</span><br><span class="line">//Jerry</span><br><span class="line">//Jerry</span><br><span class="line"></span><br><span class="line">第一种调用方法只是第二种调用方法的语法糖，第二种才是完整的调用方法。</span><br><span class="line"></span><br><span class="line">手动绑定this</span><br><span class="line">obj.greet.call(&#123;name:&apos;Tom&apos;&#125;)</span><br><span class="line">//Tom</span><br></pre></td></tr></table></figure>
+<p>结合纯粹的函数调用，得出结论：函数执行时首先看函数名前面是否有”.”，有的话，”.”前面是谁,this就是谁；没有的话this就是window（非严格模式）</p>
+<h4 id="构造函数中的this"><a href="#构造函数中的this" class="headerlink" title="构造函数中的this"></a>构造函数中的this</h4><p>构造函数在执行new之后会返回一个对象，这个对象就是this。所以：构造函数中this指向的是该构造函数所生成的实例对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Test() &#123;</span><br><span class="line">    this.name = &apos;Tom&apos;</span><br><span class="line">&#125;</span><br><span class="line">let p = new Test()</span><br><span class="line">console.log(typeof p)  //object</span><br><span class="line">console.log(p.name)    // Tom</span><br></pre></td></tr></table></figure>
+<h4 id="定时器中函数的调用"><a href="#定时器中函数的调用" class="headerlink" title="定时器中函数的调用"></a>定时器中函数的调用</h4><p>window.setTimeout()和window.setInterval()的函数中的this有些特殊，里面的this默认是window对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;,1000)</span><br><span class="line">//13693 （定时器的时钟号）</span><br><span class="line">//window</span><br></pre></td></tr></table></figure></p>
+<h4 id="自执行函数中的this"><a href="#自执行函数中的this" class="headerlink" title="自执行函数中的this"></a>自执行函数中的this</h4><p>自执行函数中的this始终指向window</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;)()</span><br><span class="line">//window</span><br></pre></td></tr></table></figure>
+<h4 id="dom事件绑定函数中的this"><a href="#dom事件绑定函数中的this" class="headerlink" title="dom事件绑定函数中的this"></a>dom事件绑定函数中的this</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//Dom零级事件绑定</span><br><span class="line">oDiv.onclick = function () &#123;</span><br><span class="line">    //this-&gt;oDiv</span><br><span class="line">&#125;;</span><br><span class="line">//Dom二级事件绑定</span><br><span class="line">oDiv.addEventListener(&quot;click&quot;, function () &#123;</span><br><span class="line">    //this-&gt;oDiv</span><br><span class="line">&#125;, false);</span><br></pre></td></tr></table></figure>
+<p>总之就是：dom事件绑定函数中的this指向的就是绑定事件的dom节点。</p>
+<h4 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h4><p>1 箭头函数不会创建自己的this,它只会从自己的作用域链的上一层继承this，所以在箭头函数中this的值和外层的this是一样的。在多层对象嵌套里箭头函数里this是和最最外层保持一致的。<br>2 不能用call方法修改this指向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  birth: 1990,</span><br><span class="line">  getAge: function () &#123;</span><br><span class="line">    var b = this.birth </span><br><span class="line">    var fn = function () &#123;</span><br><span class="line">        console.log(b)</span><br><span class="line">      return this.birth </span><br><span class="line">    &#125;</span><br><span class="line">    return fn()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.getAge()</span><br><span class="line">//1990</span><br><span class="line">//undefined (this指向了window)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    birth: 1990,</span><br><span class="line">    getAge: function (year) &#123;</span><br><span class="line">        var b = this.birth; // 1990</span><br><span class="line">        var fn = (y) =&gt; y - this.birth; // this.birth仍是1990</span><br><span class="line">        return fn.call(&#123; birth: 2000 &#125;, year);//箭头函数call的第一个参数无效</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getAge(2019); // 29</span><br></pre></td></tr></table></figure>
+<p>apply、call、bind 的区别<br>相同点：第一个参数都是this<br>call： this之后（第一个参数之后）的参数接受的是若干个<strong>参数列表</strong>,返回函数执行的结果。<br>apply：this之后（第一个参数之后）的参数接受的是一个<strong>参数数组</strong>，返回函数执行的结果。<br>bind:  this之后（第一个参数之后）的参数接受的是若干个<strong>参数列表</strong>，不返回函数执行的结果，而是返回一个<strong>新的函数</strong>,该函数中的this即为bind中指定的this。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    num: 10,</span><br><span class="line">    fn: function (a, b) &#123;</span><br><span class="line">        console.log(a + b + this.num)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var z=&#123;</span><br><span class="line">    num:100</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var b = a.fn;</span><br><span class="line"></span><br><span class="line">b.call(a, 1, 2) //13</span><br><span class="line">b.call(z,1,2)  //103</span><br><span class="line"></span><br><span class="line">b.apply(a, [1, 2]) //13</span><br><span class="line">b.apply(z, [1, 2]) //103</span><br><span class="line"></span><br><span class="line">b.bind(a, 1, 2) //ƒ (a, b) &#123;console.log(a + b + this.num)&#125;</span><br><span class="line">b.bind(z, 1, 2) //ƒ (a, b) &#123;console.log(a + b + this.num)&#125;</span><br><span class="line"></span><br><span class="line">b.bind(a, 1, 2)()</span><br><span class="line">b.bind(z, 1, 2)()</span><br><span class="line"></span><br><span class="line">let c = a.fn.bind(a)</span><br><span class="line">let d=a.fn.bind(z)</span><br><span class="line"></span><br><span class="line">c(1,2) //13</span><br><span class="line">d(1,2) //103</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="../../2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../../2019/01/29/items的使用与配置/" class="archive-article-date">
-  	<time datetime="2019-01-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../../2019/01/29/items的使用与配置/">item2配置和使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">skill</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/31/今天搞懂this/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../../2019/01/24/路由/" class="archive-article-date">
-  	<time datetime="2019-01-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-24</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="../Css知识点总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Css知识点总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="../跨域问题总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">跨域问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../../2019/01/24/路由/">路由</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../../2019/01/19/理解前端/" class="archive-article-date">
-  	<time datetime="2019-01-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../../2019/01/19/理解前端/">框架和库的区别</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">other</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../../2019/01/15/ES6中class知识点总结/" class="archive-article-date">
-  	<time datetime="2019-01-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../../2019/01/15/ES6中class知识点总结/">ES6中class的知识点总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../../2019/01/14/CSS实现div高度随宽度等比例变化/" class="archive-article-date">
-  	<time datetime="2019-01-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../../2019/01/14/CSS实现div高度随宽度等比例变化/">CSS实现div高度随宽度等比例变化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../../2019/01/13/Alfred用法总结/" class="archive-article-date">
-  	<time datetime="2019-01-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../../2019/01/13/Alfred用法总结/">Alfred + 七牛云实现markdown图床</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">skill</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../../2019/01/06/2019 新的开始/" class="archive-article-date">
-  	<time datetime="2019-01-06T08:50:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../../2019/01/06/2019 新的开始/">2019 新的开始</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="../../">&laquo; Prev</a><a class="page-number" href="../../">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -536,8 +436,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -655,6 +555,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">work</a>
               </li>
             
             <div class="clearfix"></div>

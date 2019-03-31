@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>跨域问题 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端顾驰的个人博客">
-<meta name="keywords" content="顾驰的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="什么是同源？三个相同：协议相同，域名相同，端口相同。即便两个不同的域名指向同一个ip地址，也非同源。 同源的目的？为了保证用户信息的安全，防止恶意的网站窃取数据。 非同源有哪些限制？ 1 Cookie、LocalStorage 和 IndexedDB 无法读取 2 DOM 无法获得 3 AJAX 请求无效（可以发送，但浏览器会拒绝接受响应） 什么是跨域？ 跨域是指一个域下的文档或脚本试图去请求另一">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨域问题">
+<meta property="og:url" content="http://yoursite.com/2019/03/31/跨域问题总结/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前端顾驰的个人博客">
+<meta property="og:description" content="什么是同源？三个相同：协议相同，域名相同，端口相同。即便两个不同的域名指向同一个ip地址，也非同源。 同源的目的？为了保证用户信息的安全，防止恶意的网站窃取数据。 非同源有哪些限制？ 1 Cookie、LocalStorage 和 IndexedDB 无法读取 2 DOM 无法获得 3 AJAX 请求无效（可以发送，但浏览器会拒绝接受响应） 什么是跨域？ 跨域是指一个域下的文档或脚本试图去请求另一">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-31T10:38:23.871Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="前端顾驰的个人博客">
+<meta name="twitter:title" content="跨域问题">
+<meta name="twitter:description" content="什么是同源？三个相同：协议相同，域名相同，端口相同。即便两个不同的域名指向同一个ip地址，也非同源。 同源的目的？为了保证用户信息的安全，防止恶意的网站窃取数据。 非同源有哪些限制？ 1 Cookie、LocalStorage 和 IndexedDB 无法读取 2 DOM 无法获得 3 AJAX 请求无效（可以发送，但浏览器会拒绝接受响应） 什么是跨域？ 跨域是指一个域下的文档或脚本试图去请求另一">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -57,33 +58,33 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="../../index.html">主页</a></li>
+				<li><a href="../../../../index.html">主页</a></li>
 	        
-				<li><a href="../../tags/node">node</a></li>
+				<li><a href="../../../../tags/node">node</a></li>
 	        
-				<li><a href="../../tags/vue">vue</a></li>
+				<li><a href="../../../../tags/vue">vue</a></li>
 	        
-				<li><a href="../../tags/react">react</a></li>
+				<li><a href="../../../../tags/react">react</a></li>
 	        
-				<li><a href="../../tags/es6">es6</a></li>
+				<li><a href="../../../../tags/es6">es6</a></li>
 	        
-				<li><a href="../../tags/web">web</a></li>
+				<li><a href="../../../../tags/web">web</a></li>
 	        
-				<li><a href="../../tags/css">css</a></li>
+				<li><a href="../../../../tags/css">css</a></li>
 	        
-				<li><a href="../../tags/js">js</a></li>
+				<li><a href="../../../../tags/js">js</a></li>
 	        
-				<li><a href="../../tags/work">work</a></li>
+				<li><a href="../../../../tags/work">work</a></li>
 	        
-				<li><a href="../../tags/job">job</a></li>
+				<li><a href="../../../../tags/job">job</a></li>
 	        
-				<li><a href="../../tags/shill">skill</a></li>
+				<li><a href="../../../../tags/shill">skill</a></li>
 	        
-				<li><a href="../../tags/life">life</a></li>
+				<li><a href="../../../../tags/life">life</a></li>
 	        
-				<li><a href="../../tags/interview">interview</a></li>
+				<li><a href="../../../../tags/interview">interview</a></li>
 	        
-				<li><a href="../../tags/other">other</a></li>
+				<li><a href="../../../../tags/other">other</a></li>
 	        
 			</ul>
 		</nav>
@@ -185,33 +186,33 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 7.142857142857143%"><a href="../../index.html">主页</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../index.html">主页</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/node">node</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/node">node</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/vue">vue</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/vue">vue</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/react">react</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/react">react</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/es6">es6</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/es6">es6</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/web">web</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/web">web</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/css">css</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/css">css</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/js">js</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/js">js</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/work">work</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/work">work</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/job">job</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/job">job</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/shill">skill</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/shill">skill</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/life">life</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/life">life</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/interview">interview</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/interview">interview</a></li>
 		        
-					<li style="width: 7.142857142857143%"><a href="../../tags/other">other</a></li>
+					<li style="width: 7.142857142857143%"><a href="../../../../tags/other">other</a></li>
 		        
 				</ul>
 			</nav>
@@ -228,341 +229,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-items的使用与配置" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-跨域问题总结" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2019/01/29/items的使用与配置/">item2配置和使用</a>
+    <h1 class="article-title" itemprop="name">
+      跨域问题
     </h1>
   
 
         
-        <a href="../../2019/01/29/items的使用与配置/" class="archive-article-date">
-  	<time datetime="2019-01-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-29</time>
+        <a href="" class="archive-article-date">
+  	<time datetime="2019-03-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>发现了一篇关于配置item的很不错的博客，于是就跟着配置了一下，<a href="https://www.cnblogs.com/weixuqin/p/7029177.html" target="_blank" rel="noopener">原文</a>写的很详细，就不再赘述了，简单总结一下：</p>
-<ol>
-<li>将iTem2设置为默认终端：iTerm2 -&gt; Make iTerm2 Default Term。</li>
-<li>iTem2 -&gt;performance -&gt;key中设置 <code>option+space</code>快捷键来显示隐藏终端。</li>
-<li>主题配色，这里可以参考一个更详细的教程 <a href="https://www.jianshu.com/p/6e964940139c" target="_blank" rel="noopener">item2主题色配置</a>。</li>
-<li>为了使用下面更酷炫的功能，需要安装一个叫<strong>oh-my-zsh</strong>插件，我用的crul安装，终端输入：<code>sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code>，安装好之后需要对一个隐藏配置文件进行编辑，<code>open .zshrc</code>打开这个文件。</li>
-<li>按教程配置主题和字体。</li>
-<li>配置语法高亮（语法错误时会变红）。</li>
-<li>配置自动提示功能。1 会自动提示可能要输入的命令,按<code>-&gt;</code>快速输入。2 输入一段命令后（npm node cd …)后<code>空格+Tab</code>会在下面提示可能要输入的选项,再次点击<code>Tab</code>配合方向键可以进行选择。</li>
-<li>设置终端背景和透明度。</li>
-</ol>
-<p>最终效果图：<br><img src="http://cdn.guchi.fun/19-02-21-7092c9e970f2909006642b66dcab3548.png" alt=""></p>
-<p>顺便总结几个常用的item命令，多了也记不住了</p>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:left">命令</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">command + t</td>
-<td style="text-align:left">新建标签</td>
-</tr>
-<tr>
-<td style="text-align:left">command + w</td>
-<td style="text-align:left">关闭标签</td>
-</tr>
-<tr>
-<td style="text-align:left">command + 数字 command + 左右方向键</td>
-<td style="text-align:left">切换标签</td>
-</tr>
-<tr>
-<td style="text-align:left">command + f</td>
-<td style="text-align:left">查找</td>
-</tr>
-<tr>
-<td style="text-align:left">ctrl + p</td>
-<td style="text-align:left">上一条命令</td>
-</tr>
-<tr>
-<td style="text-align:left">ctrl + l</td>
-<td style="text-align:left">清屏</td>
-</tr>
-<tr>
-<td style="text-align:left">ctrl + u</td>
-<td style="text-align:left">清除当前行</td>
-</tr>
-<tr>
-<td style="text-align:left">ctrl + a</td>
-<td style="text-align:left">到行首</td>
-</tr>
-<tr>
-<td style="text-align:left">ctrl + e</td>
-<td style="text-align:left">到行尾</td>
-</tr>
-<tr>
-<td style="text-align:left">command +/command -</td>
-<td style="text-align:left">放大/缩小终端界面</td>
-</tr>
-<tr>
-<td style="text-align:left">command + enter</td>
-<td style="text-align:left">切换全屏</td>
-</tr>
-<tr>
-<td style="text-align:left">commond+i</td>
-<td style="text-align:left">设置item</td>
-</tr>
-<tr>
-<td style="text-align:left">command + d</td>
-<td style="text-align:left">垂直分屏</td>
-</tr>
-<tr>
-<td style="text-align:left">command + shift + d</td>
-<td style="text-align:left">水平分屏</td>
-</tr>
-</tbody>
-</table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">skill</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2019/01/29/items的使用与配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-路由" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2019/01/24/路由/">路由</a>
-    </h1>
-  
-
-        
-        <a href="../../2019/01/24/路由/" class="archive-article-date">
-  	<time datetime="2019-01-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>路由</strong>：根据不同的url地址展现不同的内容或页面。<br>后端路由和前端路由：早期的路由都是后端直接根据url来reload页面实现的，即后端控制路由。后来页面越来越复杂，服务器压力越来越大，随着ajax（异步刷新技术）的出现，页面的实现非reload就能刷新数据，让前端也可以控制url自行管理，前端路由由此而生。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2019/01/24/路由/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-理解前端" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2019/01/19/理解前端/">框架和库的区别</a>
-    </h1>
-  
-
-        
-        <a href="../../2019/01/19/理解前端/" class="archive-article-date">
-  	<time datetime="2019-01-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>框架和库？<br><strong>库</strong>（<em>library</em>）：为解决某种特定需求的程序功能集合，是一种工具，按需组合使用，共同实现项目。如jquery可以方便dom操作。使用库就是在自己的代码中加入别人的代码以实现某个功能。库没有控制权，控制权在使用者手中。<br><strong>框架</strong>（<em>framework</em>）：则是面向一个领域，提供一套整体解决方案（不是专注于某一个或几个问题）。使用框架就是按照框架的规则写代码，框架在底层更好的实现代码。控制权的在框架本身，使用者要找框架所规定的某种规范进行开发。</p>
-<p>什么是框架？<br>为什么使用框架？<br>互联网的崛起，web业务变的复杂化，多元化。<br>外部js引用太多，复用性低，开发周期太长，性能低，效率低。<br>框架解决了哪些问题？<br>重复引用外部js：在以前使用jQuery开发时，当项目越来越复杂和庞大的时候，可能会用到各种各样的第三方插件，而且不只是一个页面使用，所以会出现每个页面都要引用一遍相同的js文件，冗余大的问题。</p>
-<p>参考链接：<a href="https://www.jianshu.com/p/e960179a7685" target="_blank" rel="noopener">前端为什么使用框架？解决了哪些问题？</a><br><a href="https://blog.csdn.net/bluesky1215/article/details/68922920" target="_blank" rel="noopener">转前端框架与库的区别</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">other</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2019/01/19/理解前端/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6中class知识点总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2019/01/15/ES6中class知识点总结/">ES6中class的知识点总结</a>
-    </h1>
-  
-
-        
-        <a href="../../2019/01/15/ES6中class知识点总结/" class="archive-article-date">
-  	<time datetime="2019-01-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1 ES6引入类的概念，通过关键字<strong>class</strong>可以定义类。<br>2 ES6的class本质是一个语法糖，是构造函数的另一种写法，只是让代码更加简洁清晰,类的数据类型就是函数。<br>3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">  constructor(x, y) &#123;</span><br><span class="line">    this.x = x;</span><br><span class="line">    this.y = y;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toString() &#123;</span><br><span class="line">    return &apos;(&apos; + this.x + &apos;, &apos; + this.y + &apos;)&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>class关键字声明一个类，类名首字母大些，内容用大括号包裹，constructor是构造方法，定义在原型上的方法写在下面，不用加function关键字，方法之间也不用逗号分隔。<br>4 类的所有方法都定义在prototype属性上，类的内部定义的所有方法都是不可枚举的。<br>5 constructor方法是类的默认方法，一个类必须有这个方法，如果没有显式定义，将会默认添加一个空的constructor方法，使用new关键字生成新的实例对象时会自动调用该方法。<br>6 constructor方法默认返回实例对象（this）。<br>7 类必须用new调用，否则报错，这是跟普通构造函数主要的一个区别。<br>8 与ES5一样，类的所有实例共享一个原型对象。<br>9 类和模块的内部，默认就是严格模式。<br>10 类不存在变量提升，ES6 不会把类的声明提升到代码头部。<br>11 实例属性除了定义在constructor()方法里面的this上面，也可以定义在类的最顶层。<br>12 Class 可以通过extends关键字实现继承，<br>13<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">&#125;</span><br><span class="line">class ColorPoint extends Point &#123;</span><br><span class="line">  constructor(x, y, color) &#123;</span><br><span class="line">    super(x, y); // 调用父类的constructor(x, y)</span><br><span class="line">    this.color = color;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toString() &#123;</span><br><span class="line">    return this.color + &apos; &apos; + super.toString(); // 调用父类的toString()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">super关键字，它在这里表示父类的构造函数，用来新建父类的this对象。</span><br></pre></td></tr></table></figure></p>
-<p>14 子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类自己的this对象，必须先通过父类的构造函数完成塑造，得到与父类同样的实例属性和方法，然后再对其进行加工，加上子类自己的实例属性和方法。如果不调用super方法，子类就得不到this对象.<br>15 在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。这是因为子类实例的构建，基于父类实例，只有super方法才能调用父类实例。<br>16 ES5的继承和ES6的继承的区别：ES5 的继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面（Parent.apply(this)）。ES6 的继承机制完全不同，实质是先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this。<br>17 super这个关键字，既可以当作函数使用，也可以当作对象使用。</p>
+        <p>什么是同源？<br>三个相同：协议相同，域名相同，端口相同。<br>即便两个不同的域名指向同一个ip地址，也非同源。</p>
+<p>同源的目的？<br>为了保证用户信息的安全，防止恶意的网站窃取数据。</p>
+<p>非同源有哪些限制？<br> 1 Cookie、LocalStorage 和 IndexedDB 无法读取<br> 2 DOM 无法获得<br> 3 AJAX 请求无效（可以发送，但浏览器会拒绝接受响应）<br> <br>什么是跨域？<br> 跨域是指一个域下的文档或脚本试图去请求另一个域下的资源。<br> <br>什么情况下会跨域？<br>1 域名协议端口有任意一个不同。<br>2 使用xhr发送请求。（浏览器正常发送请求，服务器正常返回响应，但浏览器认为这是不安全的，会把响应拦截掉，导致最终无法获取响应）</p>
+<p>有三个标签是允许跨域加载资源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=XXX&gt;</span><br><span class="line">&lt;link href=XXX&gt;</span><br><span class="line">&lt;script src=XXX&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="跨域解决方式"><a href="#跨域解决方式" class="headerlink" title="跨域解决方式"></a>跨域解决方式</h3><h5 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h5><p>jsonp原理：利用<code>script</code>标签没有跨域限制的特点。<br>实现过程：<br>1 先设置好回调函数  fn1(data){console.log(data.message)}<br>2 然后动态创建script标签，url的参数里有callback=fn1<br>3 服务器看到有callback，把原来要返回的json数据{“message”:“服务器数据”}变成fn1（{“message”:“服务器数据”}）返回给浏览器，然后fn1被执行。<br>4 具体操作中还会给回调函数加一个随机数，确保不会重名，对url进行拼接，还会对服务器返回的数据进行验证，最后移除动态创建的script标签。</p>
+<p>优点：兼容性好，简单易用<br>缺点：<br>1 只能发送get请求（因为通过动态创建script的方式向服务器发送请求，而script标签只能发送get请求）<br>2 需要后台服务器配合改动代码以提供支持<br>3 不安全，可能遭受xss攻击（服务器的响应中夹杂恶意代码）</p>
+<p>其他：<br>JSONP：json+padding（内填充），顾名思义，就是把JSON填充到一个盒子里，小括号就是那个盒子。<br>Jsonp是一个非官方协议，它是一个前后台约定，约定了如果后台发现请求参数里面包含了callback（默认是这个，也可以约定成别的），就把返回的值由原来的json对象，变成js 代码，js代码的形式是函数调用的形式，它的函数名是callback参数的值，函数的参数是原来要返回的json</p>
+<h5 id="CORES"><a href="#CORES" class="headerlink" title="CORES"></a>CORES</h5><p>原理：主要通过在服务器端设置：<code>Access-Control-Allow-Origin</code>字段来实现。<br>实现过程：<br>1 浏览器在发送请求时会判断请求属于哪种情况（简单请求还是复杂请求）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">简单请求：使用GET,POST,HEAD方法，且Content-Type只能为：text/plain，multipart/form-data，application/x-www-form-urlencoded中的一个。</span><br><span class="line">复杂请求：简单请求以外的所有请求。</span><br></pre></td></tr></table></figure>
+<p>2 浏览器如果发现是简单请求就先执行而后判断：</p>
 <ul>
-<li>super作为函数调用时，代表父类的构造函数。ES6 要求，子类的构造函数必须执行一次super函数。作为函数时，super()只能用在子类的构造函数之中，用在其他地方就会报错。</li>
-<li>super作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类。由于super指向父类的原型对象，所以定义在父类实例上的方法或属性，是无法通过super调用的。ES6 规定，在子类普通方法中通过super调用父类的方法时，方法内部的this指向当前的子类实例。</li>
+<li>自动在头信息之中，添加一个Origin字段，内容为请求来自哪个源(协议 + 域名 + 端口)</li>
+<li>如果服务器认为这个请求可以接受，就在Access-Control-Allow-Origin头部中回发相同的源信息(如果是公共资源，可以回发” *” )</li>
+<li> 如果Origin指定的源，不在许可范围内，服务器会返回一个正常的HTTP回应。浏览器发现，这个回应的头信息没有包含Access-Control-Allow-Origin字段，就知道出错了，从而抛出一个错误，被XMLHttpRequest的onerror回调函数捕获。但是，这种错误无法通过状态码识别，因为HTTP回应的状态码有可能是200</li>
 </ul>
+<p>3 如果浏览器发现是非简单请求则先判断再执行：<br>先发一个预检命令 通过后台服务器验证之后才会把跨域请求真正的发送出去（这样做增加了请求次数）后台可以设置Access-Control-Max-Age 来指定预检命令在浏览器中的缓存时间，在这个时间内，如果浏览器发现是同一个非简单请求，则不再预检，直接向服务器发送跨域请求。</p>
+<h5 id="服务器代理（Node中间件代理）"><a href="#服务器代理（Node中间件代理）" class="headerlink" title="服务器代理（Node中间件代理）"></a>服务器代理（Node中间件代理）</h5><p>同源策略是浏览器需要遵循的标准，而如果是服务器向服务器请求就无需遵循同源策略。<br>实现过程：</p>
+<ol>
+<li>浏览器向代理服务器发送请求。</li>
+<li>代理服务器向最终服务器发送请求。</li>
+<li>代理服务器拿到响应。</li>
+<li>代理服务器将响应返回给浏览器。</li>
+</ol>
+<h5 id="nginx反向代理"><a href="#nginx反向代理" class="headerlink" title="nginx反向代理"></a>nginx反向代理</h5><p> </p>
+<p>参考链接：<br><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="noopener">阮一峰同源跨域</a><br><a href="https://github.com/ljianshu/Blog/issues/55" target="_blank" rel="noopener">9种跨域方式详解</a></p>
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -573,7 +309,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -582,16 +318,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2019/01/15/ES6中class知识点总结/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/31/跨域问题总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="../今天搞懂this/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          搞懂this
+        
+      </div>
+    </a>
+  
+  
+    <a href="../闭包/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">闭包</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -611,246 +415,14 @@
 
 
 
-
-  
-    <article id="post-CSS实现div高度随宽度等比例变化" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2019/01/14/CSS实现div高度随宽度等比例变化/">CSS实现div高度随宽度等比例变化</a>
-    </h1>
-  
-
-        
-        <a href="../../2019/01/14/CSS实现div高度随宽度等比例变化/" class="archive-article-date">
-  	<time datetime="2019-01-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这应该是一个很简单的问题，奈何学艺不精，直到业务中遇到了这样的场景，才发现之前的方法都不好用了，网上搜索了下，果然有技巧，在这总结一下。原文链接：<a href="https://www.cnblogs.com/heyach/p/6494872.html?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="noopener">纯Css实现Div高度根据自适应宽度（百分比）调整</a><br>div的宽度百分比和高度百分比是相对于父元素的宽高的，宽度很容易拿到，但如果父元素是靠子元素撑开的，自身没有高度的话，那么在子div上设置高度百分比是没有用的。<br>先看下要实现的效果：<br><img src="" alt=""><br>由于子div里要放图片，需要做到图片宽高一致，之前常用的百分比布局和flex布局都不在适用了，然后就发现了这个只使用css实现这个需求的方法：<br>子元素的宽度百分比是基于父元素的width计算的，而padding-top和padding-bottom的百分比也是根据父元素的width来计算的，那么通过设置这个属性就能跟width达成某种比例关系了。<br>源码较为啰嗦，这里给出简化版：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.father &#123;</span><br><span class="line">        width: 29%;</span><br><span class="line">&#125;</span><br><span class="line">.son &#123;</span><br><span class="line">        position:relative;</span><br><span class="line">        width: 100%;</span><br><span class="line">        height: 0;  /*不使用height，而是使用padding-bottom撑开子盒子*/</span><br><span class="line">        padding-bottom:100%;  /*与width一样，都等于父盒子宽度*/</span><br><span class="line">        background:white;</span><br><span class="line">        overflow: hidden;  /*高度为0了，溢出的东西隐藏*/</span><br><span class="line">&#125;</span><br><span class="line">.son img&#123;</span><br><span class="line">        position:absolute;  /*子盒子装不下东西了，所以要用定位放置图片了*/</span><br><span class="line">        width:100%;  /*宽高等于子盒子宽高*/</span><br><span class="line">        height:100%;</span><br><span class="line">        left:0;  /*定位图片位置*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>纯css实现，过程简单易懂，兼容性好，最大的缺点是固定了宽高比例，可能会让源图片失真，所以定义.son的width和padding-bottom时要慎重，根据需求选择一个合适的比例。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2019/01/14/CSS实现div高度随宽度等比例变化/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Alfred用法总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2019/01/13/Alfred用法总结/">Alfred + 七牛云实现markdown图床</a>
-    </h1>
-  
-
-        
-        <a href="../../2019/01/13/Alfred用法总结/" class="archive-article-date">
-  	<time datetime="2019-01-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文主要参考<a href="https://blog.csdn.net/Gdeer/article/details/83046888" target="_blank" rel="noopener">Alfred workflow 配合七牛云实现 markdown 图床</a>，原文写的很好很详细，我只是做一点补充。<br>前言：该方法最终用起来确实很爽，但是也有个很大的坑点，用七牛云的对象存储做图床，如果没有做域名加速的话，七牛给的临时域名只能用一个月，到期之后空间内图片的外链就无法使用了，这就太坑了，总不能每个月建个空间，每个月给图片搬家吧，但是又舍不得这种方法，于是就去搞域名加速，发现需要有备案的域名，域名备案又需要有服务器。。。所以如果单纯是想给博客的静态文件找个图床的话，就不要用这种方法了，成本高也过于麻烦。恰逢想买个服务器玩玩，于是就买了一个阿里云的最便宜的服务器和一个域名，然后做域名解析，把域名映射到买的服务器上，最后最麻烦的就是备案了，流程熟的话还好，一开始不熟，走了不少弯路。等域名备案成功之后，就可以去七牛云上对应的存储空间那里设置加速域名了，七牛的教程很详细，就不赘述了，我也是折腾了很久，现在才刚刚搞定，之前的图片也丢了很多，现在慢慢补回来，所幸的是以后就可以放心的用了。</p>
-<h6 id="需要从七牛云那里拿到的4个参数："><a href="#需要从七牛云那里拿到的4个参数：" class="headerlink" title="需要从七牛云那里拿到的4个参数："></a>需要从七牛云那里拿到的4个参数：</h6><p><img src="http://cdn.guchi.fun/19-02-21-aca1c6d99cec6b03dcf6e4d29aa5542a.png" alt="需要从七牛云拿到的4个参数"><br><a href="https://github.com/qiniu/qshell/blob/master/docs/qupload.md" target="_blank" rel="noopener">可以在config.json中做更多自定义配置</a></p>
-<h6 id="双击工作流中的Hotkey文件自定义快捷键（我自定义的是control-command-v）"><a href="#双击工作流中的Hotkey文件自定义快捷键（我自定义的是control-command-v）" class="headerlink" title="双击工作流中的Hotkey文件自定义快捷键（我自定义的是control+command+v）"></a>双击工作流中的Hotkey文件自定义快捷键（我自定义的是<code>control+command+v</code>）</h6><p><img src="http://pl9syc281.bkt.clouddn.com/19-01-13-9134944eedae89ab09198a833ce263a0.png" alt=""><br>使用<code>command+shift+4</code>只是实现截屏，并没有把截屏的图片放到粘贴板上，所以要想同时放到粘贴板上，使用快捷键<code>command+shift+control+4</code>。<br>所以一整套的流程就是：<br>1.使用<code>command+shift+control+4</code>截屏并保存到粘贴板上。<br>2.使用<code>control+command+v</code>触发Alfred的工作流，将粘贴板上的图片上传到七牛云上之前设定好的那个存储空间，并拿到外链。<br>3.在markdown编辑器中使用<code>command+v</code>，会以markdown插入图片的方式一键导入该图片，整个过程结束，简单粗暴。</p>
-<p>这个方法不仅仅能导入截图，对于本地图片也一样适用，只需要把本地图片<code>command+c</code>复制到粘贴板上，然后<code>control+command+v</code>上传图片，最后<code>command+v</code>粘贴到编辑器上。</p><br><p>另外结合Alfred的Clipboard可以进一步提升效率，可以一次性截取或从本地选取多张图片保存到粘贴板上，然后在需要在编辑器中使用某张图片时，快捷键<code>option+command+c</code>打开粘贴板，从中选择要使用的图片，然后<code>control+command+v</code>上传图片，最后在编辑器中使用<code>command+v</code>粘贴就可以了。不熟悉Alfred Clipboard使用的可以参考这里,<a href="https://www.jianshu.com/p/1efc688d6095" target="_blank" rel="noopener">Mac效率神器-Alfred以及使用的一些奇技淫巧</a></p>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">skill</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2019/01/13/Alfred用法总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019 新的开始" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2019/01/06/2019 新的开始/">2019 新的开始</a>
-    </h1>
-  
-
-        
-        <a href="../../2019/01/06/2019 新的开始/" class="archive-article-date">
-  	<time datetime="2019-01-06T08:50:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center><img src="http://cdn.guchi.fun/deadEnd.jpg" alt="新的开始"></center>
-
-<p>  2019，新的一年，不想颓废下去了，打算多做些让自己踏实心安的事情，顺便改掉一些坏习惯。首先就是养成写博客的习惯，好记性不如烂笔头，更何况还没有好记性，处理过的问题，不理解的东西，不去好好总结归纳，就会一直稀里糊涂的，时间久了，就什么都留不下了，曾经花费过的时间，收益甚少，遂决定，逼迫一下自己，多思考，多学习，多总结。</p>
-
-<p>也是最近刚开始接触使用<a href="https://github.com/HarleyWang93/blog/issues/1" target="_blank" rel="noopener">hexo和github快速简单的搭建个人博客</a>，感觉很不错，不用自己买服务器，也不用自己从头搭建页面，虽然比直接在掘金简书上写博客要稍微麻烦一点，但是管理起来还是很有感觉的，自定义的去配置想要的东西，修改自己想要的样式，还是蛮有意思的.</p>
-
-<p></p><p>首先要熟悉markdown语法，熟悉一款markdown编辑器，学会如何修改hexo网站配置文件和主题配置文件，理解更新和部署的流程，记住常用的几个命令(随后会总结下)，先熟悉这些，习惯后就可以专注于博客内容了。</p><p></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2019/01/06/2019 新的开始/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="../../">&laquo; Prev</a><a class="page-number" href="../../">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -873,8 +445,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -993,6 +565,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">work</a>
               </li>
             
             <div class="clearfix"></div>
