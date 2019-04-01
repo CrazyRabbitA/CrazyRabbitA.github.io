@@ -230,6 +230,130 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-理解继承" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/04/01/理解继承/">理解继承</a>
+    </h1>
+  
+
+        
+        <a href="2019/04/01/理解继承/" class="archive-article-date">
+  	<time datetime="2019-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="构造函数？"><a href="#构造函数？" class="headerlink" title="构造函数？"></a>构造函数？</h5><p>用来批量生产一类对象。构造函数内部通过<code>this.</code>向实例对象添加私有属性和方法，实例对象通过继承原型对象来获取公有的属性和方法。</p>
+<h5 id="proto-和prototype"><a href="#proto-和prototype" class="headerlink" title="__proto__和prototype"></a><code>__proto__</code>和<code>prototype</code></h5><p><strong>proto</strong>是浏览器环境下每个对象都具有的属性。<br>prototype是函数才会有的属性。因为函数也是对象，所以一个函数不仅有prototype属性，还有<strong>proto</strong>属性，这个函数的prototype属性值是一个对象，这个对象就是该构造函数生成实例对象的原型对象，这个对象又有着<strong>proto</strong>属性，指向它自己的原型对象，也就是实例对象的原型对象的原型对象，即Object.prototype</p>
+<h5 id="使用new命令通过构造函数创建实例对象的过程："><a href="#使用new命令通过构造函数创建实例对象的过程：" class="headerlink" title="使用new命令通过构造函数创建实例对象的过程："></a>使用new命令通过构造函数创建实例对象的过程：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.创建一个空对象，作为将要返回的对象实例。</span><br><span class="line">2.将这个空对象的原型，指向构造函数的prototype属性。</span><br><span class="line">3.将这个空对象赋值给函数内部的this关键字。</span><br><span class="line">4.开始执行构造函数内部的代码</span><br></pre></td></tr></table></figure>
+<p>第二步的本质：实例对象的原型（<code>__proto_</code>_）和构造函数的prototype保存的都是原型对象在堆内存中的地址，这一步就是把构造函数prototype保存的那个地址赋值给实例对象<code>__proto__</code>属性，最终结果就是它们俩指向了同一个原型对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Test()&#123;</span><br><span class="line">    this.name=&apos;Tom&apos;</span><br><span class="line">&#125;</span><br><span class="line">Test.prototype.greating=function()&#123;</span><br><span class="line">    console.log(this.name)</span><br><span class="line">&#125;</span><br><span class="line">a=new Test()</span><br><span class="line">a.__proto__===Test.prototype//证明它们俩只是存储了同一个原型对象在堆内存中的地址。</span><br><span class="line">//true</span><br></pre></td></tr></table></figure>
+<h5 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h5><p>js规定，每个对象都有自己的原型对象，原型对象本质也是对象，又可以有它自己的原型对象，这样就形成了一个链，从对象到原型，再到原型的原型。。。<br>当读取对象的某个属性时，JavaScript 引擎先寻找对象本身的属性，如果找不到，就到它的原型去找，如果还是找不到，就到原型的原型去找。如果直到最顶层的Object.prototype还是找不到，则返回undefined。<br>如果对象自身和它的原型，都定义了一个同名属性，那么优先读取对象自身的属性，这叫做“覆盖”（overriding）。如果寻找某个不存在的属性，将会遍历整个原型链。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var object = &#123;&#125;</span><br><span class="line">object.__proto__ ===  Object.prototype</span><br><span class="line">object.__proto__ .__proto__ ===null</span><br><span class="line"></span><br><span class="line">var fn = function()&#123;&#125;</span><br><span class="line">fn.__proto__ === Function.prototype</span><br><span class="line">fn.__proto__.__proto__ === Object.prototype</span><br><span class="line"></span><br><span class="line">var array = []</span><br><span class="line">array.__proto__ === Array.prototype</span><br><span class="line">array.__proto__.__proto__ === Object.prototype</span><br><span class="line"></span><br><span class="line">Function.__proto__ === Function.prototype</span><br><span class="line">Array.__proto__ === Function.prototype</span><br><span class="line">Object.__proto__ === Function.prototype</span><br><span class="line"></span><br><span class="line">true.__proto__ ===  Boolean.prototype</span><br><span class="line"></span><br><span class="line">Function.prototype.__proto__ === Object.prototype</span><br></pre></td></tr></table></figure>
+<h5 id="Constructor属性"><a href="#Constructor属性" class="headerlink" title="Constructor属性"></a>Constructor属性</h5><p>这是原型对象中的一个属性，指向该原型对象对应的构造函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Foo()&#123;&#125;;</span><br><span class="line">var f1 = new Foo;</span><br><span class="line">console.log(Foo.prototype.constructor === Foo);//true</span><br><span class="line">console.log(f1.constructor === Foo);//true</span><br><span class="line">console.log(f1.hasOwnProperty(&apos;constructor&apos;));//false</span><br></pre></td></tr></table></figure>
+<p>实例对象f1本身并没有constructor属性，但它可以继承原型对象Foo.prototype的constructor属性.</p>
+<h1 id="实现继承的方式："><a href="#实现继承的方式：" class="headerlink" title="实现继承的方式："></a>实现继承的方式：</h1><p>实现继承有三大种方式：类式继承，原型继承，拷贝继承。下面详细介绍。</p>
+<h2 id="类式继承"><a href="#类式继承" class="headerlink" title="类式继承"></a>类式继承</h2><p>类式继承的思想：通过构造函数实例化对象，通过原型链将实例对象关联起来。<br>类式继承又分：原型链继承；构造函数继承；组合继承；寄生组合继承；es6的class。</p>
+<h4 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//父类型</span><br><span class="line">function Person(name, age) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.age = age</span><br><span class="line">    this.gender=&apos;male&apos;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.greating = function () &#123; </span><br><span class="line">    console.log(&apos;Hi, man&apos;)</span><br><span class="line">&#125;</span><br><span class="line">//子类型</span><br><span class="line">function Student(num) &#123;</span><br><span class="line">    this.num = num</span><br><span class="line">    this.setScore = function () &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype = new Person() // 子类型的原型为父类型的一个实例对象</span><br><span class="line">var s1 = new Student(99)</span><br><span class="line">console.log(s1)</span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.guchi.fun/19-04-01-b834ce8150ac7d520f569b682f21dc25.png" alt=""><br><em>本质</em>：子类的原型指向父类的实例。子类通过<code>__proto__</code>访问到父类的私有属性，通过<code>__proto__.__proro__</code>访问到父类的公有属性，就这样通过原型链继承到了父类所有的属性和方法，并将其作为所有子类的实例对象的公有属性和方法。<br><em>优点</em>：</p>
+<ul>
+<li>父类新增原型方法/原型属性，子类都能访问到</li>
+<li>简单，易于实现</li>
+</ul>
+<p><em>缺点</em>：</p>
+<ul>
+<li>来自原型对象的所有属性被所有实例共享，牵一发动全身。</li>
+<li>创建子类实例时，无法向父类构造函数传参。</li>
+</ul>
+<h4 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Super(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">function Sub()&#123;</span><br><span class="line">    //继承了Super，同时还传递了参数</span><br><span class="line">    Super.call(this,&quot;bai&quot;);</span><br><span class="line">    //实例属性</span><br><span class="line">    this.age = 29;</span><br><span class="line">&#125;</span><br><span class="line">var instance = new Sub();</span><br><span class="line">console.log(instance.name);//&quot;bai&quot;</span><br><span class="line">console.log(instance.age);//29</span><br></pre></td></tr></table></figure>
+<p><em>本质</em>： 把父构造函数中的代码在子构造函数中执行一遍。<br><em>优点</em>： 可以在子构造函数中向父构造函数传递参数。<br><em>缺点</em>： 父构造函数公有的属性和方法没能提取出来，没有实现函数复用。</p>
+<h4 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Super(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.colors = [&apos;red&apos;,&apos;blue&apos;,&apos;green&apos;];</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.sayName = function()&#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;;</span><br><span class="line">function Sub(name,age)&#123;//再采用构造函数继承对父构造函数私有属性进行重写。（虽然它看上去写在原项链继承前面，但原型链继承是立即执行的，构造函数继承是在创建新的子类实例时才执行的，所以实现了对父类私有属性的覆盖）</span><br><span class="line">    //继承属性</span><br><span class="line">    Super.call(this,name);</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Sub.prototype = new Super();//先采用原型链继承</span><br><span class="line">Sub.prototype.constructor = Sub;</span><br><span class="line">Sub.prototype.sayAge = function()&#123;</span><br><span class="line">    console.log(this.age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>本质</em>：使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，又能够保证每个实例都有它自己的属性。<br><em>优点</em>：既可以在子构造函数中向父构造函数传递参数，又可以实现对父构造函数公有属性的复用。<br><em>缺点</em>：无论什么情况下，都会调用两次父类型构造函数：一次是在创建子类型原型的时候，另一次是在子类型构造函数内部。</p>
+<h4 id="寄生组合继承"><a href="#寄生组合继承" class="headerlink" title="寄生组合继承"></a>寄生组合继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function Super(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.sayName = function()&#123;</span><br><span class="line">    return this.name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function Sub(name,age)&#123;</span><br><span class="line">    Super.call(this,name);</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">if(!Object.create)&#123;//判断该方法是否存在，不存在就自己定义</span><br><span class="line">    Object.create = function(proto)&#123;</span><br><span class="line">　　　　function F()&#123;&#125;;</span><br><span class="line">　　　　F.prototype = proto;</span><br><span class="line">　　　　return new F;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br><span class="line">Sub.prototype = Object.create(Super.prototype);</span><br><span class="line">Sub.prototype.constructor = Sub;//修改constructor指向，之前指向Super</span><br></pre></td></tr></table></figure>
+<p>首先介绍一下Object.create方法：该方法接受一个对象作为参数，然后以它为原型，返回一个实例对象。<br>优点：具备组合继承的优点，解决了调用两次父类型构造函数的缺点。</p>
+<h4 id="Es6的class"><a href="#Es6的class" class="headerlink" title="Es6的class"></a>Es6的class</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">es5是这样的：</span><br><span class="line"></span><br><span class="line">function Person(name, age) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.age = age</span><br><span class="line">    this.gender=&apos;male&apos;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.greating = function () &#123; </span><br><span class="line">    console.log(&apos;Hi, man&apos;)</span><br><span class="line">&#125;</span><br><span class="line">。。。。</span><br><span class="line"></span><br><span class="line">es6则是：</span><br><span class="line">class Person &#123;</span><br><span class="line">    constructor(name,age) &#123;</span><br><span class="line">        this.name = name</span><br><span class="line">        this.age = age</span><br><span class="line">        this.gender = &apos;male&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    greating() &#123;</span><br><span class="line">        console.log(&apos;Hi, man&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Student extends Person &#123;</span><br><span class="line">    constructor(name,num) &#123;</span><br><span class="line">        super(name);</span><br><span class="line">        this.num = num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let s1 = new Student(&apos;小明&apos;,26)</span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.guchi.fun/19-04-01-27001cd8b7d561a9bafa214b7e5c71a0.png" alt=""></p>
+<p>引申：<br>es6类与es5中实现继承的方法有哪些不同？</p>
+<ul>
+<li>类的内部，默认就是严格模式，而且无法强行让代码脱离严格模式执行。</li>
+<li>类不存在变量提升（hoist），必须先声明，再使用，这是为了保证子类在父类之后定义。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  let Foo = class &#123;&#125;;</span><br><span class="line">  class Bar extends Foo &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//如果存在class的提升，上面代码就会报错，因为class会被提升到代码头部，而let命令是不提升的，所以导致Bar继承Foo的时候，Foo还没有定义。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>类中所有方法都是不可枚举的<br><img src="http://cdn.guchi.fun/19-04-01-07bbffeaf72125acf962252b76d3eeec.png" alt=""><br>看一下使用es5组合寄生的结果<br><img src="http://cdn.guchi.fun/19-04-01-4dcc98451c063246ced6a41de8d4ce71.png" alt=""><br>对比可以发现，es5实现的继承greating方法是可枚举的，需要通过Object.defineProperty()方法手工指定某个方法为不可枚举。还有就是因为没有修改constructor指向，</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student.prototype=Student</span><br></pre></td></tr></table></figure>
+<p>导致Student实例对象的constructor还是指向了父构造函数Person，es6的class继承中就自动会修改constructor指向。</p>
+<ul>
+<li>使用除关键字new以外的方式调用类的构造函数会导致程序抛出错误<br><img src="http://cdn.guchi.fun/19-04-01-bf83ea3149913e536f034efafa935749.png" alt=""></li>
+</ul>
+<h2 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//原型链继承</span><br><span class="line"></span><br><span class="line">function Super()&#123;</span><br><span class="line">    this.value = 1;</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.value = 0;</span><br><span class="line">function Sub()&#123;&#125;;</span><br><span class="line">//将父类型的实例对象作为子类型的原型对象</span><br><span class="line">Sub.prototype = new Super();</span><br><span class="line">Sub.prototype.constructor = Sub;</span><br><span class="line">//创建子类型的实例对象</span><br><span class="line">var instance = new Sub;</span><br><span class="line">console.log(instance.value);//1</span><br><span class="line"></span><br><span class="line">//原型继承</span><br><span class="line"></span><br><span class="line">function Super()&#123;</span><br><span class="line">    this.value = 1;</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.value = 0;</span><br><span class="line">function Sub()&#123;&#125;;</span><br><span class="line">Sub.prototype = Object.create(Super.prototype);</span><br><span class="line">Sub.prototype.constructor = Sub;</span><br><span class="line">//创建子类型的实例对象</span><br><span class="line">var instance = new Sub;</span><br><span class="line">console.log(instance.value);//0</span><br></pre></td></tr></table></figure>
+<p>在object()函数内部，先创建了一个临时性的构造函数，然后将传入的对象作为这个构造函数的原型，最后返回了这个临时类型的一个新实例。<br>ES5通过新增Object.create()方法规范化了原型式继承。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//Object.create()实现原理</span><br><span class="line"></span><br><span class="line">function object(o)&#123;</span><br><span class="line">    function F()&#123;&#125;;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    return new F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>和原型链继承的区别：<br>父类型的实例对象不再作为子类型的原型对象。子类只继承父类原型上的属性，而不继承父类的私有属性。<br>原型继承缺点：原型继承与原型链继承都存在着子例共享父例引用类型值的问题。</p>
+<h2 id="拷贝继承"><a href="#拷贝继承" class="headerlink" title="拷贝继承"></a>拷贝继承</h2><p>拷贝继承不需要改变原型链，通过拷贝函数将父例的属性和方法拷贝到子例即可。</p>
+<p>参考链接：<a href="https://www.xiaohuochai.cc/posts/5afaaeda002834409838bd46" target="_blank" rel="noopener">小火柴前端小站-实现继承的三种方式</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2019/04/01/理解继承/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Css知识点总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
