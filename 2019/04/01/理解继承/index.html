@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://cdn.guchi.fun/19-04-01-07bbffeaf72125acf962252b76d3eeec.png">
 <meta property="og:image" content="http://cdn.guchi.fun/19-04-01-4dcc98451c063246ced6a41de8d4ce71.png">
 <meta property="og:image" content="http://cdn.guchi.fun/19-04-01-bf83ea3149913e536f034efafa935749.png">
-<meta property="og:updated_time" content="2019-04-01T08:36:38.716Z">
+<meta property="og:updated_time" content="2019-04-01T10:24:34.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解继承">
 <meta name="twitter:description" content="构造函数？用来批量生产一类对象。构造函数内部通过this.向实例对象添加私有属性和方法，实例对象通过继承原型对象来获取公有的属性和方法。 __proto__和prototypeproto是浏览器环境下每个对象都具有的属性。prototype是函数才会有的属性。因为函数也是对象，所以一个函数不仅有prototype属性，还有proto属性，这个函数的prototype属性值是一个对象，这个对象就是该">
@@ -306,6 +306,7 @@
 <p>和原型链继承的区别：<br>父类型的实例对象不再作为子类型的原型对象。子类只继承父类原型上的属性，而不继承父类的私有属性。<br>原型继承缺点：原型继承与原型链继承都存在着子例共享父例引用类型值的问题。</p>
 <h2 id="拷贝继承"><a href="#拷贝继承" class="headerlink" title="拷贝继承"></a>拷贝继承</h2><p>拷贝继承不需要改变原型链，通过拷贝函数将父例的属性和方法拷贝到子例即可。</p>
 <p>参考链接：<a href="https://www.xiaohuochai.cc/posts/5afaaeda002834409838bd46" target="_blank" rel="noopener">小火柴前端小站-实现继承的三种方式</a></p>
+<p>对面向对象的理解？<br>面向对象是js对客观事物或抽象事物进行抽象描述的思想<br>首先说一下js的7种数据类型，数值，字符串，布尔值，null，undefined,symbol，object<br>其中object是js的核心，因为它可以包含并自由组合所有的数据类型<br>从数据结构的角度来看，object是无序键值对的组合，当键值为前6种简单数据类型时，称之为属性，当键值为object中的函数时，称之为方法，面向对象就是以对象为主，通过属性和方法实现对其他的事物抽象的描述。<br>面向对象编程的三大特性：封装，继承，多态<br>封装就是使一个对象中的内容私有化，同时提供一些可以被外界访问的接口，外界的其他对象只能通过暴露出来的接口，获取接口返回的，关于这个封装对象内部的信息。被封装的对象也被称之为类<br>封装的好处：1 避免外界数据的污染，隐藏信息，实现细节<br>2.内部的数据结构可以任意修改，<br>3.良好的封装可以减少耦合<br>继承<br>继承的主要目的是实现代码复用。子类可以拥有父类通用的属性和方法，然后在子类中定义自己私有的属性和方法<br>继承的方式：<br>1原型链继承，本质是重写原型对象，最大的问题是引用类型的值会被所有实例共享<br>2.<br>继承的缺点：1 继承是一种强耦合关系，父变子必变2继承破坏了封装，父类的隐藏细节对子类都是透明的。<br>多态</p>
 
       
 
@@ -411,8 +412,8 @@
 <nav id="article-nav">
   
   
-    <a href="../../../03/31/Css知识点总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Css知识点总结</div>
+    <a href="../web相关/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">http相关</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="如何理解HTMl语义化？主要包括标签语义化和类名语义化。使用nav,header,footer,aside,artical,section等这些新增语义化的标签代替div，使得整个html结构逻辑更加清晰；使用类似于nav，container，wraper，banner，mask，logo等能表示用途的类名，让人一目了然。语义化的好处：  便于搜索引擎检索和收录 没有css的时候也能呈现清晰的网页">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T15:17:53.856Z">
+<meta property="og:updated_time" content="2019-04-01T10:31:13.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Css知识点总结">
 <meta name="twitter:description" content="如何理解HTMl语义化？主要包括标签语义化和类名语义化。使用nav,header,footer,aside,artical,section等这些新增语义化的标签代替div，使得整个html结构逻辑更加清晰；使用类似于nav，container，wraper，banner，mask，logo等能表示用途的类名，让人一目了然。语义化的好处：  便于搜索引擎检索和收录 没有css的时候也能呈现清晰的网页">
@@ -267,8 +267,15 @@
 <li>本地离线存储 localStorage，sessionStorage </li>
 <li>新的技术webworker, websocket, Geolocation<br>如何区分： DOCTYPE声明\新增的结构元素\功能元素</li>
 </ul>
-<p><strong>CSS3有哪些新特性？</strong></p>
+<p><strong>h5代码规范？</strong></p>
 <ul>
+<li>文档类型声明位于HTML文档的第一行</li>
+<li>标签名和属性名用小写</li>
+<li>标签闭合</li>
+<li>属性值用双引号</li>
+<li>非装饰性图片添加alt属性</li>
+<li>避免一行代码过长以及不必要的空格和换行</li>
+<li>开发时添加必要的注释<br><strong>CSS3有哪些新特性？</strong></li>
 <li>圆角（边框半径）：border-radius 属性用于创建圆角</li>
 <li>盒阴影：box-shadow: 10px 10px 5px #888888</li>
 <li>RGBA和透明度</li>
@@ -280,6 +287,7 @@
 <p><strong>盒模型？</strong><br>通过box-sizing属性指定为哪种盒模型，默认为content-box<br>W3C盒模型（content-box）：内容区宽高指的就是content的宽高<br>IE盒模型（border-box）：内容区宽高指的是content+padding+border<br><strong>清除浮动？</strong><br>清除浮动的目的主要是因为浮动的元素脱离文档流，无法撑开父元素。<br>1.父级div定义 height<br>原理：父级div手动定义height，就解决了父级div无法自动获取到高度的问题。  优点：简单、代码少 缺点：只适合高度固定的布局，高度如果发生变化就会出问题<br>2.父级div定义 overflow:hidden<br>原理：必须定义width或zoom:1，同时不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度  优点：简单、代码少、浏览器支持好<br>3 父元素结尾处加空div标签并添加 clear:both<br>原理：添加一个空div，利用css提高的clear:both清除浮动，让父级div能自动获取到高度  优点：简单、代码少、浏览器支持好、不容易出现怪问题<br>缺点：增加很多空div，让人感觉很不好<br>4给父元素添加一个clearfix的类，再给这个类添加after伪元素，伪元素内定义content：’’；display：block；clear:both;<br><strong>BFC是什么？</strong><br>什么是BFC（block formatting context块级格式化上下文）？<br>BFC是一个独立的布局环境，其中的元素布局是不受外界的影响。<br>BFC布局规则：.<br>1内部的Box会在垂直方向，一个接一个地放置。<br>2.同一个BFC中的两个相邻Box的margin会发生重叠<br>3.计算BFC的高度时，浮动元素也参与计算<br>4.BFC的区域不会与区域外浮动的Box重叠。<br>5.每个Box的左margin外侧与父元素左padding内侧接触，与即使存在浮动也是如此。<br>5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。<br><strong>bfc能干嘛</strong><br>1.利用BFC避免外边距折叠<br>BFC产生外边距折叠要满足一个条件：两个相邻元素要处于同一个BFC中。所以，若两个相邻元素在不同的BFC中，就能避免外边距折叠。<br>2.BFC包含浮动<br>BFC能包含浮动，也能解决容器高度不会被撑开的问题。<br>3.自适应两栏布局<br>4.可以阻止元素被浮动元素覆盖<br><strong>如何触发bfc：</strong><br>1、float的值不是none。<br>2、position的值不是static或者relative。(position属性值有7个,static， absolute,relative,fixed,sticky,inherit,initial)<br>3、display的值是inline-block、table-cell、flex、table-caption<br>4、overflow的值不是visible（overflow的属性值有visible，hidden，scroll，auto，inherit</p>
 <p><strong>Css有哪些选择器，优先级？</strong><br>选择器类型<br>1、ID　　#id<br>2、class　　.class<br>3、标签　　p<br>4、通用　　*<br>5、属性　　[type=”text”]<br>6、伪类　　：hover<br>7、伪元素　　::first-line<br>8、子选择器、相邻选择器<br>权重计算规则<br>！important&gt;行内样式&gt;ID选择器&gt;类，伪类，伪元素选择器&gt;标签选择器&gt;通配符选择器&gt;默认样式<br><strong>margin合并条件？</strong><br>两个相邻子块盒上面的下margin与下面的上margin<br>（假设没有内边距或边框把外边距分隔开），第一个子元素的上边距会和父元素的上边距合并；最后一个子元素的下边距会和父元素的下边距合并。<br>（假设没有内边距或边框把外边距分隔开）一个元素上外边距与下外边距就碰到了一起，它们会发生合并（前提是一个为正一个为负，）。<br>合并规则？<br>同正取最大值<br>一正一负取代数和<br>同负为绝对值大的那个<br><strong>meta viewport 是做什么用的？</strong><br>告诉浏览器按照设备宽度显示页面，且不允许缩放。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=“viewport” content=“width=device-width,user-scalable=no,intial-scal=1.0,maximum-scale=1.0,minimum-scale=1.0”&gt;</span><br><span class="line"></span><br><span class="line">width=device-width   视口为设备宽度（就是人设置的一个宽度）//不设置的话默认为980px</span><br><span class="line">initial-scale=1.0    初始化的视口大小是1.0倍</span><br><span class="line">maximum-scale=1.0    最大的倍数是1.0倍</span><br><span class="line">user-scalable=0      不允许缩放视口</span><br></pre></td></tr></table></figure></p>
 <p><strong>优雅降级和渐进增强</strong><br>渐进增强（Progressive Enhancement）：一开始就针对低版本浏览器进行构建页面，完成基本的功能，然后再针对高级浏览器进行交互和功能的追加以达到更好的体验。相当于向上兼容<br>优雅降级（Graceful Degradation）：一开始就构建站点的完整功能，然后针对低版本浏览器进行测试和修复。 使其可以在低版本浏览器上正常浏览。相当于向下兼容<br>两者的区别在于优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带。<br><strong>display:none和visibility:hidden的区别？</strong><br>display:none  隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。（重流+重绘）<br>visibility:hidden  隐藏对应的元素，但是在文档布局中仍保留原来的空间。（重绘）<br><strong>css reset和normalize.css的区别？</strong><br>HTML标签在浏览器中都有默认的样式，不同的浏览器的默认样式之间存在差别，开发时浏览器的默认样式可能会给我们带来多浏览器兼容性问题，影响开发效率。<br>Reset 相对「暴力」，不管你有没有用，统统重置成一样的效果，且影响的范围很大，讲求跨浏览器的一致性。<br>Normalize 相对「平和」，注重通用的方案，重置掉该重置的样式，保留有用的 user agent 样式，同时进行一些 bug 的修复，这点是 reset 所缺乏的。<br><strong>浏览器是如何解析页面的？</strong><br>解析代码：HTML 代码解析为 DOM，CSS 代码解析为 CSSOM（CSS Object Model）。<br>对象合成：将 DOM 和 CSSOM 合成一棵渲染树（render tree）。<br>布局：计算出渲染树的布局（layout）。<br>绘制：将渲染树绘制到屏幕。<br>以上四步并非严格按顺序执行，往往第一步还没完成，第二步和第三步就已经开始了。所以，会看到这种情况：网页的 HTML 代码还没下载完，但浏览器已经显示出内容了。<br><strong>不同浏览器的内核？</strong><br>内核指的就是渲染引擎<br>Firefox：Gecko 引擎<br>Safari：WebKit 引擎<br>Chrome：Blink 引擎<br>IE: Trident 引擎<br>Edge: EdgeHTML 引擎<br><strong>不同浏览器的c3属性前缀？</strong><br>chrome和safari: -webkit<br>Firfox:  -moz<br>IE:  -ms<br>Opera: -o<br><strong>哪些属性可以继承，哪些不可以？</strong><br>可继承的属性：font-size, font-family, color<br>不可继承的样式：border, padding, margin, width, height<br><strong>怎么让Chrome支持小于12px 的文字？</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p&#123;font-size:10px;-webkit-transform:scale(0.8);&#125; //0.8是缩放比例</span><br></pre></td></tr></table></figure></p>
+<p><strong>对canvas的理解？</strong><br>canvas标签只是一个图形容器，通过js来绘制图形，通过getContext这个api获取绘图环境，然后再利用其他api实现各种效果<br>基本原理是js的面向对象和浏览器重复渲染<br><strong>什么是svg，相比于其他图像的优势？</strong><br>可伸缩矢量图形，基于xml，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。svg图像在放大或改变尺寸时不会失真。<br>1放大时不损失图片质量，可在任何分辨率下高质量的打印<br>2 可以通过文本编辑器创建和修改<br>3 可被搜索，压缩，脚本化<br><strong>svg和canvas的比较？</strong><br>svg最适合带有大型渲染区域的应用程序（比如谷歌地图），canvas最适合图像密集型的游戏，其中的许多对象会被频繁重绘</p>
 
       
 
@@ -384,11 +392,11 @@
   
 <nav id="article-nav">
   
-    <a href="../../../04/01/理解继承/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../../04/01/web相关/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          理解继承
+          http相关
         
       </div>
     </a>

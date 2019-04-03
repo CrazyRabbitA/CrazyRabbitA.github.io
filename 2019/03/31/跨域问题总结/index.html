@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="什么是同源？三个相同：协议相同，域名相同，端口相同。即便两个不同的域名指向同一个ip地址，也非同源。 同源的目的？为了保证用户信息的安全，防止恶意的网站窃取数据。 非同源有哪些限制？ 1 Cookie、LocalStorage 和 IndexedDB 无法读取 2 DOM 无法获得 3 AJAX 请求无效（可以发送，但浏览器会拒绝接受响应） 什么是跨域？ 跨域是指一个域下的文档或脚本试图去请求另一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T10:38:23.871Z">
+<meta property="og:updated_time" content="2019-04-01T10:27:47.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域问题">
 <meta name="twitter:description" content="什么是同源？三个相同：协议相同，域名相同，端口相同。即便两个不同的域名指向同一个ip地址，也非同源。 同源的目的？为了保证用户信息的安全，防止恶意的网站窃取数据。 非同源有哪些限制？ 1 Cookie、LocalStorage 和 IndexedDB 无法读取 2 DOM 无法获得 3 AJAX 请求无效（可以发送，但浏览器会拒绝接受响应） 什么是跨域？ 跨域是指一个域下的文档或脚本试图去请求另一">
@@ -266,6 +266,9 @@
 <li> 如果Origin指定的源，不在许可范围内，服务器会返回一个正常的HTTP回应。浏览器发现，这个回应的头信息没有包含Access-Control-Allow-Origin字段，就知道出错了，从而抛出一个错误，被XMLHttpRequest的onerror回调函数捕获。但是，这种错误无法通过状态码识别，因为HTTP回应的状态码有可能是200</li>
 </ul>
 <p>3 如果浏览器发现是非简单请求则先判断再执行：<br>先发一个预检命令 通过后台服务器验证之后才会把跨域请求真正的发送出去（这样做增加了请求次数）后台可以设置Access-Control-Max-Age 来指定预检命令在浏览器中的缓存时间，在这个时间内，如果浏览器发现是同一个非简单请求，则不再预检，直接向服务器发送跨域请求。</p>
+<p>跨域如何发送cookie？<br>CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服务器，一方面要服务器同意，指定Access-Control-Allow-Credentials字段。<br>另一方面，开发者必须在AJAX请求中打开withCredentials属性<br>需要注意的是，如果要发送Cookie，Access-Control-Allow-Origin就不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的Cookie才会上传，其他域名的Cookie并不会上传，且（跨源）原网页代码中的document.cookie也无法读取服务器域名下的Cookie。</p>
+<h5 id="利用window-name进行跨域"><a href="#利用window-name进行跨域" class="headerlink" title="利用window.name进行跨域"></a>利用window.name进行跨域</h5><p>window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置，因此可以借助window.name在不同源的页面中传递数据。</p>
+<h5 id="利用postMessage跨域（h5新出的api）"><a href="#利用postMessage跨域（h5新出的api）" class="headerlink" title="利用postMessage跨域（h5新出的api）"></a>利用postMessage跨域（h5新出的api）</h5><p>这种方式比较简单，在a页面中利用 ：window.postMessage(msg,targetOrigin) 向目标页面发送信息，而在b页面中通过 window.addEventListener(‘message’,function(e) {}监听message事件获取信息。</p>
 <h5 id="服务器代理（Node中间件代理）"><a href="#服务器代理（Node中间件代理）" class="headerlink" title="服务器代理（Node中间件代理）"></a>服务器代理（Node中间件代理）</h5><p>同源策略是浏览器需要遵循的标准，而如果是服务器向服务器请求就无需遵循同源策略。<br>实现过程：</p>
 <ol>
 <li>浏览器向代理服务器发送请求。</li>
@@ -274,7 +277,7 @@
 <li>代理服务器将响应返回给浏览器。</li>
 </ol>
 <h5 id="nginx反向代理"><a href="#nginx反向代理" class="headerlink" title="nginx反向代理"></a>nginx反向代理</h5><p> </p>
-<p>参考链接：<br><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="noopener">阮一峰同源跨域</a><br><a href="https://github.com/ljianshu/Blog/issues/55" target="_blank" rel="noopener">9种跨域方式详解</a></p>
+<p>参考链接：<br><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="noopener">阮一峰同源跨域</a><br><a href="https://github.com/ljianshu/Blog/issues/55" target="_blank" rel="noopener">9种跨域方式详解</a><br><a href="https://www.imooc.com/article/21976" target="_blank" rel="noopener">跨域知识总结</a></p>
 
       
 
