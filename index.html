@@ -591,95 +591,6 @@
 
 
   
-    <article id="post-今天搞懂this" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2019/03/31/今天搞懂this/">搞懂this</a>
-    </h1>
-  
-
-        
-        <a href="2019/03/31/今天搞懂this/" class="archive-article-date">
-  	<time datetime="2019-03-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>函数中的this究竟是谁取决于函数调用的场景。<br>函数完整的调用方法是使用call方法，this是call方法的第一个参数，它可以在函数调用时修改，在函数没有调用的时候，this的值是无法确定。</p>
-<h4 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a>纯粹的函数调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function test1(name) &#123;</span><br><span class="line">    console.log(name)</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">test(&apos;Tom&apos;)</span><br><span class="line">//Tom</span><br><span class="line">//window</span><br><span class="line"></span><br><span class="line">//严格模式下</span><br><span class="line">function test2(name)&#123;</span><br><span class="line">    &apos;use strict&apos;</span><br><span class="line">    console.log(name)</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">test2(&apos;Tom&apos;)</span><br><span class="line">//Tom</span><br><span class="line">//undefined</span><br></pre></td></tr></table></figure>
-<p>test(‘Tom’)是test.call(undefined, ‘Tom’)的简写，函数调用时都会执行.call的方法，如果不显式指出来，.call的第一个参数默认就是undefined。非严格模式下，.call()的第一个参数为undefined时this默认指向全局对象（window），严格模式下，禁止默认指向全局对象，this即为undefined。</p>
-<h4 id="对象中函数的调用（函数作为方法调用）"><a href="#对象中函数的调用（函数作为方法调用）" class="headerlink" title="对象中函数的调用（函数作为方法调用）"></a>对象中函数的调用（函数作为方法调用）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;</span><br><span class="line">    name: &apos;Jerry&apos;,</span><br><span class="line">    greet: function() &#123;</span><br><span class="line">        console.log(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.greet()  //第一种调用方法</span><br><span class="line">obj.greet.call(obj) //第二种调用方法</span><br><span class="line">//Jerry</span><br><span class="line">//Jerry</span><br><span class="line"></span><br><span class="line">第一种调用方法只是第二种调用方法的语法糖，第二种才是完整的调用方法。</span><br><span class="line"></span><br><span class="line">手动绑定this</span><br><span class="line">obj.greet.call(&#123;name:&apos;Tom&apos;&#125;)</span><br><span class="line">//Tom</span><br></pre></td></tr></table></figure>
-<p>结合纯粹的函数调用，得出结论：函数执行时首先看函数名前面是否有”.”，有的话，”.”前面是谁,this就是谁；没有的话this就是window（非严格模式）</p>
-<h4 id="构造函数中的this"><a href="#构造函数中的this" class="headerlink" title="构造函数中的this"></a>构造函数中的this</h4><p>构造函数在执行new之后会返回一个对象，这个对象就是this。所以：构造函数中this指向的是该构造函数所生成的实例对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Test() &#123;</span><br><span class="line">    this.name = &apos;Tom&apos;</span><br><span class="line">&#125;</span><br><span class="line">let p = new Test()</span><br><span class="line">console.log(typeof p)  //object</span><br><span class="line">console.log(p.name)    // Tom</span><br></pre></td></tr></table></figure>
-<h4 id="定时器中函数的调用"><a href="#定时器中函数的调用" class="headerlink" title="定时器中函数的调用"></a>定时器中函数的调用</h4><p>window.setTimeout()和window.setInterval()的函数中的this有些特殊，里面的this默认是window对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;,1000)</span><br><span class="line">//13693 （定时器的时钟号）</span><br><span class="line">//window</span><br></pre></td></tr></table></figure></p>
-<h4 id="自执行函数中的this"><a href="#自执行函数中的this" class="headerlink" title="自执行函数中的this"></a>自执行函数中的this</h4><p>自执行函数中的this始终指向window</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;)()</span><br><span class="line">//window</span><br></pre></td></tr></table></figure>
-<h4 id="dom事件绑定函数中的this"><a href="#dom事件绑定函数中的this" class="headerlink" title="dom事件绑定函数中的this"></a>dom事件绑定函数中的this</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//Dom零级事件绑定</span><br><span class="line">oDiv.onclick = function () &#123;</span><br><span class="line">    //this-&gt;oDiv</span><br><span class="line">&#125;;</span><br><span class="line">//Dom二级事件绑定</span><br><span class="line">oDiv.addEventListener(&quot;click&quot;, function () &#123;</span><br><span class="line">    //this-&gt;oDiv</span><br><span class="line">&#125;, false);</span><br></pre></td></tr></table></figure>
-<p>总之就是：dom事件绑定函数中的this指向的就是绑定事件的dom节点。</p>
-<h4 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h4><p>1 箭头函数不会创建自己的this,它只会从自己的作用域链的上一层继承this，所以在箭头函数中this的值和外层的this是一样的。在多层对象嵌套里箭头函数里this是和最最外层保持一致的。<br>2 不能用call方法修改this指向</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  birth: 1990,</span><br><span class="line">  getAge: function () &#123;</span><br><span class="line">    var b = this.birth </span><br><span class="line">    var fn = function () &#123;</span><br><span class="line">        console.log(b)</span><br><span class="line">      return this.birth </span><br><span class="line">    &#125;</span><br><span class="line">    return fn()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.getAge()</span><br><span class="line">//1990</span><br><span class="line">//undefined (this指向了window)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    birth: 1990,</span><br><span class="line">    getAge: function (year) &#123;</span><br><span class="line">        var b = this.birth; // 1990</span><br><span class="line">        var fn = (y) =&gt; y - this.birth; // this.birth仍是1990</span><br><span class="line">        return fn.call(&#123; birth: 2000 &#125;, year);//箭头函数call的第一个参数无效</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getAge(2019); // 29</span><br></pre></td></tr></table></figure>
-<p>apply、call、bind 的区别<br>相同点：第一个参数都是this<br>call： this之后（第一个参数之后）的参数接受的是若干个<strong>参数列表</strong>,返回函数执行的结果。<br>apply：this之后（第一个参数之后）的参数接受的是一个<strong>参数数组</strong>，返回函数执行的结果。<br>bind:  this之后（第一个参数之后）的参数接受的是若干个<strong>参数列表</strong>，不返回函数执行的结果，而是返回一个<strong>新的函数</strong>,该函数中的this即为bind中指定的this。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    num: 10,</span><br><span class="line">    fn: function (a, b) &#123;</span><br><span class="line">        console.log(a + b + this.num)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var z=&#123;</span><br><span class="line">    num:100</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var b = a.fn;</span><br><span class="line"></span><br><span class="line">b.call(a, 1, 2) //13</span><br><span class="line">b.call(z,1,2)  //103</span><br><span class="line"></span><br><span class="line">b.apply(a, [1, 2]) //13</span><br><span class="line">b.apply(z, [1, 2]) //103</span><br><span class="line"></span><br><span class="line">b.bind(a, 1, 2) //ƒ (a, b) &#123;console.log(a + b + this.num)&#125;</span><br><span class="line">b.bind(z, 1, 2) //ƒ (a, b) &#123;console.log(a + b + this.num)&#125;</span><br><span class="line"></span><br><span class="line">b.bind(a, 1, 2)()</span><br><span class="line">b.bind(z, 1, 2)()</span><br><span class="line"></span><br><span class="line">let c = a.fn.bind(a)</span><br><span class="line">let d=a.fn.bind(z)</span><br><span class="line"></span><br><span class="line">c(1,2) //13</span><br><span class="line">d(1,2) //103</span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2019/03/31/今天搞懂this/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-跨域问题总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -863,6 +774,95 @@
 
 
   
+    <article id="post-今天搞懂this" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/03/31/今天搞懂this/">搞懂this</a>
+    </h1>
+  
+
+        
+        <a href="2019/03/31/今天搞懂this/" class="archive-article-date">
+  	<time datetime="2019-03-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函数中的this究竟是谁取决于函数调用的场景。<br>函数完整的调用方法是使用call方法，this是call方法的第一个参数，它可以在函数调用时修改，在函数没有调用的时候，this的值是无法确定。</p>
+<h4 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a>纯粹的函数调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function test1(name) &#123;</span><br><span class="line">    console.log(name)</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">test(&apos;Tom&apos;)</span><br><span class="line">//Tom</span><br><span class="line">//window</span><br><span class="line"></span><br><span class="line">//严格模式下</span><br><span class="line">function test2(name)&#123;</span><br><span class="line">    &apos;use strict&apos;</span><br><span class="line">    console.log(name)</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">test2(&apos;Tom&apos;)</span><br><span class="line">//Tom</span><br><span class="line">//undefined</span><br></pre></td></tr></table></figure>
+<p>test(‘Tom’)是test.call(undefined, ‘Tom’)的简写，函数调用时都会执行.call的方法，如果不显式指出来，.call的第一个参数默认就是undefined。非严格模式下，.call()的第一个参数为undefined时this默认指向全局对象（window），严格模式下，禁止默认指向全局对象，this即为undefined。</p>
+<h4 id="对象中函数的调用（函数作为方法调用）"><a href="#对象中函数的调用（函数作为方法调用）" class="headerlink" title="对象中函数的调用（函数作为方法调用）"></a>对象中函数的调用（函数作为方法调用）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;</span><br><span class="line">    name: &apos;Jerry&apos;,</span><br><span class="line">    greet: function() &#123;</span><br><span class="line">        console.log(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.greet()  //第一种调用方法</span><br><span class="line">obj.greet.call(obj) //第二种调用方法</span><br><span class="line">//Jerry</span><br><span class="line">//Jerry</span><br><span class="line"></span><br><span class="line">第一种调用方法只是第二种调用方法的语法糖，第二种才是完整的调用方法。</span><br><span class="line"></span><br><span class="line">手动绑定this</span><br><span class="line">obj.greet.call(&#123;name:&apos;Tom&apos;&#125;)</span><br><span class="line">//Tom</span><br></pre></td></tr></table></figure>
+<p>结合纯粹的函数调用，得出结论：函数执行时首先看函数名前面是否有”.”，有的话，”.”前面是谁,this就是谁；没有的话this就是window（非严格模式）</p>
+<h4 id="构造函数中的this"><a href="#构造函数中的this" class="headerlink" title="构造函数中的this"></a>构造函数中的this</h4><p>构造函数在执行new之后会返回一个对象，这个对象就是this。所以：构造函数中this指向的是该构造函数所生成的实例对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Test() &#123;</span><br><span class="line">    this.name = &apos;Tom&apos;</span><br><span class="line">&#125;</span><br><span class="line">let p = new Test()</span><br><span class="line">console.log(typeof p)  //object</span><br><span class="line">console.log(p.name)    // Tom</span><br></pre></td></tr></table></figure>
+<h4 id="定时器中函数的调用"><a href="#定时器中函数的调用" class="headerlink" title="定时器中函数的调用"></a>定时器中函数的调用</h4><p>window.setTimeout()和window.setInterval()的函数中的this有些特殊，里面的this默认是window对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;,1000)</span><br><span class="line">//13693 （定时器的时钟号）</span><br><span class="line">//window</span><br></pre></td></tr></table></figure></p>
+<h4 id="自执行函数中的this"><a href="#自执行函数中的this" class="headerlink" title="自执行函数中的this"></a>自执行函数中的this</h4><p>自执行函数中的this始终指向window</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;)()</span><br><span class="line">//window</span><br></pre></td></tr></table></figure>
+<h4 id="dom事件绑定函数中的this"><a href="#dom事件绑定函数中的this" class="headerlink" title="dom事件绑定函数中的this"></a>dom事件绑定函数中的this</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//Dom零级事件绑定</span><br><span class="line">oDiv.onclick = function () &#123;</span><br><span class="line">    //this-&gt;oDiv</span><br><span class="line">&#125;;</span><br><span class="line">//Dom二级事件绑定</span><br><span class="line">oDiv.addEventListener(&quot;click&quot;, function () &#123;</span><br><span class="line">    //this-&gt;oDiv</span><br><span class="line">&#125;, false);</span><br></pre></td></tr></table></figure>
+<p>总之就是：dom事件绑定函数中的this指向的就是绑定事件的dom节点。</p>
+<h4 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h4><p>1 箭头函数不会创建自己的this,它只会从自己的作用域链的上一层继承this，所以在箭头函数中this的值和外层的this是一样的。在多层对象嵌套里箭头函数里this是和最最外层保持一致的。<br>2 不能用call方法修改this指向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  birth: 1990,</span><br><span class="line">  getAge: function () &#123;</span><br><span class="line">    var b = this.birth </span><br><span class="line">    var fn = function () &#123;</span><br><span class="line">        console.log(b)</span><br><span class="line">      return this.birth </span><br><span class="line">    &#125;</span><br><span class="line">    return fn()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.getAge()</span><br><span class="line">//1990</span><br><span class="line">//undefined (this指向了window)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    birth: 1990,</span><br><span class="line">    getAge: function (year) &#123;</span><br><span class="line">        var b = this.birth; // 1990</span><br><span class="line">        var fn = (y) =&gt; y - this.birth; // this.birth仍是1990</span><br><span class="line">        return fn.call(&#123; birth: 2000 &#125;, year);//箭头函数call的第一个参数无效</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getAge(2019); // 29</span><br></pre></td></tr></table></figure>
+<p>apply、call、bind 的区别<br>相同点：第一个参数都是this<br>call： this之后（第一个参数之后）的参数接受的是若干个<strong>参数列表</strong>,返回函数执行的结果。<br>apply：this之后（第一个参数之后）的参数接受的是一个<strong>参数数组</strong>，返回函数执行的结果。<br>bind:  this之后（第一个参数之后）的参数接受的是若干个<strong>参数列表</strong>，不返回函数执行的结果，而是返回一个<strong>新的函数</strong>,该函数中的this即为bind中指定的this。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    num: 10,</span><br><span class="line">    fn: function (a, b) &#123;</span><br><span class="line">        console.log(a + b + this.num)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var z=&#123;</span><br><span class="line">    num:100</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var b = a.fn;</span><br><span class="line"></span><br><span class="line">b.call(a, 1, 2) //13</span><br><span class="line">b.call(z,1,2)  //103</span><br><span class="line"></span><br><span class="line">b.apply(a, [1, 2]) //13</span><br><span class="line">b.apply(z, [1, 2]) //103</span><br><span class="line"></span><br><span class="line">b.bind(a, 1, 2) //ƒ (a, b) &#123;console.log(a + b + this.num)&#125;</span><br><span class="line">b.bind(z, 1, 2) //ƒ (a, b) &#123;console.log(a + b + this.num)&#125;</span><br><span class="line"></span><br><span class="line">b.bind(a, 1, 2)()</span><br><span class="line">b.bind(z, 1, 2)()</span><br><span class="line"></span><br><span class="line">let c = a.fn.bind(a)</span><br><span class="line">let d=a.fn.bind(z)</span><br><span class="line"></span><br><span class="line">c(1,2) //13</span><br><span class="line">d(1,2) //103</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2019/03/31/今天搞懂this/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Es6核心知识点总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -959,6 +959,98 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="2019/03/30/Es6核心知识点总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue国际化" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/03/27/vue国际化/">vue国际化</a>
+    </h1>
+  
+
+        
+        <a href="2019/03/27/vue国际化/" class="archive-article-date">
+  	<time datetime="2019-03-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>国际化即是在一个网站中实现语言的切换。</p>
+<h6 id="第一步："><a href="#第一步：" class="headerlink" title="第一步："></a>第一步：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//安装依赖</span><br><span class="line">npm install  vue-i18n --save</span><br></pre></td></tr></table></figure>
+<h6 id="第二步："><a href="#第二步：" class="headerlink" title="第二步："></a>第二步：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//在main.js（项目入口文件中的配置）</span><br><span class="line"></span><br><span class="line">import VueI18n from &apos;vue-i18n&apos;    //引入</span><br><span class="line"></span><br><span class="line">Vue.use(VueI18n) // 通过插件的形式挂载</span><br><span class="line"></span><br><span class="line">const i18n = new VueI18n(&#123; //生成一个VueI18n实例</span><br><span class="line">  locale: &apos;US&apos;,    </span><br><span class="line">  messages: &#123;</span><br><span class="line">    &apos;CN&apos;: require(&apos;./json/chinese&apos;),   // 中文语言包</span><br><span class="line">    &apos;US&apos;: require(&apos;./json/english&apos;)    // 英文语言包</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  i18n,    //注入国际化实例</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: &apos;&lt;App/&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>语言包：</strong><br>一个网站中所有需要翻译的内容放到一个对象中,需要翻译成几种语言就需要几个语言包，格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//chinese.js</span><br><span class="line">export const m=&#123;</span><br><span class="line">  welcome:&quot;欢迎&quot;,</span><br><span class="line">  world:&quot;世界&quot;</span><br><span class="line">&#125;</span><br><span class="line">//english.js</span><br><span class="line">export const m=&#123;</span><br><span class="line">  welcome:&quot;Welcome&quot;,</span><br><span class="line">  world:&quot;World&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>两个注意点：<br>1 导出时的变量名保持一致（这里都是m）<br>2 每个包中的属性名必须完全一致，不同的语言包修改对应的属性值。<br><strong>生成VueI18n实例的参数：</strong><br>local是语言标识,通过给local设置不同的值，就可以在messages中选择加载不同的语言包。<br>messages中引入语言包。</p>
+<h6 id="第三步："><a href="#第三步：" class="headerlink" title="第三步："></a>第三步：</h6><p>组件中使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//Translate.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button class=&apos;btn&apos; @click=&quot;changeLan&quot;&gt;点击切换语言&lt;/button&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;span&gt;&#123;&#123;$t(&apos;m.welcome&apos;)&#125;&#125;&lt;/span&gt;</span><br><span class="line">      &lt;span&gt;&#123;&#123;$t(&apos;m.world&apos;)&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    methods:&#123;</span><br><span class="line">      changeLan()&#123;</span><br><span class="line">        this.$i18n.locale=this.$i18n.locale==&apos;CN&apos;?&apos;US&apos;:&apos;CN&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">  .btn&#123;</span><br><span class="line">    padding:5px;</span><br><span class="line">    border:solid 1px blue;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p><code>$t</code>是将i18n注入根vue实例后，定义在vue原型上的方法，可以全局使用，参数就照上面的格式书写，m是语言包导出时的变量名。<br>在vue组件中，通过修改this.$i18n.locale的值来实现语言包的切换。<br>效果图：<br><img src="http://cdn.guchi.fun/19-03-27-587f275a8c8a33a7b497064fc83f1636.gif" alt=""></p>
+<h6 id="第四步（优化）："><a href="#第四步（优化）：" class="headerlink" title="第四步（优化）："></a>第四步（优化）：</h6><p>把当前语言状态存入本地存储，下次进入时显示上次选择的语言。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//main.js中加入</span><br><span class="line">//先检查localStorage里有没有‘lang’这个字段，没有就默认设置为中文</span><br><span class="line"></span><br><span class="line">let Lang</span><br><span class="line">if(!localStorage.getItem(&apos;lang&apos;))&#123;</span><br><span class="line">  localStorage.setItem(&apos;lang&apos;, &apos;CN&apos;)</span><br><span class="line">  Lang=&apos;CN&apos;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">  if(localStorage.getItem(&apos;lang&apos;)==&apos;US&apos;)&#123;</span><br><span class="line">    Lang=&apos;US&apos;</span><br><span class="line">  &#125;</span><br><span class="line">  else&#123;</span><br><span class="line">    Lang=&apos;CN&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const i18n = new VueI18n(&#123;</span><br><span class="line">  locale: Lang</span><br><span class="line">  messages: &#123;</span><br><span class="line">    &apos;CN&apos;: require(&apos;./json/chinese&apos;),   </span><br><span class="line">    &apos;US&apos;: require(&apos;./json/english&apos;)    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>changLang的方法也要改一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">changeLan() &#123;</span><br><span class="line">    this.$i18n.locale = this.$i18n.locale == &apos;CN&apos; ? &apos;US&apos; : &apos;CN&apos;</span><br><span class="line">    localStorage.setItem(&apos;lang&apos;, this.$i18n.locale)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>最终效果：<br><img src="http://cdn.guchi.fun/19-03-27-974165a6219182dc6afa53216daeb02a.gif" alt=""></p>
+<h6 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h6><p>实际开发中除了直接在模版中使用双大括号文本插值外，经常会在ui标签的属性中插入需要翻译的内容，这使用要用v-bind来实现，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;van-nav-bar</span><br><span class="line">         :title=&quot;$t(&apos;m.Sell&apos;)&quot;</span><br><span class="line">         left-arrow</span><br><span class="line">         @click-left=&quot;onClickLeft&quot;</span><br><span class="line"> /&gt;</span><br><span class="line"> &lt;van-field</span><br><span class="line">         disabled</span><br><span class="line">         :label=&quot;$t(&apos;m.Photo&apos;)&quot;</span><br><span class="line">         placeholder=&quot;&quot;</span><br><span class="line">         required</span><br><span class="line">         class=&quot;photo-title&quot;</span><br><span class="line"> /&gt;</span><br></pre></td></tr></table></figure>
+<p>还有就是列表，级联菜单等需要用到的本地json文件，也要随着语言的切换进行切换，这个通常是利用计算属性来实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import regions from &apos;../static/json/region&apos;</span><br><span class="line">import townships from &apos;../static/json/township&apos;</span><br><span class="line">import mm_regions from &apos;../static/mmJson/region&apos;</span><br><span class="line">import mm_townships from &apos;../static/mmJson/township&apos;</span><br><span class="line">export default&#123;</span><br><span class="line">computed:&#123;</span><br><span class="line">    regionJson() &#123;//可以从本地存储中拿数据，也可以用vuex（store）中的数据</span><br><span class="line">                if (this.$store.state.store.localLang == &apos;MM&apos;) &#123;</span><br><span class="line">                    return mm_regions</span><br><span class="line">                &#125; </span><br><span class="line">                else &#123;</span><br><span class="line">                    return regions</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ,</span><br><span class="line">            townshipJson() &#123;</span><br><span class="line">                if (this.$store.state.store.localLang == &apos;MM&apos;) &#123;</span><br><span class="line">                    return mm_townships</span><br><span class="line">                &#125; </span><br><span class="line">                else &#123;</span><br><span class="line">                    return townships</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>综合使用以上这些方法就可以实现网站语言的切换了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">work</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2019/03/27/vue国际化/">展开全文 >></a>
         </p>
       
 
@@ -1217,84 +1309,10 @@
 
 
   
-    <article id="post-Alfred用法总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="2019/01/13/Alfred用法总结/">Alfred + 七牛云实现markdown图床</a>
-    </h1>
-  
-
-        
-        <a href="2019/01/13/Alfred用法总结/" class="archive-article-date">
-  	<time datetime="2019-01-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文主要参考<a href="https://blog.csdn.net/Gdeer/article/details/83046888" target="_blank" rel="noopener">Alfred workflow 配合七牛云实现 markdown 图床</a>，原文写的很好很详细，我只是做一点补充。<br>前言：该方法最终用起来确实很爽，但是也有个很大的坑点，用七牛云的对象存储做图床，如果没有做域名加速的话，七牛给的临时域名只能用一个月，到期之后空间内图片的外链就无法使用了，这就太坑了，总不能每个月建个空间，每个月给图片搬家吧，但是又舍不得这种方法，于是就去搞域名加速，发现需要有备案的域名，域名备案又需要有服务器。。。所以如果单纯是想给博客的静态文件找个图床的话，就不要用这种方法了，成本高也过于麻烦。恰逢想买个服务器玩玩，于是就买了一个阿里云的最便宜的服务器和一个域名，然后做域名解析，把域名映射到买的服务器上，最后最麻烦的就是备案了，流程熟的话还好，一开始不熟，走了不少弯路。等域名备案成功之后，就可以去七牛云上对应的存储空间那里设置加速域名了，七牛的教程很详细，就不赘述了，我也是折腾了很久，现在才刚刚搞定，之前的图片也丢了很多，现在慢慢补回来，所幸的是以后就可以放心的用了。</p>
-<h6 id="需要从七牛云那里拿到的4个参数："><a href="#需要从七牛云那里拿到的4个参数：" class="headerlink" title="需要从七牛云那里拿到的4个参数："></a>需要从七牛云那里拿到的4个参数：</h6><p><img src="http://cdn.guchi.fun/19-02-21-aca1c6d99cec6b03dcf6e4d29aa5542a.png" alt="需要从七牛云拿到的4个参数"><br><a href="https://github.com/qiniu/qshell/blob/master/docs/qupload.md" target="_blank" rel="noopener">可以在config.json中做更多自定义配置</a></p>
-<h6 id="双击工作流中的Hotkey文件自定义快捷键（我自定义的是control-command-v）"><a href="#双击工作流中的Hotkey文件自定义快捷键（我自定义的是control-command-v）" class="headerlink" title="双击工作流中的Hotkey文件自定义快捷键（我自定义的是control+command+v）"></a>双击工作流中的Hotkey文件自定义快捷键（我自定义的是<code>control+command+v</code>）</h6><p><img src="http://pl9syc281.bkt.clouddn.com/19-01-13-9134944eedae89ab09198a833ce263a0.png" alt=""><br>使用<code>command+shift+4</code>只是实现截屏，并没有把截屏的图片放到粘贴板上，所以要想同时放到粘贴板上，使用快捷键<code>command+shift+control+4</code>。<br>所以一整套的流程就是：<br>1.使用<code>command+shift+control+4</code>截屏并保存到粘贴板上。<br>2.使用<code>control+command+v</code>触发Alfred的工作流，将粘贴板上的图片上传到七牛云上之前设定好的那个存储空间，并拿到外链。<br>3.在markdown编辑器中使用<code>command+v</code>，会以markdown插入图片的方式一键导入该图片，整个过程结束，简单粗暴。</p>
-<p>这个方法不仅仅能导入截图，对于本地图片也一样适用，只需要把本地图片<code>command+c</code>复制到粘贴板上，然后<code>control+command+v</code>上传图片，最后<code>command+v</code>粘贴到编辑器上。</p><br><p>另外结合Alfred的Clipboard可以进一步提升效率，可以一次性截取或从本地选取多张图片保存到粘贴板上，然后在需要在编辑器中使用某张图片时，快捷键<code>option+command+c</code>打开粘贴板，从中选择要使用的图片，然后<code>control+command+v</code>上传图片，最后在编辑器中使用<code>command+v</code>粘贴就可以了。不熟悉Alfred Clipboard使用的可以参考这里,<a href="https://www.jianshu.com/p/1efc688d6095" target="_blank" rel="noopener">Mac效率神器-Alfred以及使用的一些奇技淫巧</a></p>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">skill</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2019/01/13/Alfred用法总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="extend next" rel="next" href="page/2/">Next &raquo;</a>
+    </nav>
   
 
 
