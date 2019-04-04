@@ -219,13 +219,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2019/01/14/CSS实现div高度随宽度等比例变化/">CSS实现div高度随宽度等比例变化</a>
+      <a class="article-title" href="../../2018/12/14/CSS实现div高度随宽度等比例变化/">CSS实现div高度随宽度等比例变化</a>
     </h1>
   
 
         
-        <a href="../../2019/01/14/CSS实现div高度随宽度等比例变化/" class="archive-article-date">
-  	<time datetime="2019-01-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-14</time>
+        <a href="../../2018/12/14/CSS实现div高度随宽度等比例变化/" class="archive-article-date">
+  	<time datetime="2018-12-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-14</time>
 </a>
         
       </header>
@@ -258,7 +258,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="../../2019/01/14/CSS实现div高度随宽度等比例变化/">展开全文 >></a>
+          <a class="article-more-a" href="../../2018/12/14/CSS实现div高度随宽度等比例变化/">展开全文 >></a>
         </p>
       
 
@@ -295,13 +295,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2019/01/13/Alfred用法总结/">Alfred + 七牛云实现markdown图床</a>
+      <a class="article-title" href="../../2018/11/13/Alfred用法总结/">Alfred + 七牛云实现markdown图床</a>
     </h1>
   
 
         
-        <a href="../../2019/01/13/Alfred用法总结/" class="archive-article-date">
-  	<time datetime="2019-01-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-13</time>
+        <a href="../../2018/11/13/Alfred用法总结/" class="archive-article-date">
+  	<time datetime="2018-11-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-13</time>
 </a>
         
       </header>
@@ -336,7 +336,658 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="../../2019/01/13/Alfred用法总结/">展开全文 >></a>
+          <a class="article-more-a" href="../../2018/11/13/Alfred用法总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-理解继承" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2018/09/01/理解继承/">理解继承</a>
+    </h1>
+  
+
+        
+        <a href="../../2018/09/01/理解继承/" class="archive-article-date">
+  	<time datetime="2018-08-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="构造函数？"><a href="#构造函数？" class="headerlink" title="构造函数？"></a>构造函数？</h5><p>用来批量生产一类对象。构造函数内部通过<code>this.</code>向实例对象添加私有属性和方法，实例对象通过继承原型对象来获取公有的属性和方法。</p>
+<h5 id="proto-和prototype"><a href="#proto-和prototype" class="headerlink" title="__proto__和prototype"></a><code>__proto__</code>和<code>prototype</code></h5><p><strong>proto</strong>是浏览器环境下每个对象都具有的属性。<br>prototype是函数才会有的属性。因为函数也是对象，所以一个函数不仅有prototype属性，还有<strong>proto</strong>属性，这个函数的prototype属性值是一个对象，这个对象就是该构造函数生成实例对象的原型对象，这个对象又有着<strong>proto</strong>属性，指向它自己的原型对象，也就是实例对象的原型对象的原型对象，即Object.prototype</p>
+<h5 id="使用new命令通过构造函数创建实例对象的过程："><a href="#使用new命令通过构造函数创建实例对象的过程：" class="headerlink" title="使用new命令通过构造函数创建实例对象的过程："></a>使用new命令通过构造函数创建实例对象的过程：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.创建一个空对象，作为将要返回的对象实例。</span><br><span class="line">2.将这个空对象的原型，指向构造函数的prototype属性。</span><br><span class="line">3.将这个空对象赋值给函数内部的this关键字。</span><br><span class="line">4.开始执行构造函数内部的代码</span><br></pre></td></tr></table></figure>
+<p>第二步的本质：实例对象的原型（<code>__proto_</code>_）和构造函数的prototype保存的都是原型对象在堆内存中的地址，这一步就是把构造函数prototype保存的那个地址赋值给实例对象<code>__proto__</code>属性，最终结果就是它们俩指向了同一个原型对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Test()&#123;</span><br><span class="line">    this.name=&apos;Tom&apos;</span><br><span class="line">&#125;</span><br><span class="line">Test.prototype.greating=function()&#123;</span><br><span class="line">    console.log(this.name)</span><br><span class="line">&#125;</span><br><span class="line">a=new Test()</span><br><span class="line">a.__proto__===Test.prototype//证明它们俩只是存储了同一个原型对象在堆内存中的地址。</span><br><span class="line">//true</span><br></pre></td></tr></table></figure>
+<h5 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h5><p>js规定，每个对象都有自己的原型对象，原型对象本质也是对象，又可以有它自己的原型对象，这样就形成了一个链，从对象到原型，再到原型的原型。。。<br>当读取对象的某个属性时，JavaScript 引擎先寻找对象本身的属性，如果找不到，就到它的原型去找，如果还是找不到，就到原型的原型去找。如果直到最顶层的Object.prototype还是找不到，则返回undefined。<br>如果对象自身和它的原型，都定义了一个同名属性，那么优先读取对象自身的属性，这叫做“覆盖”（overriding）。如果寻找某个不存在的属性，将会遍历整个原型链。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var object = &#123;&#125;</span><br><span class="line">object.__proto__ ===  Object.prototype</span><br><span class="line">object.__proto__ .__proto__ ===null</span><br><span class="line"></span><br><span class="line">var fn = function()&#123;&#125;</span><br><span class="line">fn.__proto__ === Function.prototype</span><br><span class="line">fn.__proto__.__proto__ === Object.prototype</span><br><span class="line"></span><br><span class="line">var array = []</span><br><span class="line">array.__proto__ === Array.prototype</span><br><span class="line">array.__proto__.__proto__ === Object.prototype</span><br><span class="line"></span><br><span class="line">Function.__proto__ === Function.prototype</span><br><span class="line">Array.__proto__ === Function.prototype</span><br><span class="line">Object.__proto__ === Function.prototype</span><br><span class="line"></span><br><span class="line">true.__proto__ ===  Boolean.prototype</span><br><span class="line"></span><br><span class="line">Function.prototype.__proto__ === Object.prototype</span><br></pre></td></tr></table></figure>
+<h5 id="Constructor属性"><a href="#Constructor属性" class="headerlink" title="Constructor属性"></a>Constructor属性</h5><p>这是原型对象中的一个属性，指向该原型对象对应的构造函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Foo()&#123;&#125;;</span><br><span class="line">var f1 = new Foo;</span><br><span class="line">console.log(Foo.prototype.constructor === Foo);//true</span><br><span class="line">console.log(f1.constructor === Foo);//true</span><br><span class="line">console.log(f1.hasOwnProperty(&apos;constructor&apos;));//false</span><br></pre></td></tr></table></figure>
+<p>实例对象f1本身并没有constructor属性，但它可以继承原型对象Foo.prototype的constructor属性.</p>
+<h1 id="实现继承的方式："><a href="#实现继承的方式：" class="headerlink" title="实现继承的方式："></a>实现继承的方式：</h1><p>实现继承有三大种方式：类式继承，原型继承，拷贝继承。下面详细介绍。</p>
+<h2 id="类式继承"><a href="#类式继承" class="headerlink" title="类式继承"></a>类式继承</h2><p>类式继承的思想：通过构造函数实例化对象，通过原型链将实例对象关联起来。<br>类式继承又分：原型链继承；构造函数继承；组合继承；寄生组合继承；es6的class。</p>
+<h4 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//父类型</span><br><span class="line">function Person(name, age) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.age = age</span><br><span class="line">    this.gender=&apos;male&apos;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.greating = function () &#123; </span><br><span class="line">    console.log(&apos;Hi, man&apos;)</span><br><span class="line">&#125;</span><br><span class="line">//子类型</span><br><span class="line">function Student(num) &#123;</span><br><span class="line">    this.num = num</span><br><span class="line">    this.setScore = function () &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype = new Person() // 子类型的原型为父类型的一个实例对象</span><br><span class="line">var s1 = new Student(99)</span><br><span class="line">console.log(s1)</span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.guchi.fun/19-04-01-b834ce8150ac7d520f569b682f21dc25.png" alt=""><br><em>本质</em>：子类的原型指向父类的实例。子类通过<code>__proto__</code>访问到父类的私有属性，通过<code>__proto__.__proro__</code>访问到父类的公有属性，就这样通过原型链继承到了父类所有的属性和方法，并将其作为所有子类的实例对象的公有属性和方法。<br><em>优点</em>：</p>
+<ul>
+<li>父类新增原型方法/原型属性，子类都能访问到</li>
+<li>简单，易于实现</li>
+</ul>
+<p><em>缺点</em>：</p>
+<ul>
+<li>来自原型对象的所有属性被所有实例共享，牵一发动全身。</li>
+<li>创建子类实例时，无法向父类构造函数传参。</li>
+</ul>
+<h4 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Super(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">function Sub()&#123;</span><br><span class="line">    //继承了Super，同时还传递了参数</span><br><span class="line">    Super.call(this,&quot;bai&quot;);</span><br><span class="line">    //实例属性</span><br><span class="line">    this.age = 29;</span><br><span class="line">&#125;</span><br><span class="line">var instance = new Sub();</span><br><span class="line">console.log(instance.name);//&quot;bai&quot;</span><br><span class="line">console.log(instance.age);//29</span><br></pre></td></tr></table></figure>
+<p><em>本质</em>： 把父构造函数中的代码在子构造函数中执行一遍。<br><em>优点</em>： 可以在子构造函数中向父构造函数传递参数。<br><em>缺点</em>： 父构造函数公有的属性和方法没能提取出来，没有实现函数复用。</p>
+<h4 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Super(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.colors = [&apos;red&apos;,&apos;blue&apos;,&apos;green&apos;];</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.sayName = function()&#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;;</span><br><span class="line">function Sub(name,age)&#123;//再采用构造函数继承对父构造函数私有属性进行重写。（虽然它看上去写在原项链继承前面，但原型链继承是立即执行的，构造函数继承是在创建新的子类实例时才执行的，所以实现了对父类私有属性的覆盖）</span><br><span class="line">    //继承属性</span><br><span class="line">    Super.call(this,name);</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Sub.prototype = new Super();//先采用原型链继承</span><br><span class="line">Sub.prototype.constructor = Sub;</span><br><span class="line">Sub.prototype.sayAge = function()&#123;</span><br><span class="line">    console.log(this.age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>本质</em>：使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，又能够保证每个实例都有它自己的属性。<br><em>优点</em>：既可以在子构造函数中向父构造函数传递参数，又可以实现对父构造函数公有属性的复用。<br><em>缺点</em>：无论什么情况下，都会调用两次父类型构造函数：一次是在创建子类型原型的时候，另一次是在子类型构造函数内部。</p>
+<h4 id="寄生组合继承"><a href="#寄生组合继承" class="headerlink" title="寄生组合继承"></a>寄生组合继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function Super(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.sayName = function()&#123;</span><br><span class="line">    return this.name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function Sub(name,age)&#123;</span><br><span class="line">    Super.call(this,name);</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">if(!Object.create)&#123;//判断该方法是否存在，不存在就自己定义</span><br><span class="line">    Object.create = function(proto)&#123;</span><br><span class="line">　　　　function F()&#123;&#125;;</span><br><span class="line">　　　　F.prototype = proto;</span><br><span class="line">　　　　return new F;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br><span class="line">Sub.prototype = Object.create(Super.prototype);</span><br><span class="line">Sub.prototype.constructor = Sub;//修改constructor指向，之前指向Super</span><br></pre></td></tr></table></figure>
+<p>首先介绍一下Object.create方法：该方法接受一个对象作为参数，然后以它为原型，返回一个实例对象。<br>优点：具备组合继承的优点，解决了调用两次父类型构造函数的缺点。</p>
+<h4 id="Es6的class"><a href="#Es6的class" class="headerlink" title="Es6的class"></a>Es6的class</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">es5是这样的：</span><br><span class="line"></span><br><span class="line">function Person(name, age) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.age = age</span><br><span class="line">    this.gender=&apos;male&apos;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.greating = function () &#123; </span><br><span class="line">    console.log(&apos;Hi, man&apos;)</span><br><span class="line">&#125;</span><br><span class="line">。。。。</span><br><span class="line"></span><br><span class="line">es6则是：</span><br><span class="line">class Person &#123;</span><br><span class="line">    constructor(name,age) &#123;</span><br><span class="line">        this.name = name</span><br><span class="line">        this.age = age</span><br><span class="line">        this.gender = &apos;male&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    greating() &#123;</span><br><span class="line">        console.log(&apos;Hi, man&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Student extends Person &#123;</span><br><span class="line">    constructor(name,num) &#123;</span><br><span class="line">        super(name);</span><br><span class="line">        this.num = num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let s1 = new Student(&apos;小明&apos;,26)</span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.guchi.fun/19-04-01-27001cd8b7d561a9bafa214b7e5c71a0.png" alt=""></p>
+<p>引申：<br>es6类与es5中实现继承的方法有哪些不同？</p>
+<ul>
+<li>类的内部，默认就是严格模式，而且无法强行让代码脱离严格模式执行。</li>
+<li>类不存在变量提升（hoist），必须先声明，再使用，这是为了保证子类在父类之后定义。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  let Foo = class &#123;&#125;;</span><br><span class="line">  class Bar extends Foo &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//如果存在class的提升，上面代码就会报错，因为class会被提升到代码头部，而let命令是不提升的，所以导致Bar继承Foo的时候，Foo还没有定义。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>类中所有方法都是不可枚举的<br><img src="http://cdn.guchi.fun/19-04-01-07bbffeaf72125acf962252b76d3eeec.png" alt=""><br>看一下使用es5组合寄生的结果<br><img src="http://cdn.guchi.fun/19-04-01-4dcc98451c063246ced6a41de8d4ce71.png" alt=""><br>对比可以发现，es5实现的继承greating方法是可枚举的，需要通过Object.defineProperty()方法手工指定某个方法为不可枚举。还有就是因为没有修改constructor指向，</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student.prototype=Student</span><br></pre></td></tr></table></figure>
+<p>导致Student实例对象的constructor还是指向了父构造函数Person，es6的class继承中就自动会修改constructor指向。</p>
+<ul>
+<li>使用除关键字new以外的方式调用类的构造函数会导致程序抛出错误<br><img src="http://cdn.guchi.fun/19-04-01-bf83ea3149913e536f034efafa935749.png" alt=""></li>
+</ul>
+<h2 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//原型链继承</span><br><span class="line"></span><br><span class="line">function Super()&#123;</span><br><span class="line">    this.value = 1;</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.value = 0;</span><br><span class="line">function Sub()&#123;&#125;;</span><br><span class="line">//将父类型的实例对象作为子类型的原型对象</span><br><span class="line">Sub.prototype = new Super();</span><br><span class="line">Sub.prototype.constructor = Sub;</span><br><span class="line">//创建子类型的实例对象</span><br><span class="line">var instance = new Sub;</span><br><span class="line">console.log(instance.value);//1</span><br><span class="line"></span><br><span class="line">//原型继承</span><br><span class="line"></span><br><span class="line">function Super()&#123;</span><br><span class="line">    this.value = 1;</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.value = 0;</span><br><span class="line">function Sub()&#123;&#125;;</span><br><span class="line">Sub.prototype = Object.create(Super.prototype);</span><br><span class="line">Sub.prototype.constructor = Sub;</span><br><span class="line">//创建子类型的实例对象</span><br><span class="line">var instance = new Sub;</span><br><span class="line">console.log(instance.value);//0</span><br></pre></td></tr></table></figure>
+<p>在object()函数内部，先创建了一个临时性的构造函数，然后将传入的对象作为这个构造函数的原型，最后返回了这个临时类型的一个新实例。<br>ES5通过新增Object.create()方法规范化了原型式继承。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//Object.create()实现原理</span><br><span class="line"></span><br><span class="line">function object(o)&#123;</span><br><span class="line">    function F()&#123;&#125;;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    return new F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>和原型链继承的区别：<br>父类型的实例对象不再作为子类型的原型对象。子类只继承父类原型上的属性，而不继承父类的私有属性。<br>原型继承缺点：原型继承与原型链继承都存在着子例共享父例引用类型值的问题。</p>
+<h2 id="拷贝继承"><a href="#拷贝继承" class="headerlink" title="拷贝继承"></a>拷贝继承</h2><p>拷贝继承不需要改变原型链，通过拷贝函数将父例的属性和方法拷贝到子例即可。</p>
+<p>参考链接：<a href="https://www.xiaohuochai.cc/posts/5afaaeda002834409838bd46" target="_blank" rel="noopener">小火柴前端小站-实现继承的三种方式</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2018/09/01/理解继承/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-闭包" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2018/08/31/闭包/">闭包</a>
+    </h1>
+  
+
+        
+        <a href="../../2018/08/31/闭包/" class="archive-article-date">
+  	<time datetime="2018-08-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>闭包定义：如果一个函数内部定义（或返回）了另一个函数，且这个函数内部用到了它自己作用域以外的变量，那么这个函数与定义该函数时的环境称为闭包。</p>
+<p>闭包形成条件：<br>1 函数嵌套<br>2 内部函数引用外部函数的局部变量</p>
+<p>闭包最大的特点： 记住它的诞生环境。无论何时何地调用，都可以访问到声明该函数时它所在的作用域环境。</p>
+<p>闭包核心知识点：<br>1 作用域链<br>2 函数会记住它的诞生环境</p>
+<p>闭包的作用：<br>1 读取函数内部变量<br>2 可以使一个变量长期保存在内存中。</p>
+<p>手写一个最简单的闭包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function a()&#123;</span><br><span class="line">    let num=100</span><br><span class="line">    return function()&#123;</span><br><span class="line">        console.log(num)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let b=a()</span><br><span class="line">b() //100</span><br></pre></td></tr></table></figure>
+<p>闭包为什么引起内存泄漏：<br>全局作用域只有当页面关闭时才会销毁，函数作用域只有在函数执行时才会产生，而且一般情况下会在函数执行完毕后销毁（释放内存），但是当函数返回一个引用类型的值（对象），且在该函数外被接收引用，那么这个函数作用域在函数执行完毕后也不会销毁，而是常驻内存。当外界接收引用不再需要时，函数的作用域依然不被销毁，就造成了内存泄漏，正确的做法是当外界不再需要接收引用时应该及时把引用指向null，这样局部作用域就会被销毁，所占的内存得以被回收。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> function outer()&#123;</span><br><span class="line"> var num=0;//内部变量</span><br><span class="line"> return function add()&#123;//通过return返回add函数，就可以在outer函数外访问了</span><br><span class="line"> num++;//内部函数有引用，作为add函数的一部分了</span><br><span class="line"> console.log(num);</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"> var func1=outer();</span><br><span class="line"> func1();//实际上是调用add函数， 输出1</span><br><span class="line"> func1();//输出2 因为outer函数内部的私有作用域会一直被占用</span><br><span class="line"> var func2=outer();</span><br><span class="line"> func2();// 输出1  每次重新引用函数的时候，闭包是全新的。</span><br><span class="line"> func2();// 输出2</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2018/08/31/闭包/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-items的使用与配置" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2018/08/29/items的使用与配置/">item2配置和使用</a>
+    </h1>
+  
+
+        
+        <a href="../../2018/08/29/items的使用与配置/" class="archive-article-date">
+  	<time datetime="2018-08-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>发现了一篇关于配置item的很不错的博客，于是就跟着配置了一下，<a href="https://www.cnblogs.com/weixuqin/p/7029177.html" target="_blank" rel="noopener">原文</a>写的很详细，就不再赘述了，简单总结一下：</p>
+<ol>
+<li>将iTem2设置为默认终端：iTerm2 -&gt; Make iTerm2 Default Term。</li>
+<li>iTem2 -&gt;performance -&gt;key中设置 <code>option+space</code>快捷键来显示隐藏终端。</li>
+<li>主题配色，这里可以参考一个更详细的教程 <a href="https://www.jianshu.com/p/6e964940139c" target="_blank" rel="noopener">item2主题色配置</a>。</li>
+<li>为了使用下面更酷炫的功能，需要安装一个叫<strong>oh-my-zsh</strong>插件，我用的crul安装，终端输入：<code>sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code>，安装好之后需要对一个隐藏配置文件进行编辑，<code>open .zshrc</code>打开这个文件。</li>
+<li>按教程配置主题和字体。</li>
+<li>配置语法高亮（语法错误时会变红）。</li>
+<li>配置自动提示功能。1 会自动提示可能要输入的命令,按<code>-&gt;</code>快速输入。2 输入一段命令后（npm node cd …)后<code>空格+Tab</code>会在下面提示可能要输入的选项,再次点击<code>Tab</code>配合方向键可以进行选择。</li>
+<li>设置终端背景和透明度。</li>
+</ol>
+<p>最终效果图：<br><img src="http://cdn.guchi.fun/19-02-21-7092c9e970f2909006642b66dcab3548.png" alt=""></p>
+<p>顺便总结几个常用的item命令，多了也记不住了</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">command + t</td>
+<td style="text-align:left">新建标签</td>
+</tr>
+<tr>
+<td style="text-align:left">command + w</td>
+<td style="text-align:left">关闭标签</td>
+</tr>
+<tr>
+<td style="text-align:left">command + 数字 command + 左右方向键</td>
+<td style="text-align:left">切换标签</td>
+</tr>
+<tr>
+<td style="text-align:left">command + f</td>
+<td style="text-align:left">查找</td>
+</tr>
+<tr>
+<td style="text-align:left">ctrl + p</td>
+<td style="text-align:left">上一条命令</td>
+</tr>
+<tr>
+<td style="text-align:left">ctrl + l</td>
+<td style="text-align:left">清屏</td>
+</tr>
+<tr>
+<td style="text-align:left">ctrl + u</td>
+<td style="text-align:left">清除当前行</td>
+</tr>
+<tr>
+<td style="text-align:left">ctrl + a</td>
+<td style="text-align:left">到行首</td>
+</tr>
+<tr>
+<td style="text-align:left">ctrl + e</td>
+<td style="text-align:left">到行尾</td>
+</tr>
+<tr>
+<td style="text-align:left">command +/command -</td>
+<td style="text-align:left">放大/缩小终端界面</td>
+</tr>
+<tr>
+<td style="text-align:left">command + enter</td>
+<td style="text-align:left">切换全屏</td>
+</tr>
+<tr>
+<td style="text-align:left">commond+i</td>
+<td style="text-align:left">设置item</td>
+</tr>
+<tr>
+<td style="text-align:left">command + d</td>
+<td style="text-align:left">垂直分屏</td>
+</tr>
+<tr>
+<td style="text-align:left">command + shift + d</td>
+<td style="text-align:left">水平分屏</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">skill</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2018/08/29/items的使用与配置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue国际化" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2018/08/02/vue国际化/">vue国际化</a>
+    </h1>
+  
+
+        
+        <a href="../../2018/08/02/vue国际化/" class="archive-article-date">
+  	<time datetime="2018-08-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>国际化即是在一个网站中实现语言的切换。</p>
+<h6 id="第一步："><a href="#第一步：" class="headerlink" title="第一步："></a>第一步：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//安装依赖</span><br><span class="line">npm install  vue-i18n --save</span><br></pre></td></tr></table></figure>
+<h6 id="第二步："><a href="#第二步：" class="headerlink" title="第二步："></a>第二步：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//在main.js（项目入口文件中的配置）</span><br><span class="line"></span><br><span class="line">import VueI18n from &apos;vue-i18n&apos;    //引入</span><br><span class="line"></span><br><span class="line">Vue.use(VueI18n) // 通过插件的形式挂载</span><br><span class="line"></span><br><span class="line">const i18n = new VueI18n(&#123; //生成一个VueI18n实例</span><br><span class="line">  locale: &apos;US&apos;,    </span><br><span class="line">  messages: &#123;</span><br><span class="line">    &apos;CN&apos;: require(&apos;./json/chinese&apos;),   // 中文语言包</span><br><span class="line">    &apos;US&apos;: require(&apos;./json/english&apos;)    // 英文语言包</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  i18n,    //注入国际化实例</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: &apos;&lt;App/&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>语言包：</strong><br>一个网站中所有需要翻译的内容放到一个对象中,需要翻译成几种语言就需要几个语言包，格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//chinese.js</span><br><span class="line">export const m=&#123;</span><br><span class="line">  welcome:&quot;欢迎&quot;,</span><br><span class="line">  world:&quot;世界&quot;</span><br><span class="line">&#125;</span><br><span class="line">//english.js</span><br><span class="line">export const m=&#123;</span><br><span class="line">  welcome:&quot;Welcome&quot;,</span><br><span class="line">  world:&quot;World&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>两个注意点：<br>1 导出时的变量名保持一致（这里都是m）<br>2 每个包中的属性名必须完全一致，不同的语言包修改对应的属性值。<br><strong>生成VueI18n实例的参数：</strong><br>local是语言标识,通过给local设置不同的值，就可以在messages中选择加载不同的语言包。<br>messages中引入语言包。</p>
+<h6 id="第三步："><a href="#第三步：" class="headerlink" title="第三步："></a>第三步：</h6><p>组件中使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//Translate.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button class=&apos;btn&apos; @click=&quot;changeLan&quot;&gt;点击切换语言&lt;/button&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;span&gt;&#123;&#123;$t(&apos;m.welcome&apos;)&#125;&#125;&lt;/span&gt;</span><br><span class="line">      &lt;span&gt;&#123;&#123;$t(&apos;m.world&apos;)&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    methods:&#123;</span><br><span class="line">      changeLan()&#123;</span><br><span class="line">        this.$i18n.locale=this.$i18n.locale==&apos;CN&apos;?&apos;US&apos;:&apos;CN&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">  .btn&#123;</span><br><span class="line">    padding:5px;</span><br><span class="line">    border:solid 1px blue;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p><code>$t</code>是将i18n注入根vue实例后，定义在vue原型上的方法，可以全局使用，参数就照上面的格式书写，m是语言包导出时的变量名。<br>在vue组件中，通过修改this.$i18n.locale的值来实现语言包的切换。<br>效果图：<br><img src="http://cdn.guchi.fun/19-03-27-587f275a8c8a33a7b497064fc83f1636.gif" alt=""></p>
+<h6 id="第四步（优化）："><a href="#第四步（优化）：" class="headerlink" title="第四步（优化）："></a>第四步（优化）：</h6><p>把当前语言状态存入本地存储，下次进入时显示上次选择的语言。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//main.js中加入</span><br><span class="line">//先检查localStorage里有没有‘lang’这个字段，没有就默认设置为中文</span><br><span class="line"></span><br><span class="line">let Lang</span><br><span class="line">if(!localStorage.getItem(&apos;lang&apos;))&#123;</span><br><span class="line">  localStorage.setItem(&apos;lang&apos;, &apos;CN&apos;)</span><br><span class="line">  Lang=&apos;CN&apos;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">  if(localStorage.getItem(&apos;lang&apos;)==&apos;US&apos;)&#123;</span><br><span class="line">    Lang=&apos;US&apos;</span><br><span class="line">  &#125;</span><br><span class="line">  else&#123;</span><br><span class="line">    Lang=&apos;CN&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const i18n = new VueI18n(&#123;</span><br><span class="line">  locale: Lang</span><br><span class="line">  messages: &#123;</span><br><span class="line">    &apos;CN&apos;: require(&apos;./json/chinese&apos;),   </span><br><span class="line">    &apos;US&apos;: require(&apos;./json/english&apos;)    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>changLang的方法也要改一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">changeLan() &#123;</span><br><span class="line">    this.$i18n.locale = this.$i18n.locale == &apos;CN&apos; ? &apos;US&apos; : &apos;CN&apos;</span><br><span class="line">    localStorage.setItem(&apos;lang&apos;, this.$i18n.locale)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>最终效果：<br><img src="http://cdn.guchi.fun/19-03-27-974165a6219182dc6afa53216daeb02a.gif" alt=""></p>
+<h6 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h6><p>实际开发中除了直接在模版中使用双大括号文本插值外，经常会在ui标签的属性中插入需要翻译的内容，这使用要用v-bind来实现，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;van-nav-bar</span><br><span class="line">         :title=&quot;$t(&apos;m.Sell&apos;)&quot;</span><br><span class="line">         left-arrow</span><br><span class="line">         @click-left=&quot;onClickLeft&quot;</span><br><span class="line"> /&gt;</span><br><span class="line"> &lt;van-field</span><br><span class="line">         disabled</span><br><span class="line">         :label=&quot;$t(&apos;m.Photo&apos;)&quot;</span><br><span class="line">         placeholder=&quot;&quot;</span><br><span class="line">         required</span><br><span class="line">         class=&quot;photo-title&quot;</span><br><span class="line"> /&gt;</span><br></pre></td></tr></table></figure>
+<p>还有就是列表，级联菜单等需要用到的本地json文件，也要随着语言的切换进行切换，这个通常是利用计算属性来实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import regions from &apos;../static/json/region&apos;</span><br><span class="line">import townships from &apos;../static/json/township&apos;</span><br><span class="line">import mm_regions from &apos;../static/mmJson/region&apos;</span><br><span class="line">import mm_townships from &apos;../static/mmJson/township&apos;</span><br><span class="line">export default&#123;</span><br><span class="line">computed:&#123;</span><br><span class="line">    regionJson() &#123;//可以从本地存储中拿数据，也可以用vuex（store）中的数据</span><br><span class="line">                if (this.$store.state.store.localLang == &apos;MM&apos;) &#123;</span><br><span class="line">                    return mm_regions</span><br><span class="line">                &#125; </span><br><span class="line">                else &#123;</span><br><span class="line">                    return regions</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ,</span><br><span class="line">            townshipJson() &#123;</span><br><span class="line">                if (this.$store.state.store.localLang == &apos;MM&apos;) &#123;</span><br><span class="line">                    return mm_townships</span><br><span class="line">                &#125; </span><br><span class="line">                else &#123;</span><br><span class="line">                    return townships</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>综合使用以上这些方法就可以实现网站语言的切换了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">work</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2018/08/02/vue国际化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-今天搞懂this" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2018/06/18/今天搞懂this/">搞懂this</a>
+    </h1>
+  
+
+        
+        <a href="../../2018/06/18/今天搞懂this/" class="archive-article-date">
+  	<time datetime="2018-06-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函数中的this究竟是谁取决于函数调用的场景。<br>函数完整的调用方法是使用call方法，this是call方法的第一个参数，它可以在函数调用时修改，在函数没有调用的时候，this的值是无法确定。</p>
+<h4 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a>纯粹的函数调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function test1(name) &#123;</span><br><span class="line">    console.log(name)</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">test(&apos;Tom&apos;)</span><br><span class="line">//Tom</span><br><span class="line">//window</span><br><span class="line"></span><br><span class="line">//严格模式下</span><br><span class="line">function test2(name)&#123;</span><br><span class="line">    &apos;use strict&apos;</span><br><span class="line">    console.log(name)</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">test2(&apos;Tom&apos;)</span><br><span class="line">//Tom</span><br><span class="line">//undefined</span><br></pre></td></tr></table></figure>
+<p>test(‘Tom’)是test.call(undefined, ‘Tom’)的简写，函数调用时都会执行.call的方法，如果不显式指出来，.call的第一个参数默认就是undefined。非严格模式下，.call()的第一个参数为undefined时this默认指向全局对象（window），严格模式下，禁止默认指向全局对象，this即为undefined。</p>
+<h4 id="对象中函数的调用（函数作为方法调用）"><a href="#对象中函数的调用（函数作为方法调用）" class="headerlink" title="对象中函数的调用（函数作为方法调用）"></a>对象中函数的调用（函数作为方法调用）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;</span><br><span class="line">    name: &apos;Jerry&apos;,</span><br><span class="line">    greet: function() &#123;</span><br><span class="line">        console.log(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.greet()  //第一种调用方法</span><br><span class="line">obj.greet.call(obj) //第二种调用方法</span><br><span class="line">//Jerry</span><br><span class="line">//Jerry</span><br><span class="line"></span><br><span class="line">第一种调用方法只是第二种调用方法的语法糖，第二种才是完整的调用方法。</span><br><span class="line"></span><br><span class="line">手动绑定this</span><br><span class="line">obj.greet.call(&#123;name:&apos;Tom&apos;&#125;)</span><br><span class="line">//Tom</span><br></pre></td></tr></table></figure>
+<p>结合纯粹的函数调用，得出结论：函数执行时首先看函数名前面是否有”.”，有的话，”.”前面是谁,this就是谁；没有的话this就是window（非严格模式）</p>
+<h4 id="构造函数中的this"><a href="#构造函数中的this" class="headerlink" title="构造函数中的this"></a>构造函数中的this</h4><p>构造函数在执行new之后会返回一个对象，这个对象就是this。所以：构造函数中this指向的是该构造函数所生成的实例对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Test() &#123;</span><br><span class="line">    this.name = &apos;Tom&apos;</span><br><span class="line">&#125;</span><br><span class="line">let p = new Test()</span><br><span class="line">console.log(typeof p)  //object</span><br><span class="line">console.log(p.name)    // Tom</span><br></pre></td></tr></table></figure>
+<h4 id="定时器中函数的调用"><a href="#定时器中函数的调用" class="headerlink" title="定时器中函数的调用"></a>定时器中函数的调用</h4><p>window.setTimeout()和window.setInterval()的函数中的this有些特殊，里面的this默认是window对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;,1000)</span><br><span class="line">//13693 （定时器的时钟号）</span><br><span class="line">//window</span><br></pre></td></tr></table></figure></p>
+<h4 id="自执行函数中的this"><a href="#自执行函数中的this" class="headerlink" title="自执行函数中的this"></a>自执行函数中的this</h4><p>自执行函数中的this始终指向window</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;)()</span><br><span class="line">//window</span><br></pre></td></tr></table></figure>
+<h4 id="dom事件绑定函数中的this"><a href="#dom事件绑定函数中的this" class="headerlink" title="dom事件绑定函数中的this"></a>dom事件绑定函数中的this</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//Dom零级事件绑定</span><br><span class="line">oDiv.onclick = function () &#123;</span><br><span class="line">    //this-&gt;oDiv</span><br><span class="line">&#125;;</span><br><span class="line">//Dom二级事件绑定</span><br><span class="line">oDiv.addEventListener(&quot;click&quot;, function () &#123;</span><br><span class="line">    //this-&gt;oDiv</span><br><span class="line">&#125;, false);</span><br></pre></td></tr></table></figure>
+<p>总之就是：dom事件绑定函数中的this指向的就是绑定事件的dom节点。</p>
+<h4 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h4><p>1 箭头函数不会创建自己的this,它只会从自己的作用域链的上一层继承this，所以在箭头函数中this的值和外层的this是一样的。在多层对象嵌套里箭头函数里this是和最最外层保持一致的。<br>2 不能用call方法修改this指向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  birth: 1990,</span><br><span class="line">  getAge: function () &#123;</span><br><span class="line">    var b = this.birth </span><br><span class="line">    var fn = function () &#123;</span><br><span class="line">        console.log(b)</span><br><span class="line">      return this.birth </span><br><span class="line">    &#125;</span><br><span class="line">    return fn()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.getAge()</span><br><span class="line">//1990</span><br><span class="line">//undefined (this指向了window)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    birth: 1990,</span><br><span class="line">    getAge: function (year) &#123;</span><br><span class="line">        var b = this.birth; // 1990</span><br><span class="line">        var fn = (y) =&gt; y - this.birth; // this.birth仍是1990</span><br><span class="line">        return fn.call(&#123; birth: 2000 &#125;, year);//箭头函数call的第一个参数无效</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getAge(2019); // 29</span><br></pre></td></tr></table></figure>
+<p>apply、call、bind 的区别<br>相同点：第一个参数都是this<br>call： this之后（第一个参数之后）的参数接受的是若干个<strong>参数列表</strong>,返回函数执行的结果。<br>apply：this之后（第一个参数之后）的参数接受的是一个<strong>参数数组</strong>，返回函数执行的结果。<br>bind:  this之后（第一个参数之后）的参数接受的是若干个<strong>参数列表</strong>，不返回函数执行的结果，而是返回一个<strong>新的函数</strong>,该函数中的this即为bind中指定的this。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    num: 10,</span><br><span class="line">    fn: function (a, b) &#123;</span><br><span class="line">        console.log(a + b + this.num)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var z=&#123;</span><br><span class="line">    num:100</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var b = a.fn;</span><br><span class="line"></span><br><span class="line">b.call(a, 1, 2) //13</span><br><span class="line">b.call(z,1,2)  //103</span><br><span class="line"></span><br><span class="line">b.apply(a, [1, 2]) //13</span><br><span class="line">b.apply(z, [1, 2]) //103</span><br><span class="line"></span><br><span class="line">b.bind(a, 1, 2) //ƒ (a, b) &#123;console.log(a + b + this.num)&#125;</span><br><span class="line">b.bind(z, 1, 2) //ƒ (a, b) &#123;console.log(a + b + this.num)&#125;</span><br><span class="line"></span><br><span class="line">b.bind(a, 1, 2)()</span><br><span class="line">b.bind(z, 1, 2)()</span><br><span class="line"></span><br><span class="line">let c = a.fn.bind(a)</span><br><span class="line">let d=a.fn.bind(z)</span><br><span class="line"></span><br><span class="line">c(1,2) //13</span><br><span class="line">d(1,2) //103</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2018/06/18/今天搞懂this/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Css知识点总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2018/03/11/Css知识点总结/">Css知识点总结</a>
+    </h1>
+  
+
+        
+        <a href="../../2018/03/11/Css知识点总结/" class="archive-article-date">
+  	<time datetime="2018-03-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>如何理解HTMl语义化？</strong><br>主要包括标签语义化和类名语义化。使用nav,header,footer,aside,artical,section等这些新增语义化的标签代替div，使得整个html结构逻辑更加清晰；使用类似于nav，container，wraper，banner，mask，logo等能表示用途的类名，让人一目了然。<br>语义化的好处：</p>
+<ul>
+<li>便于搜索引擎检索和收录</li>
+<li>没有css的时候也能呈现清晰的网页结构</li>
+<li>便于盲人设备，读屏器等理解页面</li>
+<li>便于团队开发和维护</li>
+</ul>
+<p><strong>html5有哪些新特性？如何区分 HTML 和 HTML5？</strong><br>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。</p>
+<ul>
+<li>更多语义化标签（header,nav,footer,aside,article,section）</li>
+<li>音频、视频API(audio,video)</li>
+<li>画布(Canvas) API</li>
+<li>拖拽释放(Drag and drop) API</li>
+<li>地理(Geolocation) API</li>
+<li>表单控件，calendar、date、time、email、url、search</li>
+<li>本地离线存储 localStorage，sessionStorage </li>
+<li>新的技术webworker, websocket, Geolocation<br>如何区分： DOCTYPE声明\新增的结构元素\功能元素</li>
+</ul>
+<p><strong>h5代码规范？</strong></p>
+<ul>
+<li>文档类型声明位于HTML文档的第一行</li>
+<li>标签名和属性名用小写</li>
+<li>标签闭合</li>
+<li>属性值用双引号</li>
+<li>非装饰性图片添加alt属性</li>
+<li>避免一行代码过长以及不必要的空格和换行</li>
+<li>开发时添加必要的注释<br><strong>CSS3有哪些新特性？</strong></li>
+<li>圆角（边框半径）：border-radius 属性用于创建圆角</li>
+<li>盒阴影：box-shadow: 10px 10px 5px #888888</li>
+<li>RGBA和透明度</li>
+<li>媒体查询：定义两套css，当浏览器的尺寸变化时会采用不同的属性</li>
+<li>边框图片：border-image: url(border.png) 30 30 round</li>
+<li>font-face属性：定义自己的字体</li>
+<li>文字阴影：text-shadow： 5px 5px 5px #FF0000;（水平阴影，垂直阴影，模糊距离，阴影颜色）</li>
+</ul>
+<p><strong>盒模型？</strong><br>通过box-sizing属性指定为哪种盒模型，默认为content-box<br>W3C盒模型（content-box）：内容区宽高指的就是content的宽高<br>IE盒模型（border-box）：内容区宽高指的是content+padding+border<br><strong>清除浮动？</strong><br>清除浮动的目的主要是因为浮动的元素脱离文档流，无法撑开父元素。<br>1.父级div定义 height<br>原理：父级div手动定义height，就解决了父级div无法自动获取到高度的问题。  优点：简单、代码少 缺点：只适合高度固定的布局，高度如果发生变化就会出问题<br>2.父级div定义 overflow:hidden<br>原理：必须定义width或zoom:1，同时不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度  优点：简单、代码少、浏览器支持好<br>3 父元素结尾处加空div标签并添加 clear:both<br>原理：添加一个空div，利用css提高的clear:both清除浮动，让父级div能自动获取到高度  优点：简单、代码少、浏览器支持好、不容易出现怪问题<br>缺点：增加很多空div，让人感觉很不好<br>4给父元素添加一个clearfix的类，再给这个类添加after伪元素，伪元素内定义content：’’；display：block；clear:both;<br><strong>BFC是什么？</strong><br>什么是BFC（block formatting context块级格式化上下文）？<br>BFC是一个独立的布局环境，其中的元素布局是不受外界的影响。<br>BFC布局规则：.<br>1内部的Box会在垂直方向，一个接一个地放置。<br>2.同一个BFC中的两个相邻Box的margin会发生重叠<br>3.计算BFC的高度时，浮动元素也参与计算<br>4.BFC的区域不会与区域外浮动的Box重叠。<br>5.每个Box的左margin外侧与父元素左padding内侧接触，与即使存在浮动也是如此。<br>5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。<br><strong>bfc能干嘛</strong><br>1.利用BFC避免外边距折叠<br>BFC产生外边距折叠要满足一个条件：两个相邻元素要处于同一个BFC中。所以，若两个相邻元素在不同的BFC中，就能避免外边距折叠。<br>2.BFC包含浮动<br>BFC能包含浮动，也能解决容器高度不会被撑开的问题。<br>3.自适应两栏布局<br>4.可以阻止元素被浮动元素覆盖<br><strong>如何触发bfc：</strong><br>1、float的值不是none。<br>2、position的值不是static或者relative。(position属性值有7个,static， absolute,relative,fixed,sticky,inherit,initial)<br>3、display的值是inline-block、table-cell、flex、table-caption<br>4、overflow的值不是visible（overflow的属性值有visible，hidden，scroll，auto，inherit</p>
+<p><strong>Css有哪些选择器，优先级？</strong><br>选择器类型<br>1、ID　　#id<br>2、class　　.class<br>3、标签　　p<br>4、通用　　*<br>5、属性　　[type=”text”]<br>6、伪类　　：hover<br>7、伪元素　　::first-line<br>8、子选择器、相邻选择器<br>权重计算规则<br>！important&gt;行内样式&gt;ID选择器&gt;类，伪类，伪元素选择器&gt;标签选择器&gt;通配符选择器&gt;默认样式<br><strong>margin合并条件？</strong><br>两个相邻子块盒上面的下margin与下面的上margin<br>（假设没有内边距或边框把外边距分隔开），第一个子元素的上边距会和父元素的上边距合并；最后一个子元素的下边距会和父元素的下边距合并。<br>（假设没有内边距或边框把外边距分隔开）一个元素上外边距与下外边距就碰到了一起，它们会发生合并（前提是一个为正一个为负，）。<br>合并规则？<br>同正取最大值<br>一正一负取代数和<br>同负为绝对值大的那个<br><strong>meta viewport 是做什么用的？</strong><br>告诉浏览器按照设备宽度显示页面，且不允许缩放。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=“viewport” content=“width=device-width,user-scalable=no,intial-scal=1.0,maximum-scale=1.0,minimum-scale=1.0”&gt;</span><br><span class="line"></span><br><span class="line">width=device-width   视口为设备宽度（就是人设置的一个宽度）//不设置的话默认为980px</span><br><span class="line">initial-scale=1.0    初始化的视口大小是1.0倍</span><br><span class="line">maximum-scale=1.0    最大的倍数是1.0倍</span><br><span class="line">user-scalable=0      不允许缩放视口</span><br></pre></td></tr></table></figure></p>
+<p><strong>优雅降级和渐进增强</strong><br>渐进增强（Progressive Enhancement）：一开始就针对低版本浏览器进行构建页面，完成基本的功能，然后再针对高级浏览器进行交互和功能的追加以达到更好的体验。相当于向上兼容<br>优雅降级（Graceful Degradation）：一开始就构建站点的完整功能，然后针对低版本浏览器进行测试和修复。 使其可以在低版本浏览器上正常浏览。相当于向下兼容<br>两者的区别在于优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带。<br><strong>display:none和visibility:hidden的区别？</strong><br>display:none  隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。（重流+重绘）<br>visibility:hidden  隐藏对应的元素，但是在文档布局中仍保留原来的空间。（重绘）<br><strong>css reset和normalize.css的区别？</strong><br>HTML标签在浏览器中都有默认的样式，不同的浏览器的默认样式之间存在差别，开发时浏览器的默认样式可能会给我们带来多浏览器兼容性问题，影响开发效率。<br>Reset 相对「暴力」，不管你有没有用，统统重置成一样的效果，且影响的范围很大，讲求跨浏览器的一致性。<br>Normalize 相对「平和」，注重通用的方案，重置掉该重置的样式，保留有用的 user agent 样式，同时进行一些 bug 的修复，这点是 reset 所缺乏的。<br><strong>浏览器是如何解析页面的？</strong><br>解析代码：HTML 代码解析为 DOM，CSS 代码解析为 CSSOM（CSS Object Model）。<br>对象合成：将 DOM 和 CSSOM 合成一棵渲染树（render tree）。<br>布局：计算出渲染树的布局（layout）。<br>绘制：将渲染树绘制到屏幕。<br>以上四步并非严格按顺序执行，往往第一步还没完成，第二步和第三步就已经开始了。所以，会看到这种情况：网页的 HTML 代码还没下载完，但浏览器已经显示出内容了。<br><strong>不同浏览器的内核？</strong><br>内核指的就是渲染引擎<br>Firefox：Gecko 引擎<br>Safari：WebKit 引擎<br>Chrome：Blink 引擎<br>IE: Trident 引擎<br>Edge: EdgeHTML 引擎<br><strong>不同浏览器的c3属性前缀？</strong><br>chrome和safari: -webkit<br>Firfox:  -moz<br>IE:  -ms<br>Opera: -o<br><strong>哪些属性可以继承，哪些不可以？</strong><br>可继承的属性：font-size, font-family, color<br>不可继承的样式：border, padding, margin, width, height<br><strong>怎么让Chrome支持小于12px 的文字？</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p&#123;font-size:10px;-webkit-transform:scale(0.8);&#125; //0.8是缩放比例</span><br></pre></td></tr></table></figure></p>
+<p><strong>对canvas的理解？</strong><br>canvas标签只是一个图形容器，通过js来绘制图形，通过getContext这个api获取绘图环境，然后再利用其他api实现各种效果<br>基本原理是js的面向对象和浏览器重复渲染<br><strong>什么是svg，相比于其他图像的优势？</strong><br>可伸缩矢量图形，基于xml，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。svg图像在放大或改变尺寸时不会失真。<br>1放大时不损失图片质量，可在任何分辨率下高质量的打印<br>2 可以通过文本编辑器创建和修改<br>3 可被搜索，压缩，脚本化<br><strong>svg和canvas的比较？</strong><br>svg最适合带有大型渲染区域的应用程序（比如谷歌地图），canvas最适合图像密集型的游戏，其中的许多对象会被频繁重绘</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2018/03/11/Css知识点总结/">展开全文 >></a>
         </p>
       
 

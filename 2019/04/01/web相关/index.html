@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.guchi.fun/19-04-01-8f48e2855311a171099f77aaac4f6c79.png">
 <meta property="og:image" content="http://cdn.guchi.fun/19-04-01-c3b2d94809dd5bb8c7528c24be034de2.png">
-<meta property="og:updated_time" content="2019-04-01T10:12:00.529Z">
+<meta property="og:updated_time" content="2019-04-04T12:25:21.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http相关">
 <meta name="twitter:description" content="输入url到页面显示的过程？ DNS域名解析，将域名还原成服务器真实IP地址. TCP三次握手（三次握手的本质是确定浏览器和服务器都能发出请求和接收对方的响应，第一次：浏览器请求连接，服务器收到扣1 第二次：服务器回复1，浏览器收到扣2 第三次：浏览器回复2） 浏览器向服务器发送http请求（请求行，请求头，空行，请求体） 浏览器接收到响应（状态行，响应头，响应体） 生成Dom树、解析css样式、">
@@ -246,8 +246,7 @@
 <li>从用户角度而言，优化能够让页面加载得更快、对用户的操作响应得更及时，能够给用户提供更为友好的体验。</li>
 <li>从服务商角度而言，优化能够减少页面请求数、减小带宽，能够节省可观的资源。</li>
 </ul>
-<h5 id="前端性能优化？"><a href="#前端性能优化？" class="headerlink" title="前端性能优化？"></a>前端性能优化？</h5><p>从网页内容来优化：<br>1 减少http请求<br>方法：合并图片（雪碧图），合并css，js文件，图片过多时可以用图片懒加载。合理设置http缓存（很少变化的资源在header里加上很长的过期时间expires）<br>2 在资源少的时候减少域名数量，把资源都放在一个域名下面，减少DNS查询<br>3 在资源多的时候增加域名数量，从而可以同时发送多个请求。并且根据域名划分内容，静态资源和动态资源放在不同的域名下，访问静态资源时避免使用cookie<br>4 TCP连接复用（在请求头里加上keep-alive），采用HTTP2.0，可以多路复用，使复用率更高<br>5 写对doctype<br>6 减少html中不必要的标签，减少dom操作，减少重流和重绘。<br>7 使用json进行数据传递<br>从服务器来优化：<br>1 使用CDN（访问cdn的资源也是不需要cookie的）<br>Content delivery network  内容分发网络 将源站系统的内容分发至最接近用户的<br>2  使用gzip压缩文件，服务器压缩（响应头里会有Content-Encoding：gizp），浏览器解压，可以把文件体积压缩一半以上，缺点就是会耗费浏览器的cpu，如果文件体积本来就很小，没有必要压缩<br>3 应用http缓存<br>从cookie角度：<br>1 去除没必要的cookie，减少cookie体积<br>2 设置合适的过期时间，可以提高响应速度<br>3 请求专门存放静态资源的域名时不带cookie<br>从css，js角度：<br>1 使用外部样式表和脚本，因为这样才能被浏览器缓存<br>2 样式表放在head里，js放在尾部<br>3 对css，js压缩，这个压缩指的是去除所有注释，空格和换行，js文件中的变量用简单字符代替。<br>图片处理角度：<br>雪碧图，懒加载，loding动画</p>
-<h5 id="http缓存机制和原理？"><a href="#http缓存机制和原理？" class="headerlink" title="http缓存机制和原理？"></a>http缓存机制和原理？</h5><p>http缓存分为两大类:强制缓存和对比缓存。<br>强制缓存：向服务器发送请求前先查看本地缓存数据库，如果有缓存且未失效，直接使用缓存数据，否则就向服务器重新请求数据，并将返回数据和缓存规则存入缓存系统。<br>缓存规则主要通过响应头里的expires和cache-control 来实现。<br>Expires为服务器设置的一个到期时间，查看缓存时用客户端本地时间跟这个时间对比，未到期，直接使用缓存数据，否则重新请求。expires是HTTP1.0的东西，现在都是HTTP1.1了，使用Catch-Control来替代。<br>Cache-Control<br>Cache-Control 是最重要的规则。常见的取值有private、public、no-cache、max-age，no-store，默认为private。<br>private:             客户端可以缓存<br>public:              客户端和代理服务器都可缓存（前端的同学，可以认为public和private是一样的）<br>max-age=xxx:   缓存的内容将在 xxx 秒后失效<br>no-cache:          需要使用对比缓存来验证缓存数据（后面介绍）<br>no-store:           所有内容都不会缓存，强制缓存，对比缓存都不会触发（对于前端开发来说，缓存越多越好，so…基本上和它说886）<br>对比缓存：<br>浏览器第一次请求数据时，服务器会将缓存标识与数据一起返回给客户端，客户端将二者备份至缓存数据库中。<br>再次请求数据时，客户端将备份的缓存标识发送给服务器，服务器根据缓存标识进行判断，判断成功后，返回304状态码，通知客户端比较成功，可以使用缓存数据。<br>响应头里的Last-Modified：告诉浏览器资源的最后修改时间<br>请求头里的If-Modified-Since：内容为上次响应头里Last-Modified的时间，让服务器判断资源是否有更改，有就返回最新资源，没有就用本地的缓存。<br>Etag的优先级高于Last-Modified<br>响应头里的Etag：告诉浏览器当前资源在服务器的资源标志符（当资源改动时，这个标志符就会变化）。<br>请求头里的If-None_Match：对比上次Etag里的标志符与服务器资源的标志符是否一致，一致返回304，应用本地缓存，不一致返回新资源。</p>
+<h5 id="前端性能优化？"><a href="#前端性能优化？" class="headerlink" title="前端性能优化？"></a>前端性能优化？</h5><h5 id="http缓存机制和原理？"><a href="#http缓存机制和原理？" class="headerlink" title="http缓存机制和原理？"></a>http缓存机制和原理？</h5><p>http缓存分为两大类:强制缓存和对比缓存。<br>强制缓存：向服务器发送请求前先查看本地缓存数据库，如果有缓存且未失效，直接使用缓存数据，否则就向服务器重新请求数据，并将返回数据和缓存规则存入缓存系统。<br>缓存规则主要通过响应头里的expires和cache-control 来实现。<br>Expires为服务器设置的一个到期时间，查看缓存时用客户端本地时间跟这个时间对比，未到期，直接使用缓存数据，否则重新请求。expires是HTTP1.0的东西，现在都是HTTP1.1了，使用Catch-Control来替代。<br>Cache-Control<br>Cache-Control 是最重要的规则。常见的取值有private、public、no-cache、max-age，no-store，默认为private。<br>private:             客户端可以缓存<br>public:              客户端和代理服务器都可缓存（前端的同学，可以认为public和private是一样的）<br>max-age=xxx:   缓存的内容将在 xxx 秒后失效<br>no-cache:          需要使用对比缓存来验证缓存数据（后面介绍）<br>no-store:           所有内容都不会缓存，强制缓存，对比缓存都不会触发（对于前端开发来说，缓存越多越好，so…基本上和它说886）<br>对比缓存：<br>浏览器第一次请求数据时，服务器会将缓存标识与数据一起返回给客户端，客户端将二者备份至缓存数据库中。<br>再次请求数据时，客户端将备份的缓存标识发送给服务器，服务器根据缓存标识进行判断，判断成功后，返回304状态码，通知客户端比较成功，可以使用缓存数据。<br>响应头里的Last-Modified：告诉浏览器资源的最后修改时间<br>请求头里的If-Modified-Since：内容为上次响应头里Last-Modified的时间，让服务器判断资源是否有更改，有就返回最新资源，没有就用本地的缓存。<br>Etag的优先级高于Last-Modified<br>响应头里的Etag：告诉浏览器当前资源在服务器的资源标志符（当资源改动时，这个标志符就会变化）。<br>请求头里的If-None_Match：对比上次Etag里的标志符与服务器资源的标志符是否一致，一致返回304，应用本地缓存，不一致返回新资源。</p>
 <h5 id="移动端性能优化"><a href="#移动端性能优化" class="headerlink" title="移动端性能优化"></a>移动端性能优化</h5><ul>
 <li>尽量使用css3动画，开启硬件加速。</li>
 <li>适当使用touch事件代替click事件。</li>
@@ -389,9 +388,18 @@
   
 <nav id="article-nav">
   
+    <a href="../../04/项目问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
-    <a href="../理解继承/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">理解继承</div>
+  
+    <a href="../../../02/23/react零碎知识点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react零碎知识点</div>
       <i class="icon-circle-right"></i>
     </a>
   
